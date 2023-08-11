@@ -15,6 +15,7 @@
     h1 {
         @apply font-black text-[2.5rem];
     }
+    
     h2 {
         @apply font-bold text-4xl;
     }
@@ -29,6 +30,10 @@
 
     h5 {
         @apply font-medium text-xl;
+    }
+
+    h6 {
+        @apply font-medium text-lg
     }
 }
 

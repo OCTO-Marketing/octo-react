@@ -1,95 +1,158 @@
+import { FaArrowDown } from 'react-icons/fa'
+import { TbBrandZoom, TbLink } from 'react-icons/tb'
 import { useNavigate } from 'react-router-dom'
+import { SkewedText } from '../components/Components/Text.component'
 import {
     CenterAlignColumns,
-    Column,
     Columns,
+    LgColumn,
     MdColumn,
+    SmColumn,
+    TwoToOneGrid,
 } from '../components/Layout/Columns.layout'
 import { WidePageLayout } from '../components/Layout/Page.layout'
 import { Stack } from '../components/Layout/Stack.layout'
-import { TbBrandZoom, TbLink } from 'react-icons/tb'
 import TEAMS, { PTeamCard } from '../data/teams'
 
 const Apply = () => {
     return (
         <WidePageLayout>
-            <div id='title-container'>
-                <h2>Fall 2023 Recruitment is now LIVE!</h2>
-            </div>
-            <Columns>
-                <MdColumn>
-                    <Stack>
-                        <h5>
-                            Calling all developers, project managers, graphic
-                            designers, and marketers !
-                        </h5>
-                        <h5>
-                            We are a team of innovators with visions to
-                            technologically enhance and transform our campus to
-                            better suit the student body needs.
-                        </h5>
-                        <h5>
-                            We're recruiting for our signature projects,
-                            Berkeleytime and Berkeley Mobile. Our marketing team
-                            is also looking to fill a couple positions for
-                            designing & production. Check them out on the right!
-                        </h5>
-                    </Stack>
-                    <div>
-                        <h3>Info Sessions</h3>
-                        <Stack>
-                            <p>
-                                Attending Info Sessions are the best way to
-                                learn about OCTO, our projects & planned
-                                projects, and the amazing team leads.
-                            </p>
-                            <div>
-                                <b className='block'>
-                                    Info Session 1 (Remote):
-                                </b>
-                                Friday, January 20th 6:30-7:30 pm via zoom
-                                <a
-                                    className='text-accent block'
-                                    href='https://berkeley.zoom.us/j/99448983595?pwd=N1hpSVZTTTAxMzZ0VFZIcStTSHFHdz09'
-                                >
-                                    <TbBrandZoom className='inline' /> Zoom link
-                                </a>
-                            </div>
-                            <div>
-                                <b className='block'>
-                                    Info Session 2 (In-person):
-                                </b>
-                                Tuesday, January 24th 6:30-7:30 pm @ Senate
-                                Chambers in Eshleman Hall 5th Floor.
-                                <a
-                                    className='text-accent block'
-                                    href='https://berkeley.zoom.us/j/98652831217?pwd=WG0xMzJteU5OSVlYYjlMU1JweDVxdz09'
-                                >
-                                    <TbBrandZoom className='inline' /> Zoom
-                                    alternative
-                                </a>
-                            </div>
-                        </Stack>
-                    </div>
-                </MdColumn>
-                <MdColumn>
-                    {TEAMS.map(({ team_name, positions, img_path, links }) => (
-                        <TeamCard
-                            team_name={team_name}
-                            positions={positions}
-                            img_path={img_path}
-                            links={links}
-                        />
-                    ))}
-                </MdColumn>
-            </Columns>
-
+            <h2>Fall 2023 Recruitment opens on 8/21!</h2>
+            <Descriptions />
+            <Teams />
+            <Infosessions />
             <hr className='mt-10 mb-4' />
+            <ApplicationProcess />
+        </WidePageLayout>
+    )
+}
 
+export default Apply
+
+const Descriptions = () => (
+    <Columns>
+        <LgColumn>
+            <Stack>
+                <h5>
+                    We are a <b>team of innovators</b> with visions to
+                    technologically <b>enhance and transform our campus</b> to
+                    better suit the student body needs.
+                </h5>
+                <h5>
+                    We're recruiting for projects across our office's portfolio,
+                    including signature projects like{' '}
+                    <SkewedText>Berkeleytime</SkewedText> and{' '}
+                    <SkewedText className='bg-yellow-200'>
+                        Berkeley Mobile
+                    </SkewedText>{' '}
+                    and newer additions like{' '}
+                    <SkewedText className='bg-yellow-200'>ABSA</SkewedText> and{' '}
+                    <SkewedText className='bg-yellow-200'>
+                        Data Science
+                    </SkewedText>
+                    . As one of the foremost ASUC executive offices,{' '}
+                    <b>we have a role for everyone no matter your background</b>{' '}
+                    - from engineers to designers to social media wizards.
+                </h5>
+                <h5 className='font-bold'>
+                    Join us for an infosession
+                    <FaArrowDown
+                        className='inline text-accent h-4 mb-0.5 animate-jumping delay-300 cursor-pointer'
+                        onClick={() => {
+                            const element =
+                                document.getElementById('infosession')
+                            if (element) {
+                                const elementPosition =
+                                    element.getBoundingClientRect().top +
+                                    window.scrollY
+                                window.scrollTo({
+                                    top: elementPosition - 150,
+                                    behavior: 'smooth',
+                                })
+                            }
+                        }}
+                    />{' '}
+                    or{' '}
+                    <a
+                        className='text-accent underline cursor-pointer'
+                        href='to-be-filled-by-vedha'
+                    >
+                        {/* @todo get link for vedha's coffee chat */}
+                        schedule a coffee chat with the CTO
+                    </a>{' '}
+                    to learn more about the opportunities within our office.
+                </h5>
+                <h5 className='font-bold '>
+                    Browse our available roles below and apply today!
+                </h5>
+            </Stack>
+        </LgColumn>
+        <SmColumn>
+            {/* @todo fix this */}
+            <img src={''} />
+        </SmColumn>
+    </Columns>
+)
+
+const Teams = () => (
+    <TwoToOneGrid>
+        {TEAMS.map(({ team_name, positions, img_path, app_links }) => (
+            <TeamCard
+                team_name={team_name}
+                positions={positions}
+                img_path={img_path}
+                app_links={app_links}
+            />
+        ))}
+    </TwoToOneGrid>
+)
+
+const Infosessions = () => (
+    <Columns>
+        <MdColumn grow>
+            <h3 id='infosession' className='mt-10'>
+                Info Sessions
+            </h3>
+            <Stack>
+                <p>
+                    Attending Info Sessions are the best way to learn about
+                    OCTO, our projects & planned projects, and the amazing team
+                    leads.
+                </p>
+                <div className='w-full flex flex-row flex-wrap gap-8 justify-between'>
+                    <div>
+                        <b className='block'>Info Session 1:</b>
+                        Date, when @ where:
+                        <a
+                            className='text-accent block'
+                            href='https://berkeley.zoom.us/j/99448983595?pwd=N1hpSVZTTTAxMzZ0VFZIcStTSHFHdz09'
+                        >
+                            <TbBrandZoom className='inline' /> Zoom alternative
+                        </a>
+                    </div>
+                    <div>
+                        <b className='block'>Info Session 2 (In-person):</b>
+                        Date, when @ where:
+                        <a
+                            className='text-accent block'
+                            href='https://berkeley.zoom.us/j/98652831217?pwd=WG0xMzJteU5OSVlYYjlMU1JweDVxdz09'
+                        >
+                            <TbBrandZoom className='inline' /> Zoom alternative
+                        </a>
+                    </div>
+                </div>
+            </Stack>
+        </MdColumn>
+    </Columns>
+)
+
+const ApplicationProcess = () => (
+    <Columns>
+        <LgColumn>
             <Stack id='application-process-container'>
                 <h2>Application Process</h2>
                 <p>Go apply to as many positions and projects you see fit!</p>
-                <ol className='list-decimal list-outside ml-10'>
+                <ol className='list-decimal list-outside ml-10 space-y-4'>
                     <li className='pl-4'>
                         <b>Fill out the application(s)</b> by clicking on the
                         project(s)/position(s) you are interested in. No worries
@@ -109,48 +172,49 @@ const Apply = () => {
                     </li>
                 </ol>
                 <p>
-                    Note: Each application has its own requirements and deadline
-                    separate from other applications. Please be noted of that.
+                    Note: Each team application has its own requirements
+                    separate from other teams due to the different skillsets
+                    necessary to contribute to each project. Please be noted of
+                    that.
                 </p>
             </Stack>
-        </WidePageLayout>
-    )
-}
+        </LgColumn>
+    </Columns>
+)
 
-export default Apply
-
-const TeamCard = ({ team_name, positions, img_path, links }: PTeamCard) => {
+const TeamCard = ({ team_name, positions, img_path, app_links }: PTeamCard) => {
     const navigate = useNavigate()
     return (
-        <div className='px-8 py-6 bg-white rounded-xl shadow-card'>
+        <div className='p-6 bg-white rounded-xl shadow-card animate-showing'>
             <CenterAlignColumns>
                 <img
                     src={img_path}
                     alt={`team icon for ${team_name}`}
-                    className='w-24 h-24 rounded-md'
+                    className='w-24 h-24 sm:w-16 sm:h-16 rounded-md'
                 />
-                <Column>
+                <div className='w-auto overflow-auto'>
                     <h3 className='text-lg font-bold'>Apply for {team_name}</h3>
                     <p className='mt-2 mb-1 text-sm leading-6 font-medium'>
                         <b className='font-semibold'>Positions open:</b>{' '}
                         {positions}
                     </p>
-                    <Columns>
-                        {links.map(({ position, link }) => {
-                            return (
-                                <li
-                                    key={position}
-                                    className='text-accent list-none text-sm cursor-pointer'
-                                    onClick={() => {
-                                        navigate(link)
-                                    }}
-                                >
-                                    <TbLink className='inline' /> {position}
-                                </li>
-                            )
-                        })}
+                    <Columns wrapping>
+                        {app_links &&
+                            app_links.map(({ position, link }) => {
+                                return (
+                                    <li
+                                        key={position}
+                                        className='text-accent list-none text-sm cursor-pointer whitespace-nowrap'
+                                        onClick={() => {
+                                            navigate(link)
+                                        }}
+                                    >
+                                        <TbLink className='inline' /> {position}
+                                    </li>
+                                )
+                            })}
                     </Columns>
-                </Column>
+                </div>
             </CenterAlignColumns>
         </div>
     )

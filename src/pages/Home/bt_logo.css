@@ -1,0 +1,51 @@
+@keyframes updown {
+    0% {
+        transform: translateY(-8px);
+    }
+
+    to {
+        transform: translateY(8px);
+    }
+}
+
+@keyframes updownshort {
+    0% {
+        transform: translateY(-4px);
+    }
+
+    to {
+        transform: translateY(4px);
+    }
+}
+
+#animation-container svg #left-float {
+    animation: updown 3.5s ease alternate infinite;
+}
+
+#animation-container svg #middle-float {
+    animation: updown 3s ease alternate infinite;
+}
+
+#animation-container svg #right-float {
+    animation: updown 4.5s ease alternate infinite;
+}
+
+#animation-container svg #everything {
+    animation: updownshort 2.5s ease alternate infinite;
+}
+
+#animation-container svg #campanile,
+#animation-container svg #hearst-building,
+#animation-container svg #evans,
+#animation-container svg #doe-library,
+#animation-container svg #hearst-pond {
+    animation: updownshort 2.5s ease alternate infinite;
+}
+
+#animation-container svg #treee,
+#animation-container svg #treee-2,
+#animation-container svg #other-bush,
+#animation-container svg #ball-bush,
+#animation-container svg #tre {
+    animation: updownshort 2.5s ease alternate infinite;
+}

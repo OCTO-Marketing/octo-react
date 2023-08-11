@@ -1,0 +1,1970 @@
+openapi: 3.0.1
+info:
+    title: ''
+    description: ''
+    contact:
+        email: octo.api@asuc.org
+    version: ''
+servers:
+    - url: https://octo-api.asuc.org/
+tags:
+    - name: Authentication
+      description: Requests to handle tokens
+    - name: Gyms
+      description: Information of all gyms in our catalog
+    - name: Libraries
+      description: Information of all libraries in our catalog
+    - name: Dining Halls
+      description: Information of all dining halls in our catalog
+    - name: Campus Resources
+      description: Information of all campus resources in our catalog
+    - name: Transit
+      description: AC Transit information
+    - name: Weather
+      description: Weather information in Berkeley, CA
+paths:
+    /refresh-token:
+        post:
+            tags:
+                - Authentication
+            summary: Get a new access token
+            description: Retrieves a fresh access token
+            operationId: user-refresh-token
+            requestBody:
+                description: The refresh token to use to generate a new access token.
+                content:
+                    '*/*':
+                        schema:
+                            required:
+                                - refresh-token
+                            type: object
+                            properties:
+                                refresh-token:
+                                    type: string
+                required: false
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                required:
+                                    - access-token
+                                type: object
+                                properties:
+                                    access-token:
+                                        type: string
+                400:
+                    description: Something went wrong.
+                    content: {}
+                403:
+                    description: User is Blocked.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            x-codegen-request-body-name: refresh-token
+    /gyms:
+        get:
+            tags:
+                - Gyms
+            summary: Get all gyms
+            description: Retrieves all gyms
+            operationId: get-api-gyms
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/gym-model'
+                        example-1:
+                            example:
+                                - address: ' 2301 Bancroft Way, Berkeley, CA 94720'
+                                  description:
+                                      'The Recreational Sports Facility (RSF) is the University’s
+                                      largest, most complete fitness center with over 100,000 square feet
+                                      of activity space, including an Olympic-sized swimming pool, 3 weight
+                                      rooms, seven basketball courts, seven racquetball/handball courts,
+                                      six squash courts, treadmills, elliptical trainers, stairmasters,
+                                      rowing machines and stationary bikes. '
+                                  latitude: 37.8685702
+                                  longitude: -122.2627233
+                                  name: RSF
+                                  phone: 510-642-5072
+                                  open_close_array:
+                                      - close_time: 0
+                                        notes: string
+                                        open_time: 0
+                                  pool_hours:
+                                      - close_time: 0
+                                        notes: string
+                                        open_time: 0
+                                  track_hours:
+                                      - close_time: 0
+                                        notes: string
+                                        open_time: 0
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /gyms/open:
+        get:
+            tags:
+                - Gyms
+            summary: Get gyms open at given time
+            description:
+                Retrieves the gyms that are open now (default) or at the provided
+                UNIX timestamp
+            operationId: get-api-gyms-open
+            parameters:
+                - name: time
+                  in: query
+                  description: A Unix Timestamp
+                  schema:
+                      type: integer
+                      format: int64
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/gym-model'
+                        example-1:
+                            example:
+                                - address: ' 2301 Bancroft Way, Berkeley, CA 94720'
+                                  description:
+                                      'The Recreational Sports Facility (RSF) is the University’s
+                                      largest, most complete fitness center with over 100,000 square feet
+                                      of activity space, including an Olympic-sized swimming pool, 3 weight
+                                      rooms, seven basketball courts, seven racquetball/handball courts,
+                                      six squash courts, treadmills, elliptical trainers, stairmasters,
+                                      rowing machines and stationary bikes. '
+                                  latitude: 37.8685702
+                                  longitude: -122.2627233
+                                  name: RSF
+                                  phone: 510-642-5072
+                                  open_close_array:
+                                      - close_time: 0
+                                        notes: string
+                                        open_time: 0
+                                  pool_hours:
+                                      - close_time: 0
+                                        notes: string
+                                        open_time: 0
+                                  track_hours:
+                                      - close_time: 0
+                                        notes: string
+                                        open_time: 0
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /gyms/range:
+        get:
+            tags:
+                - Gyms
+            summary: Get gyms within distance range
+            description:
+                Retrieves the gyms that are at most `radius` `unit` distance away
+                from the `latitude` and `longitude` position
+            operationId: get-api-gyms-range
+            parameters:
+                - name: latitude
+                  in: query
+                  required: true
+                  schema:
+                      type: number
+                      format: double
+                - name: longitude
+                  in: query
+                  required: true
+                  schema:
+                      type: number
+                      format: double
+                - name: radius
+                  in: query
+                  description: Radius away from (latitude, longitude) in `unit`
+                  required: true
+                  schema:
+                      exclusiveMinimum: true
+                      type: number
+                      format: double
+                - name: unit
+                  in: query
+                  required: true
+                  schema:
+                      type: string
+                      enum:
+                          - ft
+                          - yd
+                          - mi
+                          - m
+                          - km
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/gym-model'
+                        example-1:
+                            example:
+                                - address: ' 2301 Bancroft Way, Berkeley, CA 94720'
+                                  description:
+                                      'The Recreational Sports Facility (RSF) is the University’s
+                                      largest, most complete fitness center with over 100,000 square feet
+                                      of activity space, including an Olympic-sized swimming pool, 3 weight
+                                      rooms, seven basketball courts, seven racquetball/handball courts,
+                                      six squash courts, treadmills, elliptical trainers, stairmasters,
+                                      rowing machines and stationary bikes. '
+                                  latitude: 37.8685702
+                                  longitude: -122.2627233
+                                  name: RSF
+                                  phone: 510-642-5072
+                                  open_close_array:
+                                      - close_time: 0
+                                        notes: string
+                                        open_time: 0
+                                  pool_hours:
+                                      - close_time: 0
+                                        notes: string
+                                        open_time: 0
+                                  track_hours:
+                                      - close_time: 0
+                                        notes: string
+                                        open_time: 0
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /gyms/search:
+        get:
+            tags:
+                - Gyms
+            summary: Get gym by name
+            description: Retrieves the gym whose name matches the search string
+            operationId: get-api-gyms-search
+            parameters:
+                - name: name
+                  in: query
+                  description: The name of the gym
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/gym-model'
+                        application/xml:
+                            schema:
+                                $ref: '#/components/schemas/gym-model'
+                        example-1:
+                            example:
+                                address: ' 2301 Bancroft Way, Berkeley, CA 94720'
+                                description:
+                                    'The Recreational Sports Facility (RSF) is the University’s
+                                    largest, most complete fitness center with over 100,000 square feet
+                                    of activity space, including an Olympic-sized swimming pool, 3 weight
+                                    rooms, seven basketball courts, seven racquetball/handball courts,
+                                    six squash courts, treadmills, elliptical trainers, stairmasters,
+                                    rowing machines and stationary bikes. '
+                                latitude: 37.8685702
+                                longitude: -122.2627233
+                                name: RSF
+                                phone: 510-642-5072
+                                open_close_array:
+                                    - close_time: 0
+                                      notes: string
+                                      open_time: 0
+                                pool_hours:
+                                    - close_time: 0
+                                      notes: string
+                                      open_time: 0
+                                track_hours:
+                                    - close_time: 0
+                                      notes: string
+                                      open_time: 0
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /libraries:
+        get:
+            tags:
+                - Libraries
+            summary: Get all libraries
+            description: Retrieves all libraries
+            operationId: get-api-libraries
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/library-model'
+                        example-1:
+                            example:
+                                - address: 230 Kroeber Hall, Berkeley, CA 94720
+                                  description: |-
+                                      The Anthropology Library includes academic works covering socio-cultural anthropology, traditional cultures, archaeology, folklore methods and theory as well as physical anthropology. Collections focus on historical areas of faculty interest along with current research interests.
+
+                                      The anthropology library currently holds 59,000 print volumes, with several thousand more stored off-site, and provides access to over 12,000 ebooks on archaeology, ethnography, or anthropology.
+
+                                      You can find older faculty publications in AnthroHub and information on selected Emeritus faculty.
+                                  latitude: 37.869842999999996
+                                  longitude: -122.25528490000002
+                                  name: Anthropology Library
+                                  open_close_array:
+                                      - close_time: 1604908740
+                                        notes: ''
+                                        open_time: 1604822400
+                                      - close_time: 1604995140
+                                        notes: ''
+                                        open_time: 1604908800
+                                      - close_time: 1605081540
+                                        notes: ''
+                                        open_time: 1604995200
+                                      - close_time: 1605167940
+                                        notes: ''
+                                        open_time: 1605081600
+                                      - close_time: 1605254340
+                                        notes: ''
+                                        open_time: 1605168000
+                                      - close_time: 1605340740
+                                        notes: ''
+                                        open_time: 1605254400
+                                      - close_time: 1605427140
+                                        notes: ''
+                                        open_time: 1605340800
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /libraries/open:
+        get:
+            tags:
+                - Libraries
+            summary: Get libraries open at given time
+            description:
+                Retrieves the libraries that are open now (default) or at the provided
+                UNIX timestamp
+            operationId: get-api-libraries-open
+            parameters:
+                - name: time
+                  in: query
+                  description: A Unix Timestamp
+                  schema:
+                      type: integer
+                      format: int64
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/library-model'
+                        example-1:
+                            example:
+                                - address: 230 Kroeber Hall, Berkeley, CA 94720
+                                  description: |-
+                                      The Anthropology Library includes academic works covering socio-cultural anthropology, traditional cultures, archaeology, folklore methods and theory as well as physical anthropology. Collections focus on historical areas of faculty interest along with current research interests.
+
+                                      The anthropology library currently holds 59,000 print volumes, with several thousand more stored off-site, and provides access to over 12,000 ebooks on archaeology, ethnography, or anthropology.
+
+                                      You can find older faculty publications in AnthroHub and information on selected Emeritus faculty.
+                                  latitude: 37.869842999999996
+                                  longitude: -122.25528490000002
+                                  name: Anthropology Library
+                                  open_close_array:
+                                      - close_time: 1604908740
+                                        notes: ''
+                                        open_time: 1604822400
+                                      - close_time: 1604995140
+                                        notes: ''
+                                        open_time: 1604908800
+                                      - close_time: 1605081540
+                                        notes: ''
+                                        open_time: 1604995200
+                                      - close_time: 1605167940
+                                        notes: ''
+                                        open_time: 1605081600
+                                      - close_time: 1605254340
+                                        notes: ''
+                                        open_time: 1605168000
+                                      - close_time: 1605340740
+                                        notes: ''
+                                        open_time: 1605254400
+                                      - close_time: 1605427140
+                                        notes: ''
+                                        open_time: 1605340800
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /libraries/range:
+        get:
+            tags:
+                - Libraries
+            summary: Get libraries within distance range
+            description:
+                Retrieves the libraries that are at most `radius` `unit` distance
+                away from the `latitude` and `longitude` position
+            operationId: get-api-libraries-range
+            parameters:
+                - name: latitude
+                  in: query
+                  required: true
+                  schema:
+                      type: number
+                      format: double
+                - name: longitude
+                  in: query
+                  required: true
+                  schema:
+                      type: number
+                      format: double
+                - name: radius
+                  in: query
+                  description: Radius away from (latitude, longitude) in `unit`
+                  required: true
+                  schema:
+                      exclusiveMinimum: true
+                      type: number
+                      format: double
+                - name: unit
+                  in: query
+                  required: true
+                  schema:
+                      type: string
+                      enum:
+                          - ft
+                          - yd
+                          - mi
+                          - m
+                          - km
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/library-model'
+                        example-1:
+                            example:
+                                - address: 230 Kroeber Hall, Berkeley, CA 94720
+                                  description: |-
+                                      The Anthropology Library includes academic works covering socio-cultural anthropology, traditional cultures, archaeology, folklore methods and theory as well as physical anthropology. Collections focus on historical areas of faculty interest along with current research interests.
+
+                                      The anthropology library currently holds 59,000 print volumes, with several thousand more stored off-site, and provides access to over 12,000 ebooks on archaeology, ethnography, or anthropology.
+
+                                      You can find older faculty publications in AnthroHub and information on selected Emeritus faculty.
+                                  latitude: 37.869842999999996
+                                  longitude: -122.25528490000002
+                                  name: Anthropology Library
+                                  open_close_array:
+                                      - close_time: 1604908740
+                                        notes: ''
+                                        open_time: 1604822400
+                                      - close_time: 1604995140
+                                        notes: ''
+                                        open_time: 1604908800
+                                      - close_time: 1605081540
+                                        notes: ''
+                                        open_time: 1604995200
+                                      - close_time: 1605167940
+                                        notes: ''
+                                        open_time: 1605081600
+                                      - close_time: 1605254340
+                                        notes: ''
+                                        open_time: 1605168000
+                                      - close_time: 1605340740
+                                        notes: ''
+                                        open_time: 1605254400
+                                      - close_time: 1605427140
+                                        notes: ''
+                                        open_time: 1605340800
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /libraries/search:
+        get:
+            tags:
+                - Libraries
+            summary: Get library by name
+            description: Retrieves the library whose name matches the search string
+            operationId: get-api-libraries-search
+            parameters:
+                - name: name
+                  in: query
+                  description: The name of the library
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/library-model'
+                        application/xml:
+                            schema:
+                                $ref: '#/components/schemas/library-model'
+                        example-1:
+                            example:
+                                address: 230 Kroeber Hall, Berkeley, CA 94720
+                                description: |-
+                                    The Anthropology Library includes academic works covering socio-cultural anthropology, traditional cultures, archaeology, folklore methods and theory as well as physical anthropology. Collections focus on historical areas of faculty interest along with current research interests.
+
+                                    The anthropology library currently holds 59,000 print volumes, with several thousand more stored off-site, and provides access to over 12,000 ebooks on archaeology, ethnography, or anthropology.
+
+                                    You can find older faculty publications in AnthroHub and information on selected Emeritus faculty.
+                                latitude: 37.869842999999996
+                                longitude: -122.25528490000002
+                                name: Anthropology Library
+                                open_close_array:
+                                    - close_time: 1604908740
+                                      notes: ''
+                                      open_time: 1604822400
+                                    - close_time: 1604995140
+                                      notes: ''
+                                      open_time: 1604908800
+                                    - close_time: 1605081540
+                                      notes: ''
+                                      open_time: 1604995200
+                                    - close_time: 1605167940
+                                      notes: ''
+                                      open_time: 1605081600
+                                    - close_time: 1605254340
+                                      notes: ''
+                                      open_time: 1605168000
+                                    - close_time: 1605340740
+                                      notes: ''
+                                      open_time: 1605254400
+                                    - close_time: 1605427140
+                                      notes: ''
+                                      open_time: 1605340800
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /dining:
+        get:
+            tags:
+                - Dining Halls
+            summary: Get all dining halls
+            description: Retrieves all dining halls
+            operationId: get-api-dining
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/dining-hall-model'
+                        example-1:
+                            example:
+                                - address: 2415 Bowditch St, Berkeley, CA 94720
+                                  latitude: 37.8669091
+                                  longitude: -122.256178
+                                  name: Crossroads
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /dining/range:
+        get:
+            tags:
+                - Dining Halls
+            summary: Get dining halls within distance range
+            description:
+                Retrieves the dining halls that are at most `radius` `unit` distance
+                away from the `latitude` and `longitude` position
+            operationId: get-api-dining-range
+            parameters:
+                - name: latitude
+                  in: query
+                  required: true
+                  schema:
+                      type: number
+                      format: double
+                - name: longitude
+                  in: query
+                  required: true
+                  schema:
+                      type: number
+                      format: double
+                - name: radius
+                  in: query
+                  description: Radius away from (latitude, longitude) in `unit`
+                  required: true
+                  schema:
+                      exclusiveMinimum: true
+                      type: number
+                      format: double
+                - name: unit
+                  in: query
+                  required: true
+                  schema:
+                      type: string
+                      enum:
+                          - ft
+                          - yd
+                          - mi
+                          - m
+                          - km
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/dining-hall-model'
+                        example-1:
+                            example:
+                                - address: 2415 Bowditch St, Berkeley, CA 94720
+                                  latitude: 37.8669091
+                                  longitude: -122.256178
+                                  name: Crossroads
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /dining/search:
+        get:
+            tags:
+                - Dining Halls
+            summary: Get dining hall by name
+            description: Retrieves the dining hall whose name matches the search string
+            operationId: get-api-dining-search
+            parameters:
+                - name: name
+                  in: query
+                  description: The name of the dining hall
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/dining-hall-model'
+                        application/xml:
+                            schema:
+                                $ref: '#/components/schemas/dining-hall-model'
+                        example-1:
+                            example:
+                                address: 2415 Bowditch St, Berkeley, CA 94720
+                                latitude: 37.8669091
+                                longitude: -122.256178
+                                name: Crossroads
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /resources:
+        get:
+            tags:
+                - Campus Resources
+            summary: Get all campus resources
+            description: Retrieves all campus resources
+            operationId: get-api-resources
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/resource-model'
+                        example-1:
+                            example:
+                                - address: 2610 Channing Way, Berkeley, CA 94704
+                                  by_appointment: false
+                                  category: Campus Resource
+                                  description:
+                                      'Cal Dining has partnered with RePlate to donate overproduced
+                                      food to people in need. '
+                                  email: http://caldining.berkeley.edu/sustainability/waste-reduction
+                                  latitude: 37.8670799
+                                  longitude: -122.25786480000001
+                                  name: Cal Dining Food Recovery
+                                  on_campus: true
+                                  open_close_array:
+                                      - close_time: 1604822400
+                                        notes: ''
+                                        open_time: 1604822400
+                                  phone: Not Available
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /resources/open:
+        get:
+            tags:
+                - Campus Resources
+            summary: Get campus resources open at given time
+            description:
+                Retrieves the campus resources that are open now (default) or at
+                the provided UNIX timestamp
+            operationId: get-api-resources-open
+            parameters:
+                - name: time
+                  in: query
+                  description: A Unix Timestamp
+                  schema:
+                      type: integer
+                      format: int64
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/resource-model'
+                        example-1:
+                            example:
+                                - address: 2610 Channing Way, Berkeley, CA 94704
+                                  by_appointment: false
+                                  category: Campus Resource
+                                  description:
+                                      'Cal Dining has partnered with RePlate to donate overproduced
+                                      food to people in need. '
+                                  email: http://caldining.berkeley.edu/sustainability/waste-reduction
+                                  latitude: 37.8670799
+                                  longitude: -122.25786480000001
+                                  name: Cal Dining Food Recovery
+                                  on_campus: true
+                                  open_close_array:
+                                      - close_time: 1604822400
+                                        notes: ''
+                                        open_time: 1604822400
+                                  phone: Not Available
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /resources/range:
+        get:
+            tags:
+                - Campus Resources
+            summary: Get campus resources within distance range
+            description:
+                Retrieves the campus resources that are at most `radius` `unit`
+                distance away from the `latitude` and `longitude` position
+            operationId: get-api-resources-range
+            parameters:
+                - name: latitude
+                  in: query
+                  required: true
+                  schema:
+                      type: number
+                      format: double
+                - name: longitude
+                  in: query
+                  required: true
+                  schema:
+                      type: number
+                      format: double
+                - name: radius
+                  in: query
+                  description: Radius away from (latitude, longitude) in `unit`
+                  required: true
+                  schema:
+                      exclusiveMinimum: true
+                      type: number
+                      format: double
+                - name: unit
+                  in: query
+                  required: true
+                  schema:
+                      type: string
+                      enum:
+                          - ft
+                          - yd
+                          - mi
+                          - m
+                          - km
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/resource-model'
+                        example-1:
+                            example:
+                                - address: 2610 Channing Way, Berkeley, CA 94704
+                                  by_appointment: false
+                                  category: Campus Resource
+                                  description:
+                                      'Cal Dining has partnered with RePlate to donate overproduced
+                                      food to people in need. '
+                                  email: http://caldining.berkeley.edu/sustainability/waste-reduction
+                                  latitude: 37.8670799
+                                  longitude: -122.25786480000001
+                                  name: Cal Dining Food Recovery
+                                  on_campus: true
+                                  open_close_array:
+                                      - close_time: 1604822400
+                                        notes: ''
+                                        open_time: 1604822400
+                                  phone: Not Available
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /resources/search:
+        get:
+            tags:
+                - Campus Resources
+            summary: Get campus resource by name
+            description: Retrieves the campus resources whose name matches the search string
+            operationId: get-api-resources-search
+            parameters:
+                - name: name
+                  in: query
+                  description: The name of the resource
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/resource-model'
+                        application/xml:
+                            schema:
+                                $ref: '#/components/schemas/resource-model'
+                        example-1:
+                            example:
+                                address: 2610 Channing Way, Berkeley, CA 94704
+                                by_appointment: false
+                                category: Campus Resource
+                                description:
+                                    'Cal Dining has partnered with RePlate to donate overproduced
+                                    food to people in need. '
+                                email: http://caldining.berkeley.edu/sustainability/waste-reduction
+                                latitude: 37.8670799
+                                longitude: -122.25786480000001
+                                name: Cal Dining Food Recovery
+                                on_campus: true
+                                open_close_array:
+                                    - close_time: 1604822400
+                                      notes: ''
+                                      open_time: 1604822400
+                                phone: Not Available
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /transit/routes:
+        get:
+            tags:
+                - Transit
+            summary: Get all of AC Transit's routes
+            description: Retrieves all of AC Transit's routes using [AC Transit API](http://api.actransit.org/transit/Help)
+            operationId: get-api-transit-routes
+            responses:
+                200:
+                    description: OK
+                    content:
+                        '*/*':
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/transit-route-model'
+                        example-1:
+                            example:
+                                - Description: string
+                                  Name: string
+                                  RouteId: string
+                        example-2:
+                            example:
+                                - Description: E. 14th St. - Mission
+                                  Name: '10'
+                                  RouteId: '10'
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /transit/stops:
+        get:
+            tags:
+                - Transit
+            summary: Get all of AC Transit's currently active stops
+            description:
+                Retrieves all of AC Transit's currently active stops using [AC
+                Transit API](http://api.actransit.org/transit/Help)
+            operationId: get-api-transit-stops
+            responses:
+                200:
+                    description: OK
+                    content:
+                        '*/*':
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/transit-stop-model'
+                        example-1:
+                            example:
+                                - Latitude: 37.775304
+                                  Longitude: -122.287993
+                                  Name: 3rd St & Lincoln Av
+                                  ScheduledTime: 2020-12-01T16:03:27.4629568-08:00
+                                  StopId: 54617
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /transit/routes/search:
+        get:
+            tags:
+                - Transit
+            summary: Get AC Transit route by name
+            description:
+                Retrieves the AC Transit route whose name matches the search string
+                using [AC Transit API](http://api.actransit.org/transit/Help)
+            operationId: get-api-transit-routes-search
+            parameters:
+                - name: route
+                  in: query
+                  description: The name of the route
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                200:
+                    description: OK
+                    content:
+                        '*/*':
+                            schema:
+                                $ref: '#/components/schemas/transit-route-model'
+                        example-1:
+                            example:
+                                Description: Buena Vista - Fruitvale
+                                Name: '19'
+                                RouteId: '19'
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /transit/stops/search:
+        get:
+            tags:
+                - Transit
+            summary: Get a list of all routes and destinations for a given stop
+            description:
+                Retrieve a list of all routes and destinations for a given stop
+                using [AC Transit API](http://api.actransit.org/transit/Help)
+            operationId: get-api-transit-stops-search
+            parameters:
+                - name: stopID
+                  in: query
+                  description: the stop id to lookup by
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                200:
+                    description: OK
+                    content:
+                        '*/*':
+                            schema:
+                                $ref: '#/components/schemas/transit-stop-destinations-model'
+                        example-1:
+                            example:
+                                RouteDestinations:
+                                    - RouteId: string
+                                      DirectionId: 0
+                                      Direction: string
+                                      Destination: string
+                                      FinalPassingTime: string
+                                      Status: string
+                                Status: No service today at this stop
+                                StopId: 54617
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+    /weather:
+        get:
+            tags:
+                - Weather
+            summary: Get the weather in Berkeley
+            description: Retrieves the weather in Berkeley using [OpenWeatherMap API](https://openweathermap.org/api/one-call-api)
+            operationId: get-api-weather
+            responses:
+                200:
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/weather-model'
+                        example-1:
+                            example:
+                                lat: 37.87
+                                lon: -122.26
+                                timezone: America/Los_Angeles
+                                timezone_offset: -28800
+                                current:
+                                    dt: 1605390535
+                                    sunrise: 1605365351
+                                    sunset: 1605401892
+                                    temp: 289.07
+                                    feels_like: 286.06
+                                    pressure: 1026
+                                    humidity: 59
+                                    dew_point: 281.08
+                                    uvi: 2.81
+                                    clouds: 20
+                                    visibility: 10000
+                                    wind_speed: 3.6
+                                    wind_deg: 270
+                                    weather:
+                                        - id: 801
+                                          main: Clouds
+                                          description: few clouds
+                                          icon: 02d
+                                minutely:
+                                    - dt: 1605390540
+                                      precipitation: 0
+                                hourly:
+                                    - dt: 1605387600
+                                      temp: 289.07
+                                      feels_like: 287.23
+                                      pressure: 1026
+                                      humidity: 59
+                                      dew_point: 281.08
+                                      clouds: 20
+                                      visibility: 10000
+                                      wind_speed: 1.94
+                                      wind_deg: 307
+                                      weather:
+                                          - id: 801
+                                            main: Clouds
+                                            description: few clouds
+                                            icon: 02d
+                                      pop: 0
+                                daily:
+                                    - dt: 1605380400
+                                      sunrise: 1605365351
+                                      sunset: 1605401892
+                                      temp:
+                                          day: 285.73
+                                          min: 281.94
+                                          max: 289.07
+                                          night: 284.24
+                                          eve: 288.32
+                                          morn: 282.66
+                                      feels_like:
+                                          day: 284.37
+                                          night: 281.94
+                                          eve: 285.49
+                                          morn: 281.07
+                                      pressure: 1025
+                                      humidity: 72
+                                      dew_point: 280.88
+                                      wind_speed: 1.17
+                                      wind_deg: 27
+                                      weather:
+                                          - id: 802
+                                            main: Clouds
+                                            description: scattered clouds
+                                            icon: 03d
+                                      clouds: 27
+                                      pop: 0
+                                      uvi: 2.81
+                400:
+                    description: Bad Request.
+                    content: {}
+                401:
+                    description: Invalid Access Token.
+                    content: {}
+                500:
+                    description: Something went wrong. Please try again later.
+                    content: {}
+            security:
+                - Bearer: []
+components:
+    schemas:
+        gym-model:
+            title: gym-model
+            required:
+                - address
+                - description
+                - latitude
+                - longitude
+                - name
+                - open_close_array
+                - phone
+                - pool_hours
+                - track_hours
+            type: object
+            properties:
+                address:
+                    type: string
+                description:
+                    type: string
+                latitude:
+                    type: number
+                    format: double
+                longitude:
+                    type: number
+                    format: double
+                name:
+                    type: string
+                open_close_array:
+                    $ref: '#/components/schemas/open_close-model'
+                phone:
+                    type: string
+                pool_hours:
+                    $ref: '#/components/schemas/open_close-model'
+                track_hours:
+                    $ref: '#/components/schemas/open_close-model'
+            description: ''
+            x-examples:
+                example-1:
+                    address: 2301 Bancroft Way, Berkeley, CA 94720
+                    description:
+                        The Recreational Sports Facility (RSF) is the University’s
+                        largest, most complete fitness center with over 100,000 square feet of
+                        activity space, including an Olympic-sized swimming pool, 3 weight rooms,
+                        seven basketball courts, seven racquetball/handball courts, six squash
+                        courts, treadmills, elliptical trainers, stairmasters, rowing machines
+                        and stationary bikes.
+                    latitude: 37.8685702
+                    longitude: -122.2627233
+                    name: RSF
+                    open_close_array:
+                        - close_time: 1583737140
+                          notes: ''
+                          open_time: 1583654400
+                        - close_time: 1583823540
+                          notes: ''
+                          open_time: 1583737200
+                    phone: 510-642-5072
+                    pool_hours:
+                        - close_time: 1583737140
+                          notes: ''
+                          open_time: 1583654400
+                        - close_time: 1583823540
+                          notes: ''
+                          open_time: 1583737200
+                    track_hours:
+                        - close_time: 1583737140
+                          notes: ''
+                          open_time: 1583654400
+                        - close_time: 1583823540
+                          notes: ''
+                          open_time: 1583737200
+        library-model:
+            required:
+                - address
+                - description
+                - latitude
+                - longitude
+                - name
+                - open_close_array
+            type: object
+            properties:
+                address:
+                    minLength: 1
+                    type: string
+                description:
+                    minLength: 1
+                    type: string
+                latitude:
+                    type: number
+                longitude:
+                    type: number
+                name:
+                    minLength: 1
+                    type: string
+                open_close_array:
+                    $ref: '#/components/schemas/open_close-model'
+            description: ''
+            x-examples:
+                example-1:
+                    address: 230 Kroeber Hall, Berkeley, CA 94720
+                    description: |-
+                        The Anthropology Library includes academic works covering socio-cultural anthropology, traditional cultures, archaeology, folklore methods and theory as well as physical anthropology. Collections focus on historical areas of faculty interest along with current research interests.
+
+                        The anthropology library currently holds 59,000 print volumes, with several thousand more stored off-site, and provides access to over 12,000 ebooks on archaeology, ethnography, or anthropology.
+
+                        You can find older faculty publications in AnthroHub and information on selected Emeritus faculty.
+                    latitude: 37.869842999999996
+                    longitude: -122.25528490000002
+                    name: Anthropology Library
+                    open_close_array:
+                        - close_time: 1604908740
+                          notes: ''
+                          open_time: 1604822400
+                        - close_time: 1604995140
+                          notes: ''
+                          open_time: 1604908800
+                        - close_time: 1605081540
+                          notes: ''
+                          open_time: 1604995200
+                        - close_time: 1605167940
+                          notes: ''
+                          open_time: 1605081600
+                        - close_time: 1605254340
+                          notes: ''
+                          open_time: 1605168000
+                        - close_time: 1605340740
+                          notes: ''
+                          open_time: 1605254400
+                        - close_time: 1605427140
+                          notes: ''
+                          open_time: 1605340800
+        dining-hall-model:
+            required:
+                - address
+                - latitude
+                - longitude
+                - name
+            type: object
+            properties:
+                address:
+                    minLength: 1
+                    type: string
+                description:
+                    type: string
+                latitude:
+                    type: number
+                longitude:
+                    type: number
+                name:
+                    minLength: 1
+                    type: string
+                phone:
+                    type: string
+            description: ''
+            x-examples:
+                example-1:
+                    address: 2436 Durant Ave, Berkeley, CA 94704
+                    latitude: 37.867157
+                    longitude: -122.26036699999999
+                    name: Cafe 3
+        resource-model:
+            required:
+                - address
+                - by_appointment
+                - category
+                - description
+                - email
+                - latitude
+                - longitude
+                - name
+                - on_campus
+                - open_close_array
+                - phone
+            type: object
+            properties:
+                address:
+                    minLength: 1
+                    type: string
+                by_appointment:
+                    type: boolean
+                category:
+                    minLength: 1
+                    type: string
+                description:
+                    minLength: 1
+                    type: string
+                email:
+                    minLength: 1
+                    type: string
+                latitude:
+                    type: number
+                longitude:
+                    type: number
+                name:
+                    minLength: 1
+                    type: string
+                on_campus:
+                    type: boolean
+                open_close_array:
+                    $ref: '#/components/schemas/open_close-model'
+                phone:
+                    minLength: 1
+                    type: string
+            description: ''
+            x-examples:
+                example-1:
+                    address: 2610 Channing Way, Berkeley, CA 94704
+                    by_appointment: false
+                    category: Campus Resource
+                    description:
+                        'Cal Dining has partnered with RePlate to donate overproduced
+                        food to people in need. '
+                    email: http://caldining.berkeley.edu/sustainability/waste-reduction
+                    latitude: 37.8670799
+                    longitude: -122.25786480000001
+                    name: Cal Dining Food Recovery
+                    on_campus: true
+                    open_close_array:
+                        - close_time: 1604822400
+                          notes: ''
+                          open_time: 1604822400
+                    phone: Not Available
+        weather-model:
+            required:
+                - current
+                - daily
+                - hourly
+                - lat
+                - lon
+                - minutely
+                - timezone
+                - timezone_offset
+            type: object
+            properties:
+                lat:
+                    type: number
+                lon:
+                    type: number
+                timezone:
+                    minLength: 1
+                    type: string
+                timezone_offset:
+                    type: number
+                current:
+                    required:
+                        - clouds
+                        - dew_point
+                        - dt
+                        - feels_like
+                        - humidity
+                        - pressure
+                        - sunrise
+                        - sunset
+                        - temp
+                        - uvi
+                        - visibility
+                        - weather
+                        - wind_deg
+                        - wind_speed
+                    type: object
+                    properties:
+                        dt:
+                            type: number
+                        sunrise:
+                            type: number
+                        sunset:
+                            type: number
+                        temp:
+                            type: number
+                        feels_like:
+                            type: number
+                        pressure:
+                            type: number
+                        humidity:
+                            type: number
+                        dew_point:
+                            type: number
+                        uvi:
+                            type: number
+                        clouds:
+                            type: number
+                        visibility:
+                            type: number
+                        wind_speed:
+                            type: number
+                        wind_deg:
+                            type: number
+                        weather:
+                            minItems: 1
+                            uniqueItems: true
+                            type: array
+                            items:
+                                required:
+                                    - description
+                                    - icon
+                                    - id
+                                    - main
+                                type: object
+                                properties:
+                                    id:
+                                        type: number
+                                    main:
+                                        minLength: 1
+                                        type: string
+                                    description:
+                                        minLength: 1
+                                        type: string
+                                    icon:
+                                        minLength: 1
+                                        type: string
+                minutely:
+                    minItems: 1
+                    uniqueItems: true
+                    type: array
+                    items:
+                        required:
+                            - dt
+                            - precipitation
+                        type: object
+                        properties:
+                            dt:
+                                type: number
+                            precipitation:
+                                type: number
+                hourly:
+                    minItems: 1
+                    uniqueItems: true
+                    type: array
+                    items:
+                        required:
+                            - clouds
+                            - dew_point
+                            - dt
+                            - feels_like
+                            - humidity
+                            - pop
+                            - pressure
+                            - temp
+                            - visibility
+                            - wind_deg
+                            - wind_speed
+                        type: object
+                        properties:
+                            dt:
+                                type: number
+                            temp:
+                                type: number
+                            feels_like:
+                                type: number
+                            pressure:
+                                type: number
+                            humidity:
+                                type: number
+                            dew_point:
+                                type: number
+                            clouds:
+                                type: number
+                            visibility:
+                                type: number
+                            wind_speed:
+                                type: number
+                            wind_deg:
+                                type: number
+                            weather:
+                                minItems: 1
+                                uniqueItems: true
+                                type: array
+                                items:
+                                    required:
+                                        - description
+                                        - icon
+                                        - id
+                                        - main
+                                    type: object
+                                    properties:
+                                        id:
+                                            type: number
+                                        main:
+                                            minLength: 1
+                                            type: string
+                                        description:
+                                            minLength: 1
+                                            type: string
+                                        icon:
+                                            minLength: 1
+                                            type: string
+                            pop:
+                                type: number
+                daily:
+                    minItems: 1
+                    uniqueItems: true
+                    type: array
+                    items:
+                        required:
+                            - clouds
+                            - dew_point
+                            - dt
+                            - humidity
+                            - pop
+                            - pressure
+                            - sunrise
+                            - sunset
+                            - uvi
+                            - wind_deg
+                            - wind_speed
+                        type: object
+                        properties:
+                            dt:
+                                type: number
+                            sunrise:
+                                type: number
+                            sunset:
+                                type: number
+                            temp:
+                                required:
+                                    - day
+                                    - eve
+                                    - max
+                                    - min
+                                    - morn
+                                    - night
+                                type: object
+                                properties:
+                                    day:
+                                        type: number
+                                    min:
+                                        type: number
+                                    max:
+                                        type: number
+                                    night:
+                                        type: number
+                                    eve:
+                                        type: number
+                                    morn:
+                                        type: number
+                            feels_like:
+                                required:
+                                    - day
+                                    - eve
+                                    - morn
+                                    - night
+                                type: object
+                                properties:
+                                    day:
+                                        type: number
+                                    night:
+                                        type: number
+                                    eve:
+                                        type: number
+                                    morn:
+                                        type: number
+                            pressure:
+                                type: number
+                            humidity:
+                                type: number
+                            dew_point:
+                                type: number
+                            wind_speed:
+                                type: number
+                            wind_deg:
+                                type: number
+                            weather:
+                                minItems: 1
+                                uniqueItems: true
+                                type: array
+                                items:
+                                    required:
+                                        - description
+                                        - icon
+                                        - id
+                                        - main
+                                    type: object
+                                    properties:
+                                        id:
+                                            type: number
+                                        main:
+                                            minLength: 1
+                                            type: string
+                                        description:
+                                            minLength: 1
+                                            type: string
+                                        icon:
+                                            minLength: 1
+                                            type: string
+                            clouds:
+                                type: number
+                            pop:
+                                type: number
+                            rain:
+                                type: number
+                            uvi:
+                                type: number
+            description: ''
+            x-examples:
+                example-1:
+                    lat: 37.87
+                    lon: -122.26
+                    timezone: America/Los_Angeles
+                    timezone_offset: -28800
+                    current:
+                        dt: 1605390535
+                        sunrise: 1605365351
+                        sunset: 1605401892
+                        temp: 289.07
+                        feels_like: 286.06
+                        pressure: 1026
+                        humidity: 59
+                        dew_point: 281.08
+                        uvi: 2.81
+                        clouds: 20
+                        visibility: 10000
+                        wind_speed: 3.6
+                        wind_deg: 270
+                        weather:
+                            - id: 801
+                              main: Clouds
+                              description: few clouds
+                              icon: 02d
+                    minutely:
+                        - dt: 1605390540
+                          precipitation: 0
+                    hourly:
+                        - dt: 1605387600
+                          temp: 289.07
+                          feels_like: 287.23
+                          pressure: 1026
+                          humidity: 59
+                          dew_point: 281.08
+                          clouds: 20
+                          visibility: 10000
+                          wind_speed: 1.94
+                          wind_deg: 307
+                          weather:
+                              - id: 801
+                                main: Clouds
+                                description: few clouds
+                                icon: 02d
+                          pop: 0
+                    daily:
+                        - dt: 1605380400
+                          sunrise: 1605365351
+                          sunset: 1605401892
+                          temp:
+                              day: 285.73
+                              min: 281.94
+                              max: 289.07
+                              night: 284.24
+                              eve: 288.32
+                              morn: 282.66
+                          feels_like:
+                              day: 284.37
+                              night: 281.94
+                              eve: 285.49
+                              morn: 281.07
+                          pressure: 1025
+                          humidity: 72
+                          dew_point: 280.88
+                          wind_speed: 1.17
+                          wind_deg: 27
+                          weather:
+                              - id: 802
+                                main: Clouds
+                                description: scattered clouds
+                                icon: 03d
+                          clouds: 27
+                          pop: 0
+                          uvi: 2.81
+        open_close-model:
+            title: open_close-model
+            type: array
+            description:
+                The `open_time` and `close_time` values are both UNIX timestamps.
+                There will be a list of 7 `open_close` items (Sunday to Saturday) that will
+                have updated open and close timestamps for the week.
+            items:
+                type: object
+                properties:
+                    close_time:
+                        type: integer
+                    notes:
+                        type: string
+                    open_time:
+                        type: integer
+            x-examples:
+                example-1:
+                    close_time: 1597561200
+                    notes: closed
+                    open_time: 1597561200
+        transit-route-model:
+            required:
+                - Description
+                - Name
+                - RouteId
+            type: object
+            properties:
+                Description:
+                    minLength: 1
+                    type: string
+                Name:
+                    minLength: 1
+                    type: string
+                RouteId:
+                    minLength: 1
+                    type: string
+            description: ''
+            x-examples:
+                example-1:
+                    Description: E. 14th St. - Mission
+                    Name: '10'
+                    RouteId: '10'
+        transit-stop-model:
+            required:
+                - Latitude
+                - Longitude
+                - Name
+                - StopId
+            type: object
+            properties:
+                Latitude:
+                    type: number
+                Longitude:
+                    type: number
+                Name:
+                    minLength: 1
+                    type: string
+                ScheduledTime:
+                    type: string
+                StopId:
+                    type: number
+            description: ''
+            x-examples:
+                example-1:
+                    Latitude: 37.775304
+                    Longitude: -122.287993
+                    Name: 3rd St & Lincoln Av
+                    StopId: 54617
+        transit-route-destination-model:
+            title: ''
+            required:
+                - Destination
+                - Direction
+                - DirectionId
+                - FinalPassingTime
+                - RouteId
+                - Status
+            type: object
+            properties:
+                RouteId:
+                    minLength: 1
+                    type: string
+                DirectionId:
+                    type: number
+                Direction:
+                    minLength: 1
+                    type: string
+                Destination:
+                    minLength: 1
+                    type: string
+                FinalPassingTime:
+                    minLength: 1
+                    type: string
+                Status:
+                    minLength: 1
+                    type: string
+            description: For more information take a look at the  [AC Transit API](http://api.actransit.org/transit/Help/Api/GET-stop-stopId-destinations)
+            x-examples:
+                example-1:
+                    RouteId: string
+                    DirectionId: 0
+                    Direction: string
+                    Destination: string
+                    FinalPassingTime: string
+                    Status: string
+        transit-stop-destinations-model:
+            required:
+                - RouteDestinations
+                - Status
+                - StopId
+            type: object
+            properties:
+                StopId:
+                    type: number
+                Status:
+                    minLength: 1
+                    type: string
+                RouteDestinations:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/transit-route-destination-model'
+            description: ''
+            x-examples:
+                example-1:
+                    RouteDestinations:
+                        - RouteId: string
+                          DirectionId: 0
+                          Direction: string
+                          Destination: string
+                          FinalPassingTime: string
+                          Status: string
+                    Status: No service today at this stop
+                    StopId: 54617
+    responses:
+        BadRequest:
+            description: Bad Request.
+            content: {}
+        InternalError:
+            description: Something went wrong. Please try again later.
+            content: {}
+        RefreshBadRequest:
+            description: Something went wrong.
+            content: {}
+        RefreshBlocked:
+            description: User is Blocked.
+            content: {}
+        UnauthorizedError:
+            description: Invalid Access Token.
+            content: {}
+    securitySchemes:
+        Bearer: # arbitrary name for the security scheme
+            type: http
+            scheme: bearer
+            bearerFormat: JWT
+x-components: {}
