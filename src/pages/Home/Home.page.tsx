@@ -1,9 +1,9 @@
 import { useState } from 'react'
+import { AiFillAndroid, AiFillApple } from 'react-icons/ai'
 import { FaArrowRight } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import { Parallax } from 'react-scroll-parallax'
 import { ReactComponent as Berkeleytime } from '../../assets/berkeleytime.svg'
-import background from '../../assets/home/bg.png'
 import bm from '../../assets/logos/bm.jpg'
 import bt from '../../assets/logos/bt.jpg'
 import { FullWidthPageLayout } from '../../components/Layout/Page.layout'
@@ -20,14 +20,9 @@ const Home = () => {
         <FullWidthPageLayout>
             <section
                 id='welcome-container'
-                className='w-screen h-screen relative top-0'
+                className='w-screen h-[90vh] relative top-0'
             >
-                <img
-                    src={background}
-                    alt='background'
-                    className='w-full h-full absolute opacity-30'
-                />
-                <div className='w-full h-full absolute bg-sky-200' />
+                <div className='w-full h-full absolute bg-gradient-to-b from-sky-200 to-white' />
                 <div className='flex flex-row sm:flex-col-reverse w-2/3 h-full mx-auto'>
                     <Parallax
                         speed={-15}
@@ -63,9 +58,9 @@ const Home = () => {
                     <Parallax
                         speed={15}
                         id='animation-container'
-                        className='relative z-10 flex items-center basis-2/5  sm:hidden'
+                        className='relative z-10 flex items-center basis-2/5 sm:hidden'
                     >
-                        <Berkeleytime />
+                        <Berkeleytime className='drop-shadow-xl backdrop-blur-lg' />
                     </Parallax>
                 </div>
             </section>
@@ -114,7 +109,16 @@ const Home = () => {
                         />
                         <div>
                             {/* @todo link to bt */}
-                            <h6>Berkeleytime</h6>
+                            <h6
+                                className='font-semibold hover:text-accent cursor-pointer group duration-150'
+                                onClick={() => {
+                                    window.location.href =
+                                        'https://berkeleytime.com/'
+                                }}
+                            >
+                                Berkeleytime{' '}
+                                <FaArrowRight className='inline text-gray-700 group-hover:text-accent group-hover:translate-x-4 ease-in-out duration-150 ml-4 mb-0.5 cursor-pointer' />{' '}
+                            </h6>
                             <p className='mt-2'>
                                 Berkeley's beloved course discovery and
                                 scheduling platform.
@@ -128,10 +132,26 @@ const Home = () => {
                             className='w-12 h-12 rounded-lg'
                         />
                         <div>
-                            {/* @todo link to app stores AiFillApple */}
-                            <h6>Berkeley Mobile</h6>
+                            <h6 className='font-semibold'>
+                                Berkeley Mobile{' '}
+                                <AiFillApple
+                                    className='inline ml-4 mb-0.5 hover:text-accent duration-150 cursor-pointer'
+                                    onClick={() => {
+                                        window.location.href =
+                                            'https://apps.apple.com/us/app/berkeley-mobile/id912243518'
+                                    }}
+                                />
+                                <AiFillAndroid
+                                    className='inline ml-2 mb-0.5 hover:text-accent duration-150 cursor-pointer'
+                                    onClick={() => {
+                                        window.location.href =
+                                            'https://play.google.com/store/apps/details?id=com.asuc.asucmobile'
+                                    }}
+                                />
+                            </h6>
                             <p className='mt-2'>
-                                Berkeley's student-created mobile app.
+                                Berkeley's student-created app for campus
+                                resources, events, and safety.
                             </p>
                         </div>
                     </div>

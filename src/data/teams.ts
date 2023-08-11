@@ -19,12 +19,7 @@ const Berkeleytime: PTeamCard = {
     team_name: 'Berkeleytime',
     positions: 'Frontend Developer, Backend Engineer, UI/UX Design',
     img_path: bt,
-    app_links: [
-        {
-            position: 'Apply',
-            link: '',
-        },
-    ],
+    app_links: [],
     descriptions:
         "Contribute to Berkeley's beloved course discovery, grade distribution aggregating, and scheduling powerhouse platform.",
 }
@@ -33,16 +28,7 @@ const BerkeleyMobile: PTeamCard = {
     team_name: 'Berkeley Mobile',
     positions: 'Developers (iOS, Android & Backend) and Designers.',
     img_path: bm,
-    app_links: [
-        {
-            position: 'Developers',
-            link: '',
-        },
-        {
-            position: 'Designers',
-            link: '',
-        },
-    ],
+    app_links: [],
     descriptions:
         "Develop Berkeley's student-created mobile app and collaborate with campus community to implement cutting-edge features.",
 }
@@ -51,12 +37,7 @@ const ABSA: PTeamCard = {
     team_name: 'ABSA',
     positions: 'Full-Stack Developer, UI/UX Designer',
     img_path: absa,
-    app_links: [
-        {
-            position: 'Apply',
-            link: '',
-        },
-    ],
+    app_links: [],
     descriptions:
         'Help create the new and improved Annual Budgeting and Spaces Application system for ASUC and gain valuable experience at the intersection of engineering and finance.',
 }
@@ -114,7 +95,7 @@ const TEAMS: PTeamCard[] = [
     Internal,
     DataScience,
     Website,
-    SpecialProjects
+    SpecialProjects,
 ]
 
 export default TEAMS

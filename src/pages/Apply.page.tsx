@@ -7,7 +7,6 @@ import {
     Columns,
     LgColumn,
     MdColumn,
-    SmColumn,
     TwoToOneGrid,
 } from '../components/Layout/Columns.layout'
 import { WidePageLayout } from '../components/Layout/Page.layout'
@@ -75,9 +74,10 @@ const Descriptions = () => (
                     or{' '}
                     <a
                         className='text-accent underline cursor-pointer'
-                        href='to-be-filled-by-vedha'
+                        href='https://calendly.com/vedha-santhosh/asuc-chief-technology-officer-coffee-chat'
+                        target='_blank'
+                        rel='noreferrer'
                     >
-                        {/* @todo get link for vedha's coffee chat */}
                         schedule a coffee chat with the CTO
                     </a>{' '}
                     to learn more about the opportunities within our office.
@@ -87,10 +87,6 @@ const Descriptions = () => (
                 </h5>
             </Stack>
         </LgColumn>
-        <SmColumn>
-            {/* @todo fix this */}
-            <img src={''} />
-        </SmColumn>
     </Columns>
 )
 
