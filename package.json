@@ -1,5 +1,6 @@
 {
     "name": "octo-react",
+    "homepage": "OCTO-Marketing.github.io/octo-react",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -12,6 +13,7 @@
         "@types/react-dom": "^18.2.7",
         "@types/react-router-dom": "^5.3.3",
         "@types/swagger-ui-react": "^4.18.0",
+        "gh-pages": "^5.0.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-icons": "^4.10.1",
@@ -27,7 +29,8 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "react-scripts test"
+        "test": "react-scripts test",
+        "deploy": "gh-pages -d build"
     },
     "eslintConfig": {
         "extends": [
