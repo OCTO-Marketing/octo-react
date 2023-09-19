@@ -35,7 +35,7 @@ const TeamCard = ({ team_name, descriptions, img_path }: PTeamCard) => {
     const navigate = useNavigate()
     return (
         <div
-            className='px-8 py-6 bg-white rounded-xl shadow-card flex content-center animate-showing'
+            className='px-8 py-6 bg-white rounded-xl shadow-card duration-300 hover:shadow-card-hover ease-out flex content-center animate-showing'
             onClick={() => {
                 navigate('')
             }}

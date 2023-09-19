@@ -16,7 +16,7 @@ import TEAMS, { PTeamCard } from '../data/teams'
 const Apply = () => {
     return (
         <WidePageLayout>
-            <h2>Fall 2023 Recruitment opens on 8/21!</h2>
+            <h2>Fall 2023 Recruitment opens on 8/24!</h2>
             <Descriptions />
             <Teams />
             <Infosessions />
@@ -41,15 +41,10 @@ const Descriptions = () => (
                     We're recruiting for projects across our office's portfolio,
                     including signature projects like{' '}
                     <SkewedText>Berkeleytime</SkewedText> and{' '}
-                    <SkewedText className='bg-yellow-200'>
-                        Berkeley Mobile
-                    </SkewedText>{' '}
-                    and newer additions like{' '}
-                    <SkewedText className='bg-yellow-200'>ABSA</SkewedText> and{' '}
-                    <SkewedText className='bg-yellow-200'>
-                        Data Science
-                    </SkewedText>
-                    . As one of the foremost ASUC executive offices,{' '}
+                    <SkewedText>Berkeley Mobile</SkewedText> and newer additions
+                    like <SkewedText>ABSA</SkewedText> and{' '}
+                    <SkewedText>Data Science</SkewedText>. As one of the
+                    foremost ASUC executive offices,{' '}
                     <b>we have a role for everyone no matter your background</b>{' '}
                     - from engineers to designers to social media wizards.
                 </h5>
@@ -72,14 +67,16 @@ const Descriptions = () => (
                         }}
                     />{' '}
                     or{' '}
-                    <a
-                        className='text-accent underline cursor-pointer'
-                        href='https://calendly.com/vedha-santhosh/asuc-chief-technology-officer-coffee-chat'
-                        target='_blank'
-                        rel='noreferrer'
-                    >
-                        schedule a coffee chat with the CTO
-                    </a>{' '}
+                    <SkewedText yellow small>
+                        <a
+                            className='text-accent underline cursor-pointer'
+                            href='https://calendly.com/vedha-santhosh/asuc-chief-technology-officer-coffee-chat'
+                            target='_blank'
+                            rel='noreferrer'
+                        >
+                            schedule a coffee chat with the CTO
+                        </a>
+                    </SkewedText>{' '}
                     to learn more about the opportunities within our office.
                 </h5>
                 <h5 className='font-bold '>
@@ -118,22 +115,22 @@ const Infosessions = () => (
                 <div className='w-full flex flex-row flex-wrap gap-8 justify-between'>
                     <div>
                         <b className='block'>Info Session 1:</b>
-                        Date, when @ where:
+                        8/31/2023, 7 pm
                         <a
                             className='text-accent block'
-                            href='https://berkeley.zoom.us/j/99448983595?pwd=N1hpSVZTTTAxMzZ0VFZIcStTSHFHdz09'
+                            href='https://berkeley.zoom.us/j/3353390194?pwd=cC81b0tjbXFpT3JNTk5laDhBem54dz09'
                         >
-                            <TbBrandZoom className='inline' /> Zoom alternative
+                            <TbBrandZoom className='inline' /> Zoom link
                         </a>
                     </div>
                     <div>
-                        <b className='block'>Info Session 2 (In-person):</b>
-                        Date, when @ where:
+                        <b className='block'>Info Session 2:</b>
+                        9/7/2023, 7 pm
                         <a
                             className='text-accent block'
-                            href='https://berkeley.zoom.us/j/98652831217?pwd=WG0xMzJteU5OSVlYYjlMU1JweDVxdz09'
+                            href='https://berkeley.zoom.us/j/3353390194?pwd=cC81b0tjbXFpT3JNTk5laDhBem54dz09'
                         >
-                            <TbBrandZoom className='inline' /> Zoom alternative
+                            <TbBrandZoom className='inline' /> Zoom link
                         </a>
                     </div>
                 </div>
@@ -181,7 +178,7 @@ const ApplicationProcess = () => (
 const TeamCard = ({ team_name, positions, img_path, app_links }: PTeamCard) => {
     const navigate = useNavigate()
     return (
-        <div className='p-6 bg-white rounded-xl shadow-card animate-showing'>
+        <div className='p-6 bg-white rounded-xl shadow-card animate-showing duration-300 hover:shadow-card-hover ease-out'>
             <CenterAlignColumns>
                 <img
                     src={img_path}
@@ -202,7 +199,7 @@ const TeamCard = ({ team_name, positions, img_path, app_links }: PTeamCard) => {
                                         key={position}
                                         className='text-accent list-none text-sm cursor-pointer whitespace-nowrap'
                                         onClick={() => {
-                                            navigate(link)
+                                            window.location.href = link
                                         }}
                                     >
                                         <TbLink className='inline' /> {position}

@@ -61,19 +61,30 @@ const FooterCategory = ({ label, items }: PFooterCategory) => (
     </div>
 )
 
-const FooterItem = ({ Icon, label, link }: PFooterItem) => (
-    <div
-        key={label}
-        className={`flex flex-row gap-2 ${
-            link && 'cursor-pointer hover:text-accent duration-150'
-        }`}
-        onClick={() => {
-            if (link) {
-                window.location.href = link
-            }
-        }}
-    >
-        <Icon className='mt-1' />
-        <span>{label}</span>
-    </div>
-)
+const FooterItem = ({ Icon, label, link }: PFooterItem) => {
+    const label_array = label.split('\n')
+
+    return (
+        <div
+            key={label}
+            className={`flex flex-row gap-2 ${
+                link && 'cursor-pointer hover:text-accent duration-150'
+            }`}
+            onClick={() => {
+                if (link) {
+                    window.location.href = link
+                }
+            }}
+        >
+            <Icon className='mt-1 w-6 flex-none' />
+            <span>
+                {label_array.map((label_i) => (
+                    <Fragment>
+                        {label_i}
+                        <br />
+                    </Fragment>
+                ))}
+            </span>
+        </div>
+    )
+}

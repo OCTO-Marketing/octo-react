@@ -2,11 +2,11 @@
 
 The Website is currently live @ [octo.asuc.org](https://octo.asuc.org/)
 
-Due to technical limitations, we are keeping the code and the deploy on two separate repos.
+Due to technical limitations, we are not able to build directly from the repo. Instead, we are using two separate branches for the ready-to-deploy build and the code.
 
-The React repo is available [here](https://github.com/OCTO-Marketing/octo-react) under the OCTO-Marketing team.
+The React branch is available [here](https://github.com/asuc-octo/octo-website/tree/dev).
 
-The deploy repo is avilable [here](https://github.com/asuc-octo/octo-website) under the asuc-octo team
+The deploy branch is avilable [here](https://github.com/asuc-octo/octo-website).
 
 ## About the Website
 

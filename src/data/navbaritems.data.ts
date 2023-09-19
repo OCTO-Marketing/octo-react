@@ -18,5 +18,5 @@ export const NAV_BAR_ITEMS: NavBarItem[] = [
     { path: '/team', label: 'Team', component: Team },
     { path: '/projects', label: 'Projects', component: Projects },
     { path: '/apply', label: 'Apply', component: Apply },
-    { path: '/apidocs', label: 'API', component: APIDocs },
+    { path: '/api', label: 'API', component: APIDocs },
 ]

@@ -31,7 +31,7 @@ export const footer_categories: PFooterCategory[] = [
             },
             {
                 Icon: FiMapPin,
-                label: '412 Eshleman Hall',
+                label: '412 Eshleman Hall\n2465 Bancroft Way\nBerkeley, CA 94704',
             },
         ],
     },

@@ -21,6 +21,7 @@ module.exports = {
             },
             boxShadow: {
                 card: '0 10px 29px 0 rgba(68, 88, 144, 0.1)',
+                'card-hover': '0 10px 36px 0 rgba(68, 88, 144, 0.3)',
             },
             keyframes: {
                 show: {

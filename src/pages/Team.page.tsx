@@ -92,7 +92,7 @@ export default Team
 
 const MemberCard = ({ name, photo, title, team }: IMember) => {
     return (
-        <div className='flex flex-row gap-6 w-80 bg-white shadow-card px-6 py-8 rounded-xl items-center animate-showing'>
+        <div className='flex flex-row gap-6 w-80 bg-white shadow-card duration-300 hover:shadow-card-hover ease-out px-6 py-8 rounded-xl items-center animate-showing'>
             <img
                 src={photo ?? default_profile}
                 alt={name}
@@ -137,7 +137,7 @@ const AlumniSection = ({
             <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
                 {members.map(({ name, title, team }) => {
                     return (
-                        <div className='text-left w-56 bg-white shadow-card p-6 rounded-xl animate-showing relative'>
+                        <div className='text-left w-56 bg-white shadow-card duration-300 hover:shadow-card-hover ease-out p-6 rounded-xl animate-showing relative'>
                             <h5 className='font-bold'>{name}</h5>
                             <span className='text-xs font-medium block text-sky-800 rounded-md'>
                                 {title}

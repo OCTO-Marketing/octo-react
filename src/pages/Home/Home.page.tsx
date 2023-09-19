@@ -101,7 +101,7 @@ const Home = () => {
                     </h6>
                 </div>
                 <div className='flex flex-row sm:flex-col flax-wrap gap-10 [&>*]:flex-1'>
-                    <div className='shadow-card bg-slate-100 p-6 rounded-xl flex gap-6 mb:flex-col mb:gap-4'>
+                    <div className='shadow-card duration-300 hover:shadow-card-hover ease-out bg-slate-100 p-6 rounded-xl flex gap-6 mb:flex-col mb:gap-4'>
                         <img
                             src={bt}
                             alt='berkeleytime logo'
@@ -125,7 +125,7 @@ const Home = () => {
                             </p>
                         </div>
                     </div>
-                    <div className='shadow-card bg-slate-100 p-6 rounded-xl flex gap-6 mb:flex-col mb:gap-4'>
+                    <div className='shadow-card duration-300 hover:shadow-card-hover ease-out bg-slate-100 p-6 rounded-xl flex gap-6 mb:flex-col mb:gap-4'>
                         <img
                             src={bm}
                             alt='berkeley mobile logo'
