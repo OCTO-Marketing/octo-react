@@ -96,7 +96,6 @@ const Teams = () => (
                 positions={positions}
                 img_path={img_path}
                 app_links={app_links}
-                hidden
             />
         ))}
     </TwoToOneGrid>

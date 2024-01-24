@@ -102,7 +102,7 @@ const Website: PTeamCard = {
     app_links: [
         {
             position: 'Apply',
-            link: 'https://airtable.com/appOJ3OoQXZLp9Fpe/shrVyPhxFkMd0IbHW',
+            link: 'https://airtable.com/appc9o7LhbqmOiMPK/shrrWB8Jgl85EGBok',
         },
     ],
     descriptions:
