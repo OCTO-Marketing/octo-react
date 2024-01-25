@@ -2,6 +2,7 @@ import vedha_santhosh from '../assets/members/vedha_santhosh.jpeg'
 import srikar_hanumanula from '../assets/members/srikar_hanumanula.jpeg'
 import kev_wang from '../assets/members/kev_wang.jpeg'
 import sukhamrit_singh from '../assets/members/sukhamrit_singh.jpeg'
+import joanne_tran from '../assets/members/joanne_tran.jpeg'
 
 export interface IMember {
     name: string
@@ -71,9 +72,10 @@ export const Leadership: IMember[] = [
         photo: srikar_hanumanula,
     },
     {
-        name: 'AZ Zhang',
+        name: 'Joanne Tran',
         team: 'Website',
         title: 'Lead',
+        photo: joanne_tran,
     },
     {
         name: 'Marketing Lead',
