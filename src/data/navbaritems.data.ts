@@ -2,7 +2,7 @@ import APIDocs from '../pages/APIDocs/APIDocs.page'
 import Apply from '../pages/Apply.page'
 import Projects from '../pages/Projects.page'
 import Team from '../pages/Team.page'
-import Careers from '../pages/Careers/TechSearchTools.page'
+import TechSearchTools from '../pages/Careers/TechSearchTools.page'
 
 export interface NavBarItem {
     path: string
@@ -20,5 +20,5 @@ export const NAV_BAR_ITEMS: NavBarItem[] = [
     { path: '/projects', label: 'Projects', component: Projects },
     { path: '/apply', label: 'Apply', component: Apply },
     { path: '/api', label: 'API', component: APIDocs },
-    { path: '/careers/searchtools', label: 'Careers', component: Careers },
+    { path: '/careers/searchtools', label: 'Seach Tools', component: TechSearchTools },
 ]

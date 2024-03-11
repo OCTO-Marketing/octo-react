@@ -17,7 +17,7 @@ import new_york from '../assets/careers/city.jpg';
 import chicago from '../assets/careers/city.jpg';
 import seattle from '../assets/careers/city.jpg';
 import los_angeles from '../assets/careers/city.jpg';
-import international from '../assets/careers/city.jpg';
+import other from '../assets/careers/city.jpg';
 
 export interface TechJobSearchToolCard {
     tool_name?: string
@@ -56,7 +56,7 @@ const BayArea: TechJobSearchToolCard = {
     img_path: bay_area,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://www.builtinsf.com/jobs',
     },
     description:
         "Search for jobs in the California Bay Area.",
@@ -67,7 +67,7 @@ const NewYork: TechJobSearchToolCard = {
     img_path: new_york,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://www.builtinnyc.com/jobs',
     },
     description:
         "Search for jobs in the New York City, New York.",
@@ -78,7 +78,7 @@ const Chicago: TechJobSearchToolCard = {
     img_path: chicago,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://www.builtinchicago.org/',
     },
     description:
         "Search for jobs in the Chicago, Illinois.",
@@ -89,7 +89,7 @@ const Seattle: TechJobSearchToolCard = {
     img_path: seattle,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://www.builtinseattle.com/',
     },
     description:
         "Search for jobs in the Seattle, Washington.",
@@ -107,14 +107,14 @@ const LosAngeles: TechJobSearchToolCard = {
 }
 
 const International: TechJobSearchToolCard = {
-    tool_name: 'International',
-    img_path: international,
+    tool_name: 'Other',
+    img_path: other,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://builtin.com/tech-hubs',
     },
     description:
-        "Search for jobs internationally.",
+        "Search for jobs in other tech hubs.",
 }
 
 const AndressenHorowitz: TechJobSearchToolCard = {
@@ -122,7 +122,7 @@ const AndressenHorowitz: TechJobSearchToolCard = {
     img_path: andressen_horowitz,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://a16z.com/portfolio/',
     },
     description:
         "Stage agnostic venture capital firm that backs bold entrepreneurs building the future through technology.",
@@ -133,7 +133,7 @@ const BaiduVentures: TechJobSearchToolCard = {
     img_path: baidu_ventures,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://www.baidu-venture.net/',
     },
     description:
         "independent venture fund established by Baidu in 2017.",
@@ -144,7 +144,7 @@ const KleinerPerkins: TechJobSearchToolCard = {
     img_path: kleiner_perkins,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://www.kleinerperkins.com/',
     },
     description:
         "Investors for companies starting from the inception stage to the IPO stage.",
@@ -155,7 +155,7 @@ const GGVCapital: TechJobSearchToolCard = {
     img_path: ggv_capital,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://www.ggvc.com/companies/',
     },
     description:
         "American venture capital firm focused on early-to-growth investments in tech companies.",
@@ -166,7 +166,7 @@ const SequoiaCapital: TechJobSearchToolCard = {
     img_path: sequoia_capital,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://www.sequoiacap.com/our-companies/?_spotlight=1',
     },
     description:
         "Helping the daring build legendary companies.",
@@ -177,7 +177,7 @@ const Accel: TechJobSearchToolCard = {
     img_path: accel,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://www.accel.com/relationships',
     },
     description:
         "Global venture capital firm that is the first partner to exceptional teams everywhere.",
@@ -188,7 +188,7 @@ const GreylockVentures: TechJobSearchToolCard = {
     img_path: greylock_ventures,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://greylock.com/portfolio/',
     },
     description:
         "Leading venture capital firm based in Silicon Valley.",
@@ -199,7 +199,7 @@ const SoftBank: TechJobSearchToolCard = {
     img_path: softbank,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://visionfund.com/portfolio',
     },
     description:
         "Strategic holding company investing in technologies for the betterment of humanity.",
@@ -210,7 +210,7 @@ const KhoslaVentures: TechJobSearchToolCard = {
     img_path: khosla_ventures,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://www.khoslaventures.com/portfolio/',
     },
     description:
         "Hopes to change the way the world uses carbon and creating a post-pollution world!",
@@ -221,7 +221,7 @@ const FirstRoundCapital: TechJobSearchToolCard = {
     img_path: first_round_capital,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://firstround.com/companies/',
     },
     description:
         "Backing remarkable entrepreneurs from the first moment — not just the first round.",
@@ -232,7 +232,7 @@ const GoogleVentures: TechJobSearchToolCard = {
     img_path: google_ventures,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://www.gv.com/portfolio/',
     },
     description:
         "Launched in 2009, GV supports innovative founders moving the world forward.",
@@ -243,7 +243,7 @@ const FounderCollective: TechJobSearchToolCard = {
     img_path: founder_collective,
     tool_link: {
         label: 'Link',
-        link: 'https://wellfound.com/',
+        link: 'https://www.foundercollective.com/collective',
     },
     description:
         "Building the most aligned VC fund for founders at the seed stage.",

@@ -5,6 +5,7 @@ import {VENTURE_CAPITAL_PORTFOLIOS, STANDARD_SEARCH_TOOLS, AREA_SPECIFIC_TOOLS} 
 import type { TechJobSearchToolCard } from '../../data/techjobsearchtools'
 import { TbLink } from 'react-icons/tb'
 
+// Layout of Page alternating between section information on its resources
 const TechSearchTools = () => {
     return (
         <WidePageLayout>
@@ -30,6 +31,7 @@ const TechSearchTools = () => {
     )
 }
 
+// Maps a list of resources to a two column table
 const Resources = ({resources}: {resources: TechJobSearchToolCard[]}) => (
     <TwoToOneGrid>
         {resources.map(({ tool_name, description, img_path, tool_link }) => (
@@ -44,6 +46,7 @@ const Resources = ({resources}: {resources: TechJobSearchToolCard[]}) => (
     </TwoToOneGrid>
 )
 
+// Card for each resource
 const ResourceCard = ({
     tool_name,
     img_path,
