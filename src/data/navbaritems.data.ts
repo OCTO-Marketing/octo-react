@@ -2,6 +2,7 @@ import APIDocs from '../pages/APIDocs/APIDocs.page'
 import Apply from '../pages/Apply.page'
 import Projects from '../pages/Projects.page'
 import Team from '../pages/Team.page'
+import Research from '../pages/Research.page' //Import research page
 
 export interface NavBarItem {
     path: string
@@ -13,7 +14,7 @@ export interface NavBarItem {
 }
 
 export const NAV_BAR_ITEMS: NavBarItem[] = [
-    // { path: '/research-fair', label: 'Research Fair', component: ResearchFair },
+    { path: '/research', label: 'Research', component: Research }, //Add Research Page in NavBar
     // { path: '/case-comp', label: 'Case Competition', component: CaseComp },
     { path: '/team', label: 'Team', component: Team },
     { path: '/projects', label: 'Projects', component: Projects },
