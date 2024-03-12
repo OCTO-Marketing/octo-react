@@ -1,9 +1,11 @@
+import { link } from 'node:fs'
 import { PiCards } from 'react-icons/pi'
 import { useNavigate } from 'react-router-dom'
 import { CenterAlignColumns, TwoToOneGrid } from '../components/Layout/Columns.layout'
 import { WidePageLayout } from '../components/Layout/Page.layout'
 import type { UIUXPDCard } from '../data/uiuxproductdesign'
 import UIUXPD from '../data/uiuxproductdesign'
+import { TbLink } from 'react-icons/tb'
 
 const UIUXProductDesign = () => {
     return (
@@ -15,13 +17,14 @@ const UIUXProductDesign = () => {
                 </h5>
             </div>
             <TwoToOneGrid>
-                {UIUXPD.map(({ resource_name, img_path, descriptions }) => {
+                {UIUXPD.map(({ resource_name, img_path, descriptions, link }) => {
                     return (
                         <Card
                             key={resource_name}
                             resource_name={resource_name}
                             img_path={img_path}
                             descriptions={descriptions}
+                            link={link}
                         />
                     )
                 })}
@@ -32,7 +35,7 @@ const UIUXProductDesign = () => {
 
 export default UIUXProductDesign
 
-const Card = ({ resource_name, descriptions, img_path }: UIUXPDCard) => {
+const Card = ({ resource_name, descriptions, img_path, link }: UIUXPDCard) => {
     const navigate = useNavigate()
     return (
         <div
@@ -52,6 +55,7 @@ const Card = ({ resource_name, descriptions, img_path }: UIUXPDCard) => {
                     <p className='mt-2 mb-1 text-sm leading-6 font-medium'>
                         {descriptions}
                     </p>
+                    <TbLink className="text-accent list-none text-sm cursor-pointer whitespace-nowrap inline" /> <a className="text-accent list-none text-sm cursor-pointer whitespace-nowrap" href={link} >Link</a>
                 </div>
             </CenterAlignColumns>
         </div>
