@@ -1,40 +1,29 @@
 import { useNavigate } from 'react-router-dom'
 import { CenterAlignColumns, TwoToOneGrid, Columns } from '../../components/Layout/Columns.layout'
 import { WidePageLayout } from '../../components/Layout/Page.layout'
-import {VENTURE_CAPITAL_PORTFOLIOS, STANDARD_SEARCH_TOOLS, AREA_SPECIFIC_TOOLS} from '../../data/techjobsearchtools'
-import type { TechJobSearchToolCard } from '../../data/techjobsearchtools'
+import TECH_INTERVIEW_PREP_RESOURCES from '../../data/interviewprep'
+import type { TechInterviewPrepCard } from '../../data/interviewprep'
 import { TbLink } from 'react-icons/tb'
 
-// Layout of Page alternating between section information on its resources
-const TechSearchTools = () => {
+const InterviewPrep = () => {
     return (
         <WidePageLayout>
             <div>
-                <h1>Tech Job Search Tools</h1>
+                <h1>Tech Interview Preparation</h1>
                 <h5 className='mt-4'>
-                Streamline your career internship, new grad, research roles and more using these convenient search tools                </h5>
+                    Explore a curated selection of resources, including technical interview practice platforms, 
+                    coding challenge sites, and expert guidance, to sharpen your skills, build confidence, and stand out in the competitive
+                    market of tech internships, new grad roles, and research openings.
+                </h5>
             </div>
-            <Resources resources={STANDARD_SEARCH_TOOLS}/>
-            <div>
-                <h1>Province/State Specific Company Lists</h1>
-                <h5 className='mt-4'>
-                Streamline your career internship, new grad, research roles and more using these convenient search tools                </h5>
-            </div>
-            <Resources resources={AREA_SPECIFIC_TOOLS}/>
-            <div>
-                <h1>Venture Capital Portfolios</h1>
-                <h5 className='mt-4'>
-                Search through top Venture Capital companies for potential job opportunities</h5>
-            </div>
-            <Resources resources={VENTURE_CAPITAL_PORTFOLIOS}/>
+            <Resources />
         </WidePageLayout>
     )
 }
 
-// Maps a list of resources to a two column table
-const Resources = ({resources}: {resources: TechJobSearchToolCard[]}) => (
+const Resources = () => (
     <TwoToOneGrid>
-        {resources.map(({ tool_name, description, img_path, tool_link }) => (
+        {TECH_INTERVIEW_PREP_RESOURCES.map(({ tool_name, description, img_path, tool_link }) => (
             <ResourceCard
                 key={tool_name}
                 tool_name={tool_name}
@@ -46,13 +35,12 @@ const Resources = ({resources}: {resources: TechJobSearchToolCard[]}) => (
     </TwoToOneGrid>
 )
 
-// Card for each resource
 const ResourceCard = ({
     tool_name,
     img_path,
     tool_link,
     description
-}: TechJobSearchToolCard) => {
+}: TechInterviewPrepCard) => {
     const navigate = useNavigate()
     return (
         <div className="p-6 bg-white rounded-xl shadow-card animate-showing duration-300 hover:shadow-card-hover ease-out">
@@ -85,4 +73,4 @@ const ResourceCard = ({
     )
 }
 
-export default TechSearchTools
+export default InterviewPrep
