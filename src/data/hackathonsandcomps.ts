@@ -1,5 +1,5 @@
 import calhackslogo from '../assets/academics/calhackslogo.jpeg'
-import sfhackslogo from '../assets/academics/sfhackslogo.jpeg'
+import sfhackslogo from '../assets/academics/sfhackslogo.png'
 import treehackslogo from '../assets/academics/treehackslogo.jpeg'
 import hackerearthlogo from '../assets/academics/hackerearthlogo.jpeg'
 import devpostlogo from '../assets/academics/devpostlogo.jpeg'
