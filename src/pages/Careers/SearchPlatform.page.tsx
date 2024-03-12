@@ -1,36 +1,32 @@
 import { useNavigate } from 'react-router-dom'
 import { CenterAlignColumns, TwoToOneGrid, Columns } from '../../components/Layout/Columns.layout'
 import { WidePageLayout } from '../../components/Layout/Page.layout'
-import {VENTURE_CAPITAL_PORTFOLIOS, STANDARD_SEARCH_TOOLS, AREA_SPECIFIC_TOOLS} from '../../data/techjobsearchtools'
-import type { TechJobSearchToolCard } from '../../data/techjobsearchtools'
+import {TECH_JOB_SERACH_PLATFORM, CAREER_PATH_RESOURCES} from '../../data/jobsearchplatform'
+import type { TechJobSearchPlatformCard } from '../../data/jobsearchplatform'
 import { TbLink } from 'react-icons/tb'
 
-const TechSearchTools = () => {
+const SearchPlatform = () => {
     return (
         <WidePageLayout>
             <div>
-                <h1>Tech Job Search Tools</h1>
+                <h1>Job Search Platforms</h1>
                 <h5 className='mt-4'>
-                Streamline your career internship, new grad, research roles and more using these convenient search tools                </h5>
+                These websites are designed to connect you with your ideal job. From tech to teaching, finance to freelancing, they cater to all industries and experience levels.
+                </h5>
             </div>
-            <Resources resources={STANDARD_SEARCH_TOOLS}/>
+            <Resources resources={TECH_JOB_SERACH_PLATFORM}/>
             <div>
-                <h1>Province/State Specific Company Lists</h1>
+                <h1>Career Path Resources</h1>
                 <h5 className='mt-4'>
-                Streamline your career internship, new grad, research roles and more using these convenient search tools                </h5>
+                Whether you're just starting your journey, looking to pivot your career, or seeking to deepen your expertise in a specific tech domain, we are here to help in navigating the plethora of opportunities available in the tech industry.
+                </h5>
             </div>
-            <Resources resources={AREA_SPECIFIC_TOOLS}/>
-            <div>
-                <h1>Venture Capital Portfolios</h1>
-                <h5 className='mt-4'>
-                Search through top Venture Capital companies for potential job opportunities</h5>
-            </div>
-            <Resources resources={VENTURE_CAPITAL_PORTFOLIOS}/>
+            <Resources resources={CAREER_PATH_RESOURCES}/>
         </WidePageLayout>
     )
 }
 
-const Resources = ({resources}: {resources: TechJobSearchToolCard[]}) => (
+const Resources = ({resources}: {resources: TechJobSearchPlatformCard[]}) => (
     <TwoToOneGrid>
         {resources.map(({ tool_name, description, img_path, tool_link }) => (
             <ResourceCard
@@ -49,7 +45,7 @@ const ResourceCard = ({
     img_path,
     tool_link,
     description
-}: TechJobSearchToolCard) => {
+}: TechJobSearchPlatformCard) => {
     const navigate = useNavigate()
     return (
         <div className="p-6 bg-white rounded-xl shadow-card animate-showing duration-300 hover:shadow-card-hover ease-out">
@@ -82,4 +78,4 @@ const ResourceCard = ({
     )
 }
 
-export default TechSearchTools
+export default SearchPlatform

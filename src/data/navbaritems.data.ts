@@ -2,8 +2,9 @@ import APIDocs from '../pages/APIDocs/APIDocs.page'
 import Apply from '../pages/Apply.page'
 import Projects from '../pages/Projects.page'
 import Team from '../pages/Team.page'
-import TechSearchTools from '../pages/Careers/TechSearchTools.page'
-import TechInterviewPrep from '../pages/Careers/TechInterviewPrep.page'
+import SearchTools from '../pages/Careers/SearchTools.page'
+import InterviewPrep from '../pages/Careers/InterviewPrep.page'
+import SearchPlatform from '../pages/Careers/SearchPlatform.page'
 
 export interface NavBarItem {
     path: string
@@ -21,6 +22,7 @@ export const NAV_BAR_ITEMS: NavBarItem[] = [
     { path: '/projects', label: 'Projects', component: Projects },
     { path: '/apply', label: 'Apply', component: Apply },
     { path: '/api', label: 'API', component: APIDocs },
-    { path: '/careers/searchtools', label: 'Search Tools', component: TechSearchTools },
-    { path: '/careers/interview', label: 'Interview Prep', component: TechInterviewPrep },
+    { path: '/careers/searchtools', label: 'Search Tools', component: SearchTools },
+    { path: '/careers/interview', label: 'Interview Prep', component: InterviewPrep },
+    { path: '/careers/searchplatform', label: 'Search Platform', component: SearchPlatform },
 ]

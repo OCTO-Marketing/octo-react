@@ -1,15 +1,15 @@
 import { useNavigate } from 'react-router-dom'
 import { CenterAlignColumns, TwoToOneGrid, Columns } from '../../components/Layout/Columns.layout'
 import { WidePageLayout } from '../../components/Layout/Page.layout'
-import TECH_INTERVIEW_PREP_RESOURCES from '../../data/techinterviewprep'
-import type { TechInterviewPrepCard } from '../../data/techinterviewprep'
+import TECH_INTERVIEW_PREP_RESOURCES from '../../data/interviewprep'
+import type { TechInterviewPrepCard } from '../../data/interviewprep'
 import { TbLink } from 'react-icons/tb'
 
-const TechInterviewPrep = () => {
+const InterviewPrep = () => {
     return (
         <WidePageLayout>
             <div>
-                <h1>Tech Interview Preperation Resources</h1>
+                <h1>Tech Interview Preparation</h1>
                 <h5 className='mt-4'>
                     Explore a curated selection of resources, including technical interview practice platforms, 
                     coding challenge sites, and expert guidance, to sharpen your skills, build confidence, and stand out in the competitive
@@ -73,4 +73,4 @@ const ResourceCard = ({
     )
 }
 
-export default TechInterviewPrep
+export default InterviewPrep
