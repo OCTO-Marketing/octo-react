@@ -4,6 +4,7 @@ import { CenterAlignColumns, TwoToOneGrid } from '../components/Layout/Columns.l
 import { WidePageLayout } from '../components/Layout/Page.layout'
 import type { hackathonsAndCompsCard } from '../data/hackathonsandcomps'
 import hackathonsAndComps from '../data/hackathonsandcomps'
+import { TbLink } from 'react-icons/tb'
 
 const HackathonsAndComps = () => {
     return (
@@ -15,13 +16,14 @@ const HackathonsAndComps = () => {
                 </h5>
             </div>
             <TwoToOneGrid>
-                {hackathonsAndComps.map(({ resource_name, img_path, descriptions }) => {
+                {hackathonsAndComps.map(({ resource_name, img_path, descriptions, link }) => {
                     return (
                         <Card
                             key={resource_name}
                             resource_name={resource_name}
                             img_path={img_path}
                             descriptions={descriptions}
+                            link={link}
                         />
                     )
                 })}
@@ -32,7 +34,7 @@ const HackathonsAndComps = () => {
 
 export default HackathonsAndComps
 
-const Card = ({ resource_name, descriptions, img_path }: hackathonsAndCompsCard) => {
+const Card = ({ resource_name, descriptions, img_path, link }: hackathonsAndCompsCard) => {
     const navigate = useNavigate()
     return (
         <div
@@ -52,6 +54,7 @@ const Card = ({ resource_name, descriptions, img_path }: hackathonsAndCompsCard)
                     <p className='mt-2 mb-1 text-sm leading-6 font-medium'>
                         {descriptions}
                     </p>
+                    <TbLink className="text-accent list-none text-sm cursor-pointer whitespace-nowrap inline" /> <a className="text-accent list-none text-sm cursor-pointer whitespace-nowrap" href={link}>Link</a>
                 </div>
             </CenterAlignColumns>
         </div>

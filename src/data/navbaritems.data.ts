@@ -2,6 +2,7 @@ import APIDocs from '../pages/APIDocs/APIDocs.page'
 import Apply from '../pages/Apply.page'
 import Projects from '../pages/Projects.page'
 import Team from '../pages/Team.page'
+//import HacksAndComps from '../pages/HackathonsAndComps.page'
 
 export interface NavBarItem {
     path: string
@@ -19,4 +20,5 @@ export const NAV_BAR_ITEMS: NavBarItem[] = [
     { path: '/projects', label: 'Projects', component: Projects },
     { path: '/apply', label: 'Apply', component: Apply },
     { path: '/api', label: 'API', component: APIDocs },
+    //{ path: '/hacksandcomps', label: 'HacksAndComps', component: HacksAndComps}
 ]
