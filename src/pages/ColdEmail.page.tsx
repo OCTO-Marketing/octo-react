@@ -1,26 +1,27 @@
 import { useNavigate } from 'react-router-dom'
-import { CenterAlignColumns, TwoToOneGrid } from '../components/Layout/Columns.layout'
+import { FourToOneGrid } from '../components/Layout/Columns.layout'
 import { WidePageLayout } from '../components/Layout/Page.layout'
-import type { PResearchCard } from '../data/research'
-import RESEARCH from '../data/research'
+import type { PColdEmailCard } from '../data/coldEmail'
+import COLD_EMAIL from '../data/coldEmail'
 import { TbLink } from 'react-icons/tb'
+import '../styles/coldEmailCustom.css'
 
-const Research = () => {
+const ColdEmail = () => {
     return (
         <WidePageLayout>
             <div>
                 {/* Page title and description */}
-                <h1>Academic Papers and Resources for Tech</h1>
+                <h1>Cold Email and Research Email Templates </h1>
                     <h5 className='mt-4'>
-                        Some helpful resources to get you started on your research endevours
+                        Resources to email faculty and find research opportunities
                     </h5>
             </div>
-            {/* Two-to-one grid layout */}
-            <TwoToOneGrid>
+            {/* Four-to-one grid layout */}
+            <FourToOneGrid>
                 {/* Map through research data to render ResearchCard components */}
-                {RESEARCH.map(({ name, img_path, descriptions, links }) => {
+                {COLD_EMAIL.map(({ name, img_path, descriptions, links }) => {
                     return (
-                        <ResearchCard
+                        <ColdEmailCard
                             key={name} // Unique key for each ResearchCard
                             name={name}
                             img_path={img_path}
@@ -29,39 +30,40 @@ const Research = () => {
                         />
                     )
                 })}
-            </TwoToOneGrid>
+            </FourToOneGrid>
         </WidePageLayout>
     )
 }
-export default Research
+export default ColdEmail
 
 // ResearchCard component
-const ResearchCard = ({
+const ColdEmailCard = ({
     name,
     descriptions,
     img_path,
     links,
-}: PResearchCard) => {
+}: PColdEmailCard) => {
     const navigate = useNavigate()
     return (
-        <div className='px-10 py-4 bg-white rounded-xl shadow-card animate-showing duration-300 hover:shadow-card-hover ease-out'>
+        <div className='px-6 py-32 bg-white rounded-xl shadow-card animate-showing duration-300 hover:shadow-card-hover ease-out'>
 
             {/* Centered columns layout */}
-            <CenterAlignColumns>
+
                 {/* Image */}
                 <img
                     src={img_path}
                     alt={`icon for ${name}`}
-                    className='w-24 h-24 sm:w-16 sm:h-16 rounded-md'
+                    className='custom-size sm:w-18 sm:h-18 rounded-md mt-12'
                 />
                 <div>
                     {/* Research name */}
-                    <h3 className='text-lg font-bold'>{name}</h3>
+                    <h3 className='text-lg font-bold mt-12'>{name}</h3>
                     {/* Research descriptions */}
-                    <p className='mt-2 text-sm leading-6 font-medium'>
+                    <p className='mt-2 mb-1 text-sm leading-6 font-medium'>
                         {descriptions}
                     </p>
                     {/* Render links if available */}
+
                         {links && links.length > 0 &&
                             links.map(({ position, link }) => {
                                 return (
@@ -78,8 +80,9 @@ const ResearchCard = ({
                                 )
                             })
                         }
+
                 </div>
-            </CenterAlignColumns>
+
         </div>
     )
 }
