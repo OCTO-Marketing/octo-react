@@ -24,6 +24,20 @@ export const LgColumn = ({ children }: any) => {
     return <div className='basis-3/5 flex flex-col gap-10 sm:basis-full'>{children}</div>
 }
 
+export const RootThreeToOneGrid: React.FC<{children?: React.ReactNode}> = ({ children }) => (
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px', justifyContent: 'center' }}>
+        <div style={{ gridColumnStart: '2' }}>
+            {children}
+        </div>
+    </div>
+);
+
+export const ThreeToOneGrid: React.FC<{children?: React.ReactNode}> = ({ children }) => (
+    <div className="grid grid-cols-3 sm:grid-cols-1 gap-8 place-items-center mx-auto">
+        {children}
+    </div>
+);
+
 export const MdColumn = ({
     children,
     grow,
