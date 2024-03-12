@@ -11,6 +11,7 @@ export interface hackathonsAndCompsCard {
     resource_name: string
     img_path: string
     descriptions?: string
+    link: string
 }
 
 const CalHacks: hackathonsAndCompsCard = {
@@ -18,6 +19,7 @@ const CalHacks: hackathonsAndCompsCard = {
     img_path: calhackslogo,
     descriptions:
         "Hackathons orchestrated by one of Berkeley’s esteemed nonprofit organizations, dedicated to nurturing a “culture of hacking, entrepreneurship, and social good via the empowerment of technology.",
+        link: 'https://hackberkeley.org/'
 }
 
 const SFHacks: hackathonsAndCompsCard = {
@@ -25,6 +27,7 @@ const SFHacks: hackathonsAndCompsCard = {
     img_path: sfhackslogo,
     descriptions:
         "Hackathon organized by the Association of Computing Machinery at SFSU, offering a complimentary and inclusive experience for programmers of all proficiency levels.",
+        link: 'https://sfhacks.io/'
 }
 
 const TreeHacks: hackathonsAndCompsCard = {
@@ -32,6 +35,7 @@ const TreeHacks: hackathonsAndCompsCard = {
     img_path: treehackslogo,
     descriptions:
         'Hackathon hosted by Stanford University, provided at no cost and beginner friendly. Features a series of workshops, varied hacking tracks, and travel reimbursements.',
+        link: 'https://www.treehacks.com/'
 }
 
 const HackerEarth: hackathonsAndCompsCard = {
@@ -39,6 +43,7 @@ const HackerEarth: hackathonsAndCompsCard = {
     img_path: hackerearthlogo,
     descriptions:
         "Online portal designed to connect individuals with a variety of hackathons, spanning both online and in-person formats. Houses hackathons of different levels, some that they sponsor themselves.",
+        link: 'https://www.hackerearth.com/'
 }
 
 const DevPost: hackathonsAndCompsCard = {
@@ -46,6 +51,7 @@ const DevPost: hackathonsAndCompsCard = {
     img_path: devpostlogo,
     descriptions:
         'A comprehensive platform dedicated to the discovery of countless hackathons, both virtual and physical. Features thousands of hackathon events in various categories.',
+        link: 'https://devpost.com/'
 }
 
 const MetaHackerCup: hackathonsAndCompsCard = {
@@ -53,6 +59,7 @@ const MetaHackerCup: hackathonsAndCompsCard = {
     img_path: metalogo,
     descriptions:
         'Yearly global programming contest, where coders worldwide showcase their problem-solving and algorithmic skills in online rounds. Participants compete for prizes and a chance to go to the finals.',
+        link: 'https://www.facebook.com/codingcompetitions/hacker-cup'
 }
 
 const MicrosoftImagineCup: hackathonsAndCompsCard = {
@@ -60,6 +67,7 @@ const MicrosoftImagineCup: hackathonsAndCompsCard = {
     img_path: microsoftimaginecup,
     descriptions:
         'Annual global competition inviting student innovators to apply their creativity and technological knowledge in challenging online rounds. Competitors win awards and a chance to go to the finals.',
+        link: 'https://imaginecup.microsoft.com/en-us'
 }
 
 const Topcoder: hackathonsAndCompsCard = {
@@ -67,6 +75,7 @@ const Topcoder: hackathonsAndCompsCard = {
     img_path: topcoder,
     descriptions:
         'Platform conducting frequent programming contests and challenges, accessible to both students and professionals across all skill levels. Rewards range from cash and scholarships to internships.',
+        link: 'https://www.topcoder.com/'
 }
 
 const hackathonsAndComps: hackathonsAndCompsCard[] = [
