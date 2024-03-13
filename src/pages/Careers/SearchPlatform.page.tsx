@@ -4,6 +4,8 @@ import { WidePageLayout } from '../../components/Layout/Page.layout'
 import {TECH_JOB_SERACH_PLATFORM, CAREER_PATH_RESOURCES, ROOT_CAREER_PATH_RESOURCES} from '../../data/jobsearchplatform'
 import type { TechJobSearchPlatformCard } from '../../data/jobsearchplatform'
 import { TbLink } from 'react-icons/tb'
+import CareerPathDiagram from './CareerPathDiagram';
+
 
 const SearchPlatform = () => {
     return (
@@ -21,8 +23,9 @@ const SearchPlatform = () => {
                 Whether you're just starting your journey, looking to pivot your career, or seeking to deepen your expertise in a specific tech domain, we are here to help in navigating the plethora of opportunities available in the tech industry.
                 </h5>
             </div>
-            <Resources resources={ROOT_CAREER_PATH_RESOURCES} GridLayout={RootThreeToOneGrid}/>
-            <Resources resources={CAREER_PATH_RESOURCES} GridLayout={ThreeToOneGrid}/>
+            {/* <Resources resources={ROOT_CAREER_PATH_RESOURCES} GridLayout={RootThreeToOneGrid}/> */}
+            {/* <Resources resources={CAREER_PATH_RESOURCES} GridLayout={ThreeToOneGrid}/> */}
+            <CareerPathDiagram />
         </WidePageLayout>
     )
 }
