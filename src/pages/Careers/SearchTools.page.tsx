@@ -30,6 +30,7 @@ const SearchTools = () => {
     )
 }
 
+// Maps a list of resources to a two column table
 const Resources = ({resources}: {resources: TechJobSearchToolCard[]}) => (
     <TwoToOneGrid>
         {resources.map(({ tool_name, description, img_path, tool_link }) => (
@@ -44,6 +45,7 @@ const Resources = ({resources}: {resources: TechJobSearchToolCard[]}) => (
     </TwoToOneGrid>
 )
 
+// Card for each resource
 const ResourceCard = ({
     tool_name,
     img_path,
