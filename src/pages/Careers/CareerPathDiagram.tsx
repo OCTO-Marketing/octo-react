@@ -31,53 +31,58 @@ const initialEdges = [
 ];
 
 const nodeStyle: React.CSSProperties = {
-    background: '#FFFFFF',
-    color: '#000000',
-    borderRadius: '10px', 
-    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', // subtle shadow for depth
-    fontSize: '14px',
-    fontWeight: 'bold',
-    textAlign: 'center', 
-    display: 'flex',
-    flexDirection: 'column', 
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: '4px',
-  };
-
+  background: '#FFFFFF',
+  color: '#000000',
+  borderRadius: '10px',
+  boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+  fontSize: '14px',
+  fontWeight: 'bold',
+  textAlign: 'center', 
+  display: 'flex',
+  flexDirection: 'column', 
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '4px',
+};
 
 // Define the React Flow component
 const CareerPathDiagram = () => {
-  return (
-    <div style={{ height: 800 }}>
-      <ReactFlow
-        nodes={initialNodes.map(node => ({
-          ...node,
-          style: nodeStyle,
-        }))}
-        edges={initialEdges}
-        fitView
-        nodesConnectable={false}
-        nodesDraggable={false}
-        zoomOnScroll={false}
-        zoomOnDoubleClick={false}
-      >
-        <MiniMap
-          nodeColor={(node) => {
-            switch (node.type) {
-              case 'input': return 'red';
-              case 'default': return '#00ff00';
-              case 'output': return 'rgb(0,0,255)';
-              default: return '#eee';
-            }
-          }}
-          nodeStrokeWidth={3}
-        />
-        <Controls />
-        <Background color="#aaa" gap={16} />
-      </ReactFlow>
-    </div>
-  );
+return (
+  <div style={{ 
+      height: 800, 
+      border: '2px solid #000',
+      padding: '10px',
+      boxSizing: 'border-box',
+      borderRadius: '20px',
+  }}>
+    <ReactFlow
+      nodes={initialNodes.map(node => ({
+        ...node,
+        style: nodeStyle,
+      }))}
+      edges={initialEdges}
+      fitView
+      nodesConnectable={false}
+      nodesDraggable={false}
+      zoomOnScroll={false}
+      zoomOnDoubleClick={false}
+    >
+      <MiniMap
+        nodeColor={(node) => {
+          switch (node.type) {
+            case 'input': return 'red';
+            case 'default': return '#00ff00';
+            case 'output': return 'rgb(0,0,255)';
+            default: return '#eee';
+          }
+        }}
+        nodeStrokeWidth={3}
+      />
+      <Controls />
+      <Background color="#aaa" gap={16} />
+    </ReactFlow>
+  </div>
+);
 };
 
 export default CareerPathDiagram;
