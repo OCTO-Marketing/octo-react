@@ -1,20 +1,14 @@
-import { IMember, Leadership } from '../data/members'
+import { IMember, Leadership, BerkeleytimeMembers, BerkeleyMobileMembers, ABSAMembers, WebDevMembers } from '../data/members'
 import { WidePageLayout } from '../components/Layout/Page.layout'
 import { Columns, MdColumn } from '../components/Layout/Columns.layout'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import default_profile from '../assets/members/default.png'
 import { PieChart } from 'react-minimal-pie-chart'
 import { MAJORS } from '../data/majors'
 import { Parallax } from 'react-scroll-parallax'
-import ALUMNI from '../data/alumni.json'
+//import ALUMNI from '../data/alumni.json'
 
-const Alumni = ALUMNI.map(({ name, position, team }) => {
-    return {
-        name: name,
-        title: position,
-        team: team,
-    }
-})
 
 const Team = () => {
     // const [filtered_members, set_filtered_members] = useState(MEMBERS)
@@ -55,10 +49,6 @@ const Team = () => {
                     </p>
                 </MdColumn>
                 <MdColumn secondary>
-                    <Parallax
-                        speed={-20}
-                        className='w-full flex justify-center mt-20'
-                    >
                         <PieChart
                             className='w-1/2 overflow-visible'
                             data={MAJORS.sort((a, b) => {
@@ -80,11 +70,23 @@ const Team = () => {
                             }}
                         />
                         {/* @todo add a inner chart for years */}
-                    </Parallax>
+                    
                 </MdColumn>
             </Columns>
+            <nav className="navbar sticky-top px-20 mb:px-10 py-2 navbar-expand-lg navbar-light bg-light">
+                <div className="flex justify-between w-full">
+                    <a className="nav-link" href="#Leadership">Leadership</a>
+                    <a className="nav-link" href="#Berkeleytime">Berkeleytime</a>
+                    <a className="nav-link" href="#BerkeleyMobile">BerkeleyMobile</a>
+                    <a className="nav-link" href="#ABSA">ABSA</a>
+                    <a className="nav-link" href="#WebDev">Web Dev</a>
+                </div>
+            </nav>
             <LeadershipSection key='leadership' members={Leadership} />
-            <AlumniSection key='alumni' members={Alumni} />
+            <BerkeleytimeSection members={BerkeleytimeMembers} />
+            <BerkeleyMobileSection members={BerkeleyMobileMembers} />
+            <ABSASection members={ABSAMembers} />
+            <WebDevSection members={WebDevMembers} />
         </WidePageLayout>
     )
 }
@@ -114,17 +116,72 @@ const MemberCard = ({ name, photo, title, team }: IMember) => {
 
 const LeadershipSection = ({ members }: { members: IMember[] }) => {
     return (
-        <section className='flex gap-10 flex-col'>
+        <section className='flex gap-10 flex-col' id='Leadership'>
             <h2>Leadership</h2>
-            {MemberCard(members[0])}
             <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
-                {members.slice(1).map((member) => {
+                {members.map((member) => {
                     return MemberCard(member)
                 })}
             </ul>
         </section>
     )
 }
+
+const BerkeleytimeSection = ({ members }: { members: IMember[] }) => {
+    return (
+        <section className='flex gap-10 flex-col' id='Berkeleytime'>
+            <h2>Berkeleytime</h2>
+            <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
+                {members.map((member) => {
+                    return MemberCard(member)
+                })}
+            </ul>
+        </section>
+    )
+}
+
+
+const BerkeleyMobileSection = ({ members }: { members: IMember[] }) => {
+    return (
+        <section className='flex gap-10 flex-col' id='BerkeleyMobile'>
+            <h2>Berkeley Mobile</h2>
+            <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
+                {members.map((member) => {
+                    return MemberCard(member)
+                })}
+            </ul>
+        </section>
+    )
+}
+const ABSASection = ({ members }: { members: IMember[] }) => {
+    return (
+        <section className='flex gap-10 flex-col' id='ABSA'>
+            <h2>ABSA</h2>
+            <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
+                {members.map((member) => {
+                    return MemberCard(member)
+                })}
+            </ul>
+        </section>
+    )
+}
+const WebDevSection = ({ members }: { members: IMember[] }) => {
+    return (
+        <section className='flex gap-10 flex-col' id='WebDev'>
+            <h2>WebDev</h2>
+            <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
+                {members.map((member) => {
+                    return MemberCard(member)
+                })}
+            </ul>
+        </section>
+    )
+}
+
+
+
+
+
 
 const AlumniSection = ({
     members,
