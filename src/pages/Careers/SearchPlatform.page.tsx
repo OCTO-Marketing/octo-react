@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
-import { CenterAlignColumns, TwoToOneGrid, Columns, ThreeToOneGrid, RootThreeToOneGrid } from '../../components/Layout/Columns.layout'
+import { CenterAlignColumns, TwoToOneGrid, Columns} from '../../components/Layout/Columns.layout'
 import { WidePageLayout } from '../../components/Layout/Page.layout'
-import {TECH_JOB_SERACH_PLATFORM, CAREER_PATH_RESOURCES, ROOT_CAREER_PATH_RESOURCES} from '../../data/jobsearchplatform'
+import {TECH_JOB_SEARCH_PLATFORM } from '../../data/jobsearchplatform'
 import type { TechJobSearchPlatformCard } from '../../data/jobsearchplatform'
 import { TbLink } from 'react-icons/tb'
 import CareerPathDiagram from './CareerPathDiagram';
@@ -16,15 +16,13 @@ const SearchPlatform = () => {
                 These websites are designed to connect you with your ideal job. From tech to teaching, finance to freelancing, they cater to all industries and experience levels.
                 </h5>
             </div>
-            <Resources resources={TECH_JOB_SERACH_PLATFORM} GridLayout={TwoToOneGrid}/>
+            <Resources resources={TECH_JOB_SEARCH_PLATFORM} GridLayout={TwoToOneGrid}/>
             <div>
                 <h1>Career Path Resources</h1>
                 <h5 className='mt-4'>
                 Whether you're just starting your journey, looking to pivot your career, or seeking to deepen your expertise in a specific tech domain, we are here to help in navigating the plethora of opportunities available in the tech industry.
                 </h5>
             </div>
-            {/* <Resources resources={ROOT_CAREER_PATH_RESOURCES} GridLayout={RootThreeToOneGrid}/> */}
-            {/* <Resources resources={CAREER_PATH_RESOURCES} GridLayout={ThreeToOneGrid}/> */}
             <CareerPathDiagram />
         </WidePageLayout>
     )

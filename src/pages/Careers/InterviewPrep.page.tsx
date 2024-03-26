@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { CenterAlignColumns, TwoToOneGrid, Columns } from '../../components/Layout/Columns.layout'
+import { CenterAlignColumns, Columns, ThreeToOneGrid} from '../../components/Layout/Columns.layout'
 import { WidePageLayout } from '../../components/Layout/Page.layout'
 import TECH_INTERVIEW_PREP_RESOURCES from '../../data/interviewprep'
 import type { TechInterviewPrepCard } from '../../data/interviewprep'
@@ -22,28 +22,34 @@ const InterviewPrep = () => {
 }
 
 const Resources = () => (
-    <TwoToOneGrid>
-        {TECH_INTERVIEW_PREP_RESOURCES.map(({ tool_name, description, img_path, tool_link }) => (
-            <ResourceCard
-                key={tool_name}
-                tool_name={tool_name}
-                img_path={img_path}
-                description={description}
-                tool_link={tool_link}
-            />
-        ))}
-    </TwoToOneGrid>
+    <div>        
+        <ThreeToOneGrid>
+            {TECH_INTERVIEW_PREP_RESOURCES.map(({ tool_name, description, img_path, tool_link }, index) => (
+                <ResourceCard
+                    key={tool_name}
+                    tool_name={tool_name}
+                    img_path={img_path}
+                    description={description}
+                    tool_link={tool_link}
+                    col_span={
+                        index === TECH_INTERVIEW_PREP_RESOURCES.length - 1 || index === TECH_INTERVIEW_PREP_RESOURCES.length - 2 ? 3 : 2
+                    }
+                />
+            ))}
+        </ThreeToOneGrid>
+    </div>
 )
 
 const ResourceCard = ({
     tool_name,
     img_path,
     tool_link,
-    description
+    description,
+    col_span
 }: TechInterviewPrepCard) => {
     const navigate = useNavigate()
     return (
-        <div className="p-6 bg-white rounded-xl shadow-card animate-showing duration-300 hover:shadow-card-hover ease-out">
+        <div className={`col-span-${col_span} p-6 bg-white rounded-xl shadow-card animate-showing duration-300 hover:shadow-card-hover ease-out`}>
             <CenterAlignColumns>
                 <img
                     src={img_path}

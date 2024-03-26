@@ -1,8 +1,11 @@
 import github from '../assets/careers/github.png';
 import levels from '../assets/careers/levels.png';
-import y from '../assets/careers/y_combinator.png';
+import y from '../assets/careers/y_combinator.svg';
 import whiteboard from '../assets/careers/whiteboard.png';
 import programmer from '../assets/careers/programmericon.png';
+import mars from '../assets/careers/mars.png';
+import lightbulb from '../assets/careers/lightbulb.png';
+import easy from '../assets/careers/easy.png';
 
 export interface TechJobSearchPlatformCard {
     tool_name?: string
@@ -37,8 +40,8 @@ const Levels: TechJobSearchPlatformCard = {
 }
 
 const Choosemars: TechJobSearchPlatformCard = {
-    tool_name: 'Choosemars’ List',
-    img_path: github,
+    tool_name: 'Choosemars List',
+    img_path: mars,
     tool_link: {
         label: 'Link',
         link: 'https://docs.google.com/spreadsheets/d/1TrPJt4g2q7NIP0FDMqx-iewHXVQZHWEzXPvt2DJqp2g/edit?usp=sharing',
@@ -60,7 +63,7 @@ const HackerNews: TechJobSearchPlatformCard = {
 
 const EasyApplicationProcess: TechJobSearchPlatformCard = {
     tool_name: 'Easy Application Process',
-    img_path: github,
+    img_path: easy,
     tool_link: {
         label: 'Link',
         link: 'https://github.com/j-delaney/easy-application',
@@ -71,7 +74,7 @@ const EasyApplicationProcess: TechJobSearchPlatformCard = {
 
 const Zacklight: TechJobSearchPlatformCard = {
     tool_name: 'Zacklight Internships',
-    img_path: github,
+    img_path: lightbulb,
     tool_link: {
         label: 'Link',
         link: 'https://github.com/Zackhardtoname/internships',
@@ -80,7 +83,7 @@ const Zacklight: TechJobSearchPlatformCard = {
         "Search for your dream internships!",
 }
 
-const TECH_JOB_SERACH_PLATFORM: TechJobSearchPlatformCard[] = [
+const TECH_JOB_SEARCH_PLATFORM: TechJobSearchPlatformCard[] = [
     Whiteboards,
     Levels,
     Choosemars,
@@ -177,4 +180,4 @@ const CAREER_PATH_RESOURCES: TechJobSearchPlatformCard[] = [
 ]
 
 
-export {TECH_JOB_SERACH_PLATFORM, CAREER_PATH_RESOURCES, ROOT_CAREER_PATH_RESOURCES}
+export {TECH_JOB_SEARCH_PLATFORM, CAREER_PATH_RESOURCES, ROOT_CAREER_PATH_RESOURCES}

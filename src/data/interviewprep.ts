@@ -4,6 +4,9 @@ import career_cup from '../assets/careers/careercup.png';
 import algorithms from '../assets/careers/massive_algorithms.jpeg';
 import geeks from '../assets/careers/geeksforgeeks.jpeg';
 import blind from '../assets/careers/teamblind.jpeg';
+import collection from '../assets/careers/collection.png';
+import interview from '../assets/careers/interview.png'
+import whathappens from '../assets/careers/whathappens.png';
 
 export interface TechInterviewPrepCard {
     tool_name?: string
@@ -13,6 +16,7 @@ export interface TechInterviewPrepCard {
         link: string
     }
     description?: string
+    col_span?: number
 }
 
 const ByteByByte: TechInterviewPrepCard = {
@@ -39,7 +43,7 @@ const CareerCup: TechInterviewPrepCard = {
 
 const Gitbook: TechInterviewPrepCard = {
     tool_name: 'Coding Interview Questions Gitbook',
-    img_path: github,
+    img_path: interview,
     tool_link: {
         label: 'Link',
         link: 'https://lei-d.gitbook.io/leetcode',
@@ -72,7 +76,7 @@ const GeeksForGeeks: TechInterviewPrepCard = {
 
 const WhatHappens: TechInterviewPrepCard = {
     tool_name: 'What Happens When Github',
-    img_path: github,
+    img_path: whathappens,
     tool_link: {
         label: 'Link',
         link: 'https://github.com/alex/what-happens-when',
@@ -94,7 +98,7 @@ const BlindCurated: TechInterviewPrepCard = {
 
 const GithubCollection: TechInterviewPrepCard = {
     tool_name: 'Github Collection',
-    img_path: github,
+    img_path: collection,
     tool_link: {
         label: 'Link',
         link: 'https://docs.google.com/document/d/1oPs9cE5JPPF6o8ftUbk7WqGN7iqzeTEUwvRjldX0dco/edit',
