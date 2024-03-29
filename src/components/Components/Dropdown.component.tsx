@@ -1,24 +1,32 @@
 import * as React from "react";
 import { NavBarItem } from "data/navbaritems.data"
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 
 export const Dropdown = ({items, children}: {
     items: NavBarItem[],
     children: string
 }) => {
     const [isOpen, setIsOpen] = React.useState(false);
+    const btnRef = React.useRef<HTMLButtonElement>(null)
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
 
-    const closeDropdown = () => {
-        setIsOpen(false);
-    };
-
-    const location = useLocation().pathname
-
+    
     const navigate = useNavigate()
+    
+    React.useEffect(() => {
 
+        const closeDropdown = (e: any) => {
+            if (isOpen && !btnRef.current?.contains(e.target)) {
+                setIsOpen(false);
+            }
+        };
+
+        document.body.addEventListener('click', closeDropdown);
+        return () => document.body.removeEventListener('click', closeDropdown);
+    }, [isOpen]);
 
     return (
         <div className="relative inline-block">
@@ -26,26 +34,27 @@ export const Dropdown = ({items, children}: {
                 type="button"
                 className="inline-flex items-center"
                 onClick={toggleDropdown}
+                ref={btnRef}
             >
                 {children}
-                <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-                </svg>
+                {
+                    !isOpen
+                    ? <RiArrowDropDownLine />
+                    : <RiArrowDropUpLine />
+                }
             </button>
 
             {isOpen &&
                 <div className="origin-top-right absolute right-0 mt-2 w-44 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                    <ul role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                    <ul role="menu" aria-orientation="vertical" aria-labelledby={`${children}-menu`}>
                         {items.map((item) => {
                             const { path, label} = item
                             return (
                                 <li
-                                    className={`cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-opacity duration-300 ${
-                                        label === 'API' && 'mb:hidden'
-                                    }`}
-                                    onClick={() => {
+                                    className={`cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-opacity duration-300`}
+                                    onClick={(e) => {
                                         navigate(path)
-                                        closeDropdown()
+                                        toggleDropdown();
                                     }}
                                 >
                                     {label}
