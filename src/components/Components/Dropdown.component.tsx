@@ -38,14 +38,9 @@ export const Dropdown = ({items, children}: {
                     <ul role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                         {items.map((item) => {
                             const { path, label} = item
-                            const selected = path === location
                             return (
                                 <li
-                                    className={`cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
-                                        selected
-                                            ? 'opacity-100'
-                                            : 'opacity-50 hover:opacity-75'
-                                    } transition-opacity duration-300 ${
+                                    className={`cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-opacity duration-300 ${
                                         label === 'API' && 'mb:hidden'
                                     }`}
                                     onClick={() => {
