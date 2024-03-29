@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { CenterAlignColumns, Columns, ThreeToOneGrid} from '../../components/Layout/Columns.layout'
+import { CenterAlignColumns, Columns, TwoToOneGrid} from '../../components/Layout/Columns.layout'
 import { WidePageLayout } from '../../components/Layout/Page.layout'
 import TECH_INTERVIEW_PREP_RESOURCES from '../../data/interviewprep'
 import type { TechInterviewPrepCard } from '../../data/interviewprep'
@@ -23,7 +23,7 @@ const InterviewPrep = () => {
 
 const Resources = () => (
     <div>        
-        <ThreeToOneGrid>
+        <TwoToOneGrid>
             {TECH_INTERVIEW_PREP_RESOURCES.map(({ tool_name, description, img_path, tool_link }, index) => (
                 <ResourceCard
                     key={tool_name}
@@ -33,7 +33,7 @@ const Resources = () => (
                     tool_link={tool_link}
                 />
             ))}
-        </ThreeToOneGrid>
+        </TwoToOneGrid>
     </div>
 )
 
@@ -46,7 +46,7 @@ const ResourceCard = ({
 }: TechInterviewPrepCard) => {
     const navigate = useNavigate()
     return (
-        <div className={`col-span-1 p-6 bg-white rounded-xl shadow-card animate-showing duration-300 hover:shadow-card-hover ease-out`}>
+        <div className={`p-6 bg-white rounded-xl shadow-card animate-showing duration-300 hover:shadow-card-hover ease-out`}>
             <CenterAlignColumns>
                 <img
                     src={img_path}
