@@ -33,7 +33,7 @@ export const RootThreeToOneGrid: React.FC<{children?: React.ReactNode}> = ({ chi
 );
 
 export const ThreeToOneGrid: React.FC<{children?: React.ReactNode}> = ({ children }) => (
-    <div className="grid grid-flow-row-dense grid-cols-6 sm:grid-cols-1 gap-8">
+    <div className="grid grid-flow-row-dense grid-cols-3 sm:grid-cols-1 gap-8">
         {children}
     </div>
 );
