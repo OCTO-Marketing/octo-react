@@ -31,9 +31,6 @@ const Resources = () => (
                     img_path={img_path}
                     description={description}
                     tool_link={tool_link}
-                    col_span={
-                        index === TECH_INTERVIEW_PREP_RESOURCES.length - 1 || index === TECH_INTERVIEW_PREP_RESOURCES.length - 2 ? 3 : 2
-                    }
                 />
             ))}
         </ThreeToOneGrid>
@@ -49,7 +46,7 @@ const ResourceCard = ({
 }: TechInterviewPrepCard) => {
     const navigate = useNavigate()
     return (
-        <div className={`col-span-${col_span} p-6 bg-white rounded-xl shadow-card animate-showing duration-300 hover:shadow-card-hover ease-out`}>
+        <div className={`col-span-1 p-6 bg-white rounded-xl shadow-card animate-showing duration-300 hover:shadow-card-hover ease-out`}>
             <CenterAlignColumns>
                 <img
                     src={img_path}
