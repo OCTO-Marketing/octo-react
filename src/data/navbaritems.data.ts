@@ -12,8 +12,15 @@ export interface NavBarItem {
     unavailable?: boolean
     active?: boolean
     new?: boolean
-    component: () => JSX.Element
+    subItems?: NavBarItem[]
+    component?: () => JSX.Element
 }
+
+export const CAREERS_ITEMS: NavBarItem[] = [
+    { path: '/careers/searchtools', label: 'Search Tools', component: SearchTools },
+    { path: '/careers/interview', label: 'Interview Prep', component: InterviewPrep },
+    { path: '/careers/searchplatform', label: 'Search Platform', component: SearchPlatform },
+]
 
 export const NAV_BAR_ITEMS: NavBarItem[] = [
     // { path: '/research-fair', label: 'Research Fair', component: ResearchFair },
@@ -22,7 +29,5 @@ export const NAV_BAR_ITEMS: NavBarItem[] = [
     { path: '/projects', label: 'Projects', component: Projects },
     { path: '/apply', label: 'Apply', component: Apply },
     { path: '/api', label: 'API', component: APIDocs },
-    { path: '/careers/searchtools', label: 'Search Tools', component: SearchTools },
-    { path: '/careers/interview', label: 'Interview Prep', component: InterviewPrep },
-    { path: '/careers/searchplatform', label: 'Search Platform', component: SearchPlatform },
+    { path: '/careers', label: 'Careers', subItems: CAREERS_ITEMS},
 ]
