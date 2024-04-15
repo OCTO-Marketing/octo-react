@@ -19,7 +19,7 @@ const ResearchRelations: PColdEmailCard = {
     links: [
         {
             position: 'Link',
-            link: '',
+            link: 'https://www.linkedin.com/pulse/building-relationships-through-research-rishi-taparia/',
         },
     ],
     descriptions:
@@ -32,7 +32,7 @@ const Templates: PColdEmailCard = {
     links: [
         {
             position: 'Link',
-            link: '',
+            link: 'https://sendflock.com/blog/cold-email-template-for-research/',
         },
     ],
     descriptions:
@@ -45,7 +45,7 @@ const BestPractice: PColdEmailCard = {
     links: [
         {
             position: 'Link',
-            link: '',
+            link: 'https://www.stemcell.com/efficient-research/academic-research-tips',
         },
     ],
     descriptions:
@@ -58,7 +58,7 @@ const Finding: PColdEmailCard = {
     links: [
         {
             position: 'Link',
-            link: '',
+            link: 'https://vcresearch.berkeley.edu/research-units',
         },
     ],
     descriptions:
