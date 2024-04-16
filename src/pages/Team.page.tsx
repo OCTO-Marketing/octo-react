@@ -1,12 +1,14 @@
-import { IMember, Leadership, BerkeleytimeMembers, BerkeleyMobileMembers, ABSAMembers, WebDevMembers } from '../data/members'
+import { IMember, Leadership, CTO, BerkeleyMobileMembers, WebDevMembers, BerkeleytimeMembers, SpecialProjectsMembers } from '../data/members'
 import { WidePageLayout } from '../components/Layout/Page.layout'
 import { Columns, MdColumn } from '../components/Layout/Columns.layout'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { useState } from 'react'
 
 import default_profile from '../assets/members/default.png'
 import { PieChart } from 'react-minimal-pie-chart'
 import { MAJORS } from '../data/majors'
 import { Parallax } from 'react-scroll-parallax'
+import vedha_santhosh from '../assets/members/vedha_santhosh.jpeg'
 //import ALUMNI from '../data/alumni.json'
 
 
@@ -27,6 +29,20 @@ const Team = () => {
     //     }
     // }, [selected_teams])
     //test push
+    const [scrolled, setScrolled] = useState(false)
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= 48) {
+            setScrolled(true)
+        } else if (scrolled) {
+            setScrolled(false)
+        }
+    })
+
+    const [activeTab, setActiveTab] = useState<string>('#Leadership');
+
+    const handleTabClick = (tab: string): void => {
+        setActiveTab(tab);
+    };
 
     return (
         <WidePageLayout>
@@ -73,20 +89,20 @@ const Team = () => {
                     
                 </MdColumn>
             </Columns>
-            <nav className="navbar sticky-top px-20 mb:px-10 py-2 navbar-expand-lg navbar-light bg-light">
-                <div className="flex justify-between w-full">
-                    <a className="nav-link" href="#Leadership">Leadership</a>
-                    <a className="nav-link" href="#Berkeleytime">Berkeleytime</a>
-                    <a className="nav-link" href="#BerkeleyMobile">BerkeleyMobile</a>
-                    <a className="nav-link" href="#ABSA">ABSA</a>
-                    <a className="nav-link" href="#WebDev">Web Dev</a>
+            <nav className={`navbar sticky ${scrolled ? 'top-22' : 'top-8'} navbar-expand-lg navbar-light bg-sky-100 rounded-full items-stretch py-0 h-10`}>
+                <div className="flex justify-between w-full h-full items-stretch">
+                    <a className={`nav-link w-1/5 h-full flex items-center justify-center rounded-full ${activeTab === '#Leadership' ? 'bg-amber-50 shadow-lg font-bold' : ''}`} href="#Leadership" onClick={() => handleTabClick('#Leadership')}>Leadership</a>
+                    <a className={`nav-link w-1/5 h-full flex items-center justify-center rounded-full ${activeTab === '#Berkeleytime' ? 'bg-amber-50 shadow-lg font-bold' : ''}`} href="#Berkeleytime" onClick={() => handleTabClick('#Berkeleytime')}>Berkeleytime</a>
+                    <a className={`nav-link w-1/5 h-full flex items-center justify-center rounded-full ${activeTab === '#BerkeleyMobile' ? 'bg-amber-50 shadow-lg font-bold' : ''}`} href="#BerkeleyMobile" onClick={() => handleTabClick('#BerkeleyMobile')}>BerkeleyMobile</a>
+                    <a className={`nav-link w-1/5 h-full flex items-center justify-center rounded-full ${activeTab === '#WebDev' ? 'bg-amber-50 shadow-lg font-bold' : ''}`} href="#WebDev" onClick={() => handleTabClick('#WebDev')}>Web Dev</a>
+                    <a className={`nav-link w-1/5 h-full flex items-center justify-center rounded-full ${activeTab === '#SpecialProj' ? 'bg-amber-50 shadow-lg font-bold' : ''}`} href="#SpecialProj" onClick={() => handleTabClick('#SpecialProj')}>Special Projects</a>
                 </div>
             </nav>
             <LeadershipSection key='leadership' members={Leadership} />
             <BerkeleytimeSection members={BerkeleytimeMembers} />
             <BerkeleyMobileSection members={BerkeleyMobileMembers} />
-            <ABSASection members={ABSAMembers} />
             <WebDevSection members={WebDevMembers} />
+            <SpecialProjSection members={SpecialProjectsMembers} />
         </WidePageLayout>
     )
 }
@@ -115,9 +131,30 @@ const MemberCard = ({ name, photo, title, team }: IMember) => {
 }
 
 const LeadershipSection = ({ members }: { members: IMember[] }) => {
+    const [scrolled, setScrolled] = useState(false)
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= 48) {
+            setScrolled(true)
+        } else if (scrolled) {
+            setScrolled(false)
+        }
+    })
+    
     return (
         <section className='flex gap-10 flex-col' id='Leadership'>
-            <h2>Leadership</h2>
+            <h2 className={`${scrolled ? 'pt-10 mt-40' : 'top-8'}`}>Leadership</h2>
+            <div className='flex flex-row gap-6 bg-white shadow-card duration-300 hover:shadow-card-hover ease-out px-6 py-8 rounded-xl items-center animate-showing'>
+                <img src={vedha_santhosh} className='w-32 h-32 object-cover rounded-xl'/>
+                <div className='text-left'>
+                    <h5 className='font-bold'>Vedha Santhosh</h5>
+                    <span className='text-xs font-medium block text-sky-800 rounded-md'>
+                        Chief Technology Officer
+                    </span>
+                    <span className='text-xs font-medium block mt-1 text-slate-400'>
+                        Leadership
+                    </span>
+                </div>
+            </div>
             <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
                 {members.map((member) => {
                     return MemberCard(member)
@@ -127,10 +164,19 @@ const LeadershipSection = ({ members }: { members: IMember[] }) => {
     )
 }
 
+
 const BerkeleytimeSection = ({ members }: { members: IMember[] }) => {
+    const [scrolled, setScrolled] = useState(false)
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= 48) {
+            setScrolled(true)
+        } else if (scrolled) {
+            setScrolled(false)
+        }
+    })
     return (
         <section className='flex gap-10 flex-col' id='Berkeleytime'>
-            <h2>Berkeleytime</h2>
+            <h2 className={`${scrolled ? 'pt-10 mt-40' : 'top-8'}`}>Berkeleytime</h2>
             <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
                 {members.map((member) => {
                     return MemberCard(member)
@@ -142,9 +188,17 @@ const BerkeleytimeSection = ({ members }: { members: IMember[] }) => {
 
 
 const BerkeleyMobileSection = ({ members }: { members: IMember[] }) => {
+    const [scrolled, setScrolled] = useState(false)
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= 48) {
+            setScrolled(true)
+        } else if (scrolled) {
+            setScrolled(false)
+        }
+    })
     return (
         <section className='flex gap-10 flex-col' id='BerkeleyMobile'>
-            <h2>Berkeley Mobile</h2>
+            <h2 className={`${scrolled ? 'pt-10 mt-40' : 'top-8'}`}>Berkeley Mobile</h2>
             <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
                 {members.map((member) => {
                     return MemberCard(member)
@@ -153,22 +207,19 @@ const BerkeleyMobileSection = ({ members }: { members: IMember[] }) => {
         </section>
     )
 }
-const ABSASection = ({ members }: { members: IMember[] }) => {
-    return (
-        <section className='flex gap-10 flex-col' id='ABSA'>
-            <h2>ABSA</h2>
-            <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
-                {members.map((member) => {
-                    return MemberCard(member)
-                })}
-            </ul>
-        </section>
-    )
-}
+
 const WebDevSection = ({ members }: { members: IMember[] }) => {
+    const [scrolled, setScrolled] = useState(false)
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= 48) {
+            setScrolled(true)
+        } else if (scrolled) {
+            setScrolled(false)
+        }
+    })
     return (
         <section className='flex gap-10 flex-col' id='WebDev'>
-            <h2>WebDev</h2>
+            <h2 className={`${scrolled ? 'pt-10 mt-40' : 'top-8'}`}>WebDev</h2>
             <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
                 {members.map((member) => {
                     return MemberCard(member)
@@ -178,33 +229,21 @@ const WebDevSection = ({ members }: { members: IMember[] }) => {
     )
 }
 
-
-
-
-
-
-const AlumniSection = ({
-    members,
-}: {
-    members: { name: string; title: string; team: string }[]
-}) => {
+const SpecialProjSection = ({ members }: { members: IMember[] }) => {
+    const [scrolled, setScrolled] = useState(false)
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= 48) {
+            setScrolled(true)
+        } else if (scrolled) {
+            setScrolled(false)
+        }
+    })
     return (
-        <section className='flex gap-10 flex-col mt-10'>
-            <h2>OCTO Members</h2>
-
+        <section className='flex gap-10 flex-col' id='SpecialProj'>
+            <h2 className={`${scrolled ? 'pt-10 mt-40' : 'top-8'}`}>Special Projects</h2>
             <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
-                {members.map(({ name, title, team }) => {
-                    return (
-                        <div className='text-left w-56 bg-white shadow-card duration-300 hover:shadow-card-hover ease-out p-6 rounded-xl animate-showing relative'>
-                            <h5 className='font-bold'>{name}</h5>
-                            <span className='text-xs font-medium block text-sky-800 rounded-md'>
-                                {title}
-                            </span>
-                            <span className='text-xs font-medium block mt-1 text-slate-400 relative bottom-0 right-0'>
-                                {team}
-                            </span>
-                        </div>
-                    )
+                {members.map((member) => {
+                    return MemberCard(member)
                 })}
             </ul>
         </section>

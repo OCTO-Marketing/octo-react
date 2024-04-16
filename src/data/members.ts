@@ -17,6 +17,9 @@ export interface IMember {
         | 'Website'
         | 'Data Science'
         | 'Special Projects'
+        | 'StatDASH'
+        | 'AI Resource Assistant'
+        | 'NexLiber'
     title:
         | 'Chief Technology Officer'
         | 'Product Manager'
@@ -34,6 +37,7 @@ export interface IMember {
         | 'Android Lead'
         | 'Project Manager'
         | 'Marketing Lead'
+        | 'Project Coordinator'
 }
 
 export const TEAMS = [
@@ -46,13 +50,16 @@ export const TEAMS = [
     'Project Management',
 ]
 
-export const Leadership: IMember[] = [
+export const CTO: IMember[] = [
     {
         name: 'Vedha Santhosh',
         team: 'Leadership',
         title: 'Chief Technology Officer',
         photo: vedha_santhosh,
     },
+]
+
+export const Leadership: IMember[] = [
     {
         name: 'Michelle Tran',
         team: 'Berkeleytime',
@@ -77,6 +84,19 @@ export const Leadership: IMember[] = [
         title: 'Lead',
         photo: joanne_tran,
     },
+    {
+        name: 'Shlok Sooch',
+        team: 'Internal',
+        title: 'Project Coordinator',
+     
+    },
+    {
+        name: 'Jenna Rizzi',
+        team: 'Internal',
+        title: 'Marketing Lead',
+     
+    },
+
     // {
     //     name: 'Marketing Lead',
     //     team: 'Marketing',
@@ -253,14 +273,6 @@ export const BerkeleyMobileMembers: IMember[] = [
     
 ]
 
-export const ABSAMembers: IMember[] = [
-    {
-        name: 'Jordan Camel',
-        team: 'ABSA',
-        title: 'Frontend',
-        
-    }
-]
 
 export const WebDevMembers: IMember[] = [
     {
@@ -326,12 +338,70 @@ export const WebDevMembers: IMember[] = [
 
 ]
 
+//currently StatDASH and AI Resource Assistant
+export const SpecialProjectsMembers: IMember[] = [
+    {
+        name: 'Tommy Hang',
+        team: 'StatDASH',
+        title: 'Project Manager',
+        
+    },
+    {
+        name: 'Serena Yung',
+        team: 'StatDASH',
+        title: 'Design',
+        
+    }, 
+    {
+        name: 'Yunze Du',
+        team: 'StatDASH',
+        title: 'Backend',
+        
+    }, 
+    {
+        name: 'Ron Wang',
+        team: 'StatDASH',
+        title: 'Full-Stack',
+        
+    }, 
+    {
+        name: 'Srikar Hanamanula',
+        team: 'AI Resource Assistant',
+        title: 'Project Manager',
+        
+    }, 
+    {
+        name: 'Har Vey Yuen',
+        team: 'AI Resource Assistant',
+        title: 'Full-Stack',
+        
+    }, 
+    {
+        name: 'Arvind Vivekanandan',
+        team: 'AI Resource Assistant',
+        title: 'Full-Stack',
+        
+    }, 
+    {
+        name: 'Jordan Camel',
+        team: 'AI Resource Assistant',
+        title: 'Full-Stack',
+        
+    }, 
+    {
+        name: 'Nyx Iskandar',
+        team: 'NexLiber',
+        title: 'Full-Stack',
+        
+    }, 
+    
+]
+
 
 const MEMBERS = [
     ...Leadership,
     ...BerkeleytimeMembers,
     ...BerkeleyMobileMembers,
-    ...ABSAMembers,
 ]
 
 export default MEMBERS

@@ -13,6 +13,7 @@ module.exports = {
             },
             spacing: {
                 15: '3.75rem',
+                22: '7rem',
             },
             colors: {
                 accent: { DEFAULT: '#2f80ed' },
