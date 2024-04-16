@@ -50,14 +50,14 @@ export const TEAMS = [
     'Project Management',
 ]
 
-export const CTO: IMember[] = [
-    {
-        name: 'Vedha Santhosh',
-        team: 'Leadership',
-        title: 'Chief Technology Officer',
-        photo: vedha_santhosh,
-    },
-]
+// export const CTO: IMember[] = [
+//     {
+//         name: 'Vedha Santhosh',
+//         team: 'Leadership',
+//         title: 'Chief Technology Officer',
+//         photo: vedha_santhosh,
+//     },
+// ]
 
 export const Leadership: IMember[] = [
     {
