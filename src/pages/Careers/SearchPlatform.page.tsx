@@ -1,13 +1,24 @@
-import { useNavigate } from 'react-router-dom'
-import { CenterAlignColumns, TwoToOneGrid, Columns} from '../../components/Layout/Columns.layout'
-import { WidePageLayout } from '../../components/Layout/Page.layout'
-import {TECH_JOB_SEARCH_PLATFORM } from '../../data/jobsearchplatform'
-import type { TechJobSearchPlatformCard } from '../../data/jobsearchplatform'
-import { TbLink } from 'react-icons/tb'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { CenterAlignColumns, TwoToOneGrid, Columns } from '../../components/Layout/Columns.layout';
+import { WidePageLayout } from '../../components/Layout/Page.layout';
+import { TECH_JOB_SEARCH_PLATFORM } from '../../data/jobsearchplatform';
+import type { TechJobSearchPlatformCard } from '../../data/jobsearchplatform';
+import { TbLink } from 'react-icons/tb';
 import CareerPathDiagram from './CareerPathDiagram';
-
+import UIUXCareerPathDiagram from './UIUXCareerPathDiagram';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 const SearchPlatform = () => {
+    const [diagram, setDiagram] = useState('careerPath');
+
+    const handleDiagramChange = (_event: any, newDiagram: React.SetStateAction<string> | null) => {
+        if (newDiagram !== null) {  // Prevents unselecting a toggle
+            setDiagram(newDiagram);
+        }
+    };
+
     return (
         <WidePageLayout>
             <div>
@@ -23,9 +34,19 @@ const SearchPlatform = () => {
                 Whether you're just starting your journey, looking to pivot your career, or seeking to deepen your expertise in a specific tech domain, we are here to help in navigating the plethora of opportunities available in the tech industry.
                 </h5>
             </div>
-            <CareerPathDiagram />
+            <ToggleButtonGroup
+                color="primary"
+                value={diagram}
+                exclusive
+                onChange={handleDiagramChange}
+                style={{ marginTop: 0, display: 'flex', justifyContent: 'center' }}
+            >
+                <ToggleButton value="careerPath">Software Developer Path</ToggleButton>
+                <ToggleButton value="anotherDiagram">UI/UX Designer Path</ToggleButton>
+            </ToggleButtonGroup>
+            {diagram === 'careerPath' ? <CareerPathDiagram /> : <UIUXCareerPathDiagram />}
         </WidePageLayout>
-    )
+    );
 }
 
 const Resources = ({
