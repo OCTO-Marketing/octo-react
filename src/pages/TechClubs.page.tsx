@@ -44,7 +44,6 @@ const Example = () => {
   
     return (
         <div>
-            <h1>Select tags</h1>
             <pre>{JSON.stringify(selected)}</pre>
             <MultiSelect
                 options={options}
@@ -74,6 +73,7 @@ const TechClubs = () => {
                 <h5 className='mt-4'>
                     Find a tech club to join!
                 </h5>
+                <Example></Example>
             </div>
             <ClubSection key='techclubs' clubs={Clubs} />
         </WidePageLayout>
