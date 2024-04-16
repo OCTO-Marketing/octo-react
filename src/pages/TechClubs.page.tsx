@@ -5,6 +5,57 @@ import { CenterAlignColumns, TwoToOneGrid } from '../components/Layout/Columns.l
 import { WidePageLayout } from '../components/Layout/Page.layout'
 import { TbLink } from 'react-icons/tb'
 import TECHCLUBS from '../data/berkeleytechclubs.json'
+import React, { useState } from 'react';
+import { MultiSelect } from 'react-multi-select-component';
+
+const options = [
+    {label: 'animation', value: 'animation'},
+    {label: 'architecture', value: 'architecture'},
+    {label: 'artificial intelligence', value: 'artificla intelligence'},
+    {label: 'blockchain design', value: 'blockchain design'},
+    {label: 'city planning', value: 'city planning'},
+    {label: 'consulting', value: 'consulting'},
+    {label: 'computer science', value: 'computer science'},
+    {label: 'creative strategy', value: 'creative strategy'},
+    {label: 'data science', value: 'data science'},
+    {label: 'decal', value: 'decal'},
+    {label: 'education', value: 'education'},
+    {label: 'engineering', value: 'engineering'},
+    {label: 'environmental', value: 'environmental'},
+    {label: 'fashion', value: 'fashion'},
+    {label: 'film/media', value: 'film/media'},
+    {label: 'game design', value: 'game design'},
+    {label: 'graphic design', value: 'animation'},
+    {label: 'human-centered design', value: 'human-centered design'},
+    {label: 'industrial design', value: 'industrial design'},
+    {label: 'literature', value: 'literature'},
+    {label: 'photo', value: 'photo'},
+    {label: 'product design', value: 'product design'},
+    {label: 'programming', value: 'programming'},
+    {label: 'social good', value: 'social good'},
+    {label: 'virtual reality', value: 'virtual reality'},
+    {label: 'visual arts', value: 'visual arts'},
+    {label: 'web design', value: 'web design'},
+    {label: 'other', value: 'other'},
+];
+  
+const Example = () => {
+    const [selected, setSelected] = useState([]);
+  
+    return (
+        <div>
+            <h1>Select tags</h1>
+            <pre>{JSON.stringify(selected)}</pre>
+            <MultiSelect
+                options={options}
+                value={selected}
+                onChange={setSelected}
+                labelledBy="Select"
+            />
+        </div>
+    );
+};
+
 
 
 const Clubs = TECHCLUBS.map(({ Name, Tags, Link }) => {
@@ -29,7 +80,7 @@ const TechClubs = () => {
     )
 }
 
-export default TechClubs
+export default TechClubs;
 
 const ClubSection = ({
     clubs,
