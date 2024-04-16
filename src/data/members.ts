@@ -67,7 +67,6 @@ export const Leadership: IMember[] = [
         name: 'Michelle Tran',
         team: 'Berkeleytime',
         title: 'Product Manager',
-        
     },
     {
         name: 'Sukhamrit Singh ',
@@ -75,12 +74,7 @@ export const Leadership: IMember[] = [
         title: 'Product Manager',
         photo: sukhamrit_singh,
     },
-    {
-        name: 'Srikar Hanumanula',
-        team: 'ABSA',
-        title: 'Product Manager',
-        photo: srikar_hanumanula,
-    },
+    
     {
         name: 'Joanne Tran',
         team: 'Website',
@@ -98,6 +92,18 @@ export const Leadership: IMember[] = [
         team: 'Internal',
         title: 'Marketing Lead',
      
+    },
+    {
+        name: 'Srikar Hanumanula',
+        team: 'AI Resource Assistant',
+        title: 'Product Manager',
+        photo: srikar_hanumanula,
+    },
+    {
+        name: 'Tommy Hang',
+        team: 'StatDASH',
+        title: 'Project Manager',
+        
     },
 
     // {
