@@ -1,4 +1,4 @@
-import { IMember, Leadership, CTO, BerkeleyMobileMembers, WebDevMembers, BerkeleytimeMembers, SpecialProjectsMembers } from '../data/members'
+import { IMember, Leadership, BerkeleyMobileMembers, WebDevMembers, BerkeleytimeMembers, SpecialProjectsMembers } from '../data/members'
 import { WidePageLayout } from '../components/Layout/Page.layout'
 import { Columns, MdColumn } from '../components/Layout/Columns.layout'
 import 'bootstrap/dist/css/bootstrap.min.css'
