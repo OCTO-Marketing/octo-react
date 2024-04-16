@@ -3,6 +3,9 @@ import srikar_hanumanula from '../assets/members/srikar_hanumanula.jpeg'
 import kev_wang from '../assets/members/kev_wang.jpeg'
 import sukhamrit_singh from '../assets/members/sukhamrit_singh.jpeg'
 import joanne_tran from '../assets/members/joanne_tran.jpeg'
+import rachelhu from '../assets/members/rachelhu.jpeg'
+import naomiliu from '../assets/members/naomiliu.jpeg'
+import qiliyang from '../assets/members/qiliyang.jpeg'
 
 export interface IMember {
     name: string
@@ -285,12 +288,14 @@ export const WebDevMembers: IMember[] = [
         name: 'Qi Li Yang',
         team: 'Website',
         title: 'Frontend',
+        photo: qiliyang
         
     }, 
     {
         name: 'Naomi Liu',
         team: 'Website',
         title: 'Frontend',
+        photo: naomiliu
         
     }, 
     {
@@ -303,6 +308,7 @@ export const WebDevMembers: IMember[] = [
         name: 'Rachel Hu',
         team: 'Website',
         title: 'Frontend',
+        photo: rachelhu,
         
     }, 
     {
