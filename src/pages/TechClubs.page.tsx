@@ -6,8 +6,8 @@ import { WidePageLayout } from '../components/Layout/Page.layout'
 import { TbLink } from 'react-icons/tb'
 import TECHCLUBS from '../data/berkeleytechclubs.json'
 
-/*
-const TechClubs = TECHCLUBS.map(({ Name, Tags, Link }) => {
+
+const Clubs = TECHCLUBS.map(({ Name, Tags, Link }) => {
     return {
         name: Name,
         tags: Tags,
@@ -21,10 +21,10 @@ const TechClubs = () => {
             <div>
                 <h1>Tech Clubs</h1>
                 <h5 className='mt-4'>
-                    something something find tech clubs
+                    Find a tech club to join!
                 </h5>
             </div>
-            <ClubSection key='techclubs' clubs={TechClubs} />
+            <ClubSection key='techclubs' clubs={Clubs} />
         </WidePageLayout>
     )
 }
@@ -38,7 +38,6 @@ const ClubSection = ({
 }) => {
     return (
         <section className='flex gap-10 flex-col mt-10'>
-            <h2>Berkeley Tech Clubs</h2>
 
             <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
                 {clubs.map(({ name, tags, link }) => {
@@ -48,9 +47,7 @@ const ClubSection = ({
                             <span className='text-xs font-medium block text-sky-800 rounded-md'>
                                 {tags}
                             </span>
-                            <span className='text-xs font-medium block mt-1 text-slate-400 relative bottom-0 right-0'>
-                                {link}
-                            </span>
+                            <TbLink className="text-accent list-none text-sm cursor-pointer whitespace-nowrap inline" /> <a className="text-accent list-none text-sm cursor-pointer whitespace-nowrap" href={link}>Link</a>
                         </div>
                     )
                 })}
@@ -58,4 +55,3 @@ const ClubSection = ({
         </section>
     )
 }
-*/
