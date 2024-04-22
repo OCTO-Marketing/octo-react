@@ -16,14 +16,6 @@ export const TwoToOneGrid = ({ children }: any) => {
     )
 }
 
-//Add Four-to-One-Grid layout
-export const FourToOneGrid = ({ children }: any) => {
-    return (
-        <div className='grid grid-cols-4 sm:grid-cols-1 gap-8'>{children}</div>
-    )
-}
-
-
 export const SmColumn = ({ children }: any) => {
     return <div className='basis-2/5 flex flex-col gap-10 sm:hidden'>{children}</div>
 }
