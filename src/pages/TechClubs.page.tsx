@@ -11,7 +11,7 @@ import { MultiSelect } from 'react-multi-select-component';
 const options = [
     {label: 'animation', value: 'animation'},
     {label: 'architecture', value: 'architecture'},
-    {label: 'artificial intelligence', value: 'artificla intelligence'},
+    {label: 'artificial intelligence', value: 'artificial intelligence'},
     {label: 'blockchain design', value: 'blockchain design'},
     {label: 'city planning', value: 'city planning'},
     {label: 'consulting', value: 'consulting'},
@@ -39,9 +39,35 @@ const options = [
     {label: 'other', value: 'other'},
 ];
   
-const Example = () => {
+const ClubFilter = () => {
     const [selected, setSelected] = useState([]);
-  
+
+    var selectedClubs = TECHCLUBS.map(({ Name, Tags, Link }) => {
+        return {
+            name: Name,
+            tags: Tags,
+            link: Link,
+        }
+    })
+
+    //filters clubs based on selected tags
+    const filterClubs = () => {
+        selectedClubs = TECHCLUBS.filter(function(club){
+            for(let s in selected) {
+                if (!(club.Tags.includes(s))) {
+                    return false;
+                }
+            }
+            return true;
+        }).map(({ Name, Tags, Link }) => {
+            return {
+                name: Name,
+                tags: Tags,
+                link: Link,
+            }
+        })
+    }
+
     return (
         <div>
             <pre>{JSON.stringify(selected)}</pre>
@@ -51,19 +77,20 @@ const Example = () => {
                 onChange={setSelected}
                 labelledBy="Select"
             />
+            <ClubSection key='techclubs' clubs={selectedClubs} />
         </div>
+        
     );
 };
 
-
-
+/*
 const Clubs = TECHCLUBS.map(({ Name, Tags, Link }) => {
     return {
         name: Name,
         tags: Tags,
         link: Link,
     }
-})
+})*/
 
 const TechClubs = () => {
     return (
@@ -73,9 +100,8 @@ const TechClubs = () => {
                 <h5 className='mt-4'>
                     Find a tech club to join!
                 </h5>
-                <Example></Example>
+                <ClubFilter></ClubFilter>
             </div>
-            <ClubSection key='techclubs' clubs={Clubs} />
         </WidePageLayout>
     )
 }
