@@ -20,8 +20,8 @@ export interface NavBarItem {
 export const ACADEMICS_ITEMS: NavBarItem[] = [
     { path: '/academics/educationalresources', label: 'Educational Resources', component: EducationalResources },
     { path: '/academics/hackathonsandcomps', label: 'Hackathons and Competitions', component: HackathonsAndComps },
-    { path: '/academics/techclubs', label: 'Tech Clubs', component: TechClubs },
     { path: '/academics/uiuxproductdesign', label: 'UI/UX Product Design', component: UIUXProductDesign },
+    { path: '/academics/techclubs', label: 'Tech Clubs at Berkeley', component: TechClubs },
 ]
 
 export const NAV_BAR_ITEMS: NavBarItem[] = [

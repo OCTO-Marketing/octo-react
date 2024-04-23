@@ -76,7 +76,7 @@ const TechClubs = () => {
         <WidePageLayout>
             <div>
                 <h1>Tech Clubs</h1>
-                <h5 className='mt-4'>
+                <h5 className='py-4'>
                     Find a tech club to join! Select from the list of tags below.
                 </h5>
                 <ClubFilter></ClubFilter>
