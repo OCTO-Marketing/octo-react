@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { CenterAlignColumns, FourToOneGrid, TwoToOneGrid } from '../components/Layout/Columns.layout'
 import { WidePageLayout } from '../components/Layout/Page.layout'
-import type { PResearchCard } from '../data/research'
+import type { PResearchCard } from '../data/corporateEng'
 import {CORPORATE_ENG, CORPORATE_OTHER} from '../data/corporateEng'
 import { TbLink } from 'react-icons/tb'
 
@@ -12,7 +12,7 @@ const CorporateEng = () => {
                 {/* Page title and description */}
                 <h1>Corporate Engineering Resources</h1>
                     <h5 className='mt-4'>
-                        Some helpful resources to understand how modern tech companies build scalable products
+                        Stay up-to-date with the ever-changing tech industry
                     </h5>
             </div>
             {/* Two-to-one grid layout */}
@@ -31,7 +31,7 @@ const CorporateEng = () => {
                 })}
             </TwoToOneGrid>
             
-            <div> <div className="border-b border-black"></div> </div>
+            <div> <div className="border-b border-gray"></div> </div>
             
             <TwoToOneGrid>
                 {CORPORATE_OTHER.map(({ name, img_path, descriptions, links }) => {
@@ -72,29 +72,33 @@ const ResearchCard = ({
                     className='w-24 h-24 sm:w-16 sm:h-16 rounded-md'
                 />
                 <div>
-                    {/* Research name */}
                     <h3 className='text-lg font-bold'>{name}</h3>
-                    {/* Research descriptions */}
                     <p className='mt-2 text-sm leading-6 font-medium'>
                         {descriptions}
                     </p>
-                    {/* Render links if available */}
-                        {links && links.length > 0 &&
-                            links.map(({ position, link }) => {
-                                return (
-                                    <a
-                                        key={position} // Unique key for each link
-                                        href={link} // URL
-                                        target='_blank' // Open in new tab
-                                        rel='noopener noreferrer' // Security attributes
-                                        className='text-sm text-blue-500 hover:text-blue-700 transition duration-150 ease-in-out' // Styling
-                                    >
-                                        {/* Icon and position */}
-                                        <TbLink className="inline" /> {position}
-                                    </a>
-                                )
-                            })
-                        }
+                    {/* Render links and descriptions if available */}
+                        {links && links.length > 0 && (
+                            <div className='mt-3'>
+                                {links.map(({ position, link, tag }) => (
+                                    <div className='flex items-center my-2' key={position}>
+                                            {tag && (
+                                                <span className='mr-2 text-sm text-gray-500'>
+                                                   {tag}
+                                                </span>
+                                            )}
+                                            <a
+                                                key={position}
+                                                href={link}
+                                                target='_blank'
+                                                rel='noopener noreferrer'
+                                                className='text-sm text-blue-500 hover:text-blue-700 transition duration-150 ease-in-out'
+                                            >
+                                                <TbLink className='inline' />{position}
+                                            </a>
+                                    </div>
+                                ))}
+                            </div>
+                         )}
                 </div>
             </CenterAlignColumns>
         </div>

@@ -25,14 +25,18 @@ export const CAREERS_ITEMS: NavBarItem[] = [
     { path: '/careers/searchplatform', label: 'Search Platform', component: SearchPlatform },
 ]
 
+export const RESEARCH_ITEMS: NavBarItem[] = [
+    { path: '/research/academicResources', label: 'Academic Papers & Resources', component: Research },
+    { path: '/research/coldEmail', label: 'Cold Email Templates', component: ColdEmail },
+    { path: '/research/CorporateEng', label: 'Corporate Engineering Blogs', component: CorporateEng },
+]
+
 export const NAV_BAR_ITEMS: NavBarItem[] = [
-    { path: '/research', label: 'Research', component: Research }, //Add Research Page in NavBar
-    { path: '/coldEmail', label: 'Research-ColdEmail', component: ColdEmail }, //Add Research Page in NavBar
-    { path: '/CorporateEng', label: 'Corporate Engineering', component: CorporateEng },
     // { path: '/case-comp', label: 'Case Competition', component: CaseComp },
     { path: '/team', label: 'Team', component: Team },
     { path: '/projects', label: 'Projects', component: Projects },
     // { path: '/apply', label: 'Apply', component: Apply },
+    { path: '/research', label: 'Research', subItems: RESEARCH_ITEMS},
     { path: '/api', label: 'API', component: APIDocs },
     { path: '/careers', label: 'Careers', subItems: CAREERS_ITEMS},
 ]

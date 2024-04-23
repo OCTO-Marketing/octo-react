@@ -45,7 +45,7 @@ const ColdEmailCard = ({
 }: PColdEmailCard) => {
     const navigate = useNavigate()
     return (
-        <div className='px-6 py-32 bg-white rounded-xl shadow-card animate-showing duration-300 hover:shadow-card-hover ease-out'>
+        <div className='px-6 py-10 bg-white rounded-xl shadow-card animate-showing duration-300 hover:shadow-card-hover ease-out'>
 
             {/* Centered columns layout */}
 
