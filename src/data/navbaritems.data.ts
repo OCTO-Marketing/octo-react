@@ -37,7 +37,7 @@ export const NAV_BAR_ITEMS: NavBarItem[] = [
     { path: '/team', label: 'Team', component: Team },
     { path: '/projects', label: 'Projects', component: Projects },
     // { path: '/apply', label: 'Apply', component: Apply },
-    { path: '/research', label: 'Research', subItems: RESEARCH_ITEMS},
     { path: '/api', label: 'API', component: APIDocs },
+    { path: '/research', label: 'Research', subItems: RESEARCH_ITEMS},
     { path: '/careers', label: 'Careers', subItems: CAREERS_ITEMS},
 ]
