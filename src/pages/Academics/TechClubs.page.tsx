@@ -1,10 +1,10 @@
 import { link } from 'node:fs'
 import { PiCards } from 'react-icons/pi'
 import { useNavigate } from 'react-router-dom'
-import { CenterAlignColumns, TwoToOneGrid } from '../components/Layout/Columns.layout'
-import { WidePageLayout } from '../components/Layout/Page.layout'
+import { CenterAlignColumns, TwoToOneGrid } from '../../components/Layout/Columns.layout'
+import { WidePageLayout } from '../../components/Layout/Page.layout'
 import { TbLink } from 'react-icons/tb'
-import TECHCLUBS from '../data/berkeleytechclubs.json'
+import TECHCLUBS from '../../data/berkeleytechclubs.json'
 import React, { useState } from 'react';
 import { MultiSelect } from 'react-multi-select-component';
 

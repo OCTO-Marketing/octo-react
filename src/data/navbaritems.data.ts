@@ -1,10 +1,11 @@
 import APIDocs from '../pages/APIDocs/APIDocs.page'
-import Apply from '../pages/Apply.page'
+// import Apply from '../pages/Apply.page'
 import Projects from '../pages/Projects.page'
 import Team from '../pages/Team.page'
-import TechClubs from '../pages/TechClubs.page'
-import HacksAndComps from '../pages/HackathonsAndComps.page'
-import UIUXPD from '../pages/UIUXProductDesign.page'
+import EducationalResources from '../pages/Academics/EducationalResources.page'
+import HackathonsAndComps from '../pages/Academics/HackathonsAndComps.page'
+import TechClubs from '../pages/Academics/TechClubs.page'
+import UIUXProductDesign from '../pages/Academics/UIUXProductDesign.page'
 
 export interface NavBarItem {
     path: string
@@ -12,17 +13,23 @@ export interface NavBarItem {
     unavailable?: boolean
     active?: boolean
     new?: boolean
-    component: () => JSX.Element
+    subItems?: NavBarItem[]
+    component?: () => JSX.Element
 }
+
+export const ACADEMICS_ITEMS: NavBarItem[] = [
+    { path: '/academics/educationalresources', label: 'Educational Resources', component: EducationalResources },
+    { path: '/academics/hackathonsandcomps', label: 'Hackathons and Competitions', component: HackathonsAndComps },
+    { path: '/academics/techclubs', label: 'Tech Clubs', component: TechClubs },
+    { path: '/academics/uiuxproductdesign', label: 'UI/UX Product Design', component: UIUXProductDesign },
+]
 
 export const NAV_BAR_ITEMS: NavBarItem[] = [
     // { path: '/research-fair', label: 'Research Fair', component: ResearchFair },
     // { path: '/case-comp', label: 'Case Competition', component: CaseComp },
     { path: '/team', label: 'Team', component: Team },
     { path: '/projects', label: 'Projects', component: Projects },
-    { path: '/apply', label: 'Apply', component: Apply },
+    // { path: '/apply', label: 'Apply', component: Apply },
     { path: '/api', label: 'API', component: APIDocs },
-    { path: '/techclubs', label: 'Tech Clubs at Berkeley', component: TechClubs },
-    { path: '/hacksandcomps', label: 'Hackathons and Competitions', component: HacksAndComps},
-    { path: '/uiuxpd', label: 'UI/UX and Product Design', component: UIUXPD}
+    { path: '/academics', label: 'Academics', subItems: ACADEMICS_ITEMS},
 ]

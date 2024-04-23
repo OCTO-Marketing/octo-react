@@ -1,23 +1,22 @@
-import { link } from 'node:fs'
 import { PiCards } from 'react-icons/pi'
 import { useNavigate } from 'react-router-dom'
-import { CenterAlignColumns, TwoToOneGrid } from '../components/Layout/Columns.layout'
-import { WidePageLayout } from '../components/Layout/Page.layout'
-import type { UIUXPDCard } from '../data/uiuxproductdesign'
-import UIUXPD from '../data/uiuxproductdesign'
+import { CenterAlignColumns, TwoToOneGrid } from '../../components/Layout/Columns.layout'
+import { WidePageLayout } from '../../components/Layout/Page.layout'
+import type { hackathonsAndCompsCard } from '../../data/hackathonsandcomps'
+import hackathonsAndComps from '../../data/hackathonsandcomps'
 import { TbLink } from 'react-icons/tb'
 
-const UIUXProductDesign = () => {
+const HackathonsAndComps = () => {
     return (
         <WidePageLayout>
             <div>
-                <h1>Educational Resources</h1>
+                <h1>Hackathons And Competitions</h1>
                 <h5 className='mt-4'>
-                    Dive into frontend and backend development with these educational resources.
+                    A curated list of various hackathons and competitions designed to provide students with opportunities for experiential learning and skill development.
                 </h5>
             </div>
             <TwoToOneGrid>
-                {UIUXPD.map(({ resource_name, img_path, descriptions, link }) => {
+                {hackathonsAndComps.map(({ resource_name, img_path, descriptions, link }) => {
                     return (
                         <Card
                             key={resource_name}
@@ -33,9 +32,9 @@ const UIUXProductDesign = () => {
     )
 }
 
-export default UIUXProductDesign
+export default HackathonsAndComps
 
-const Card = ({ resource_name, descriptions, img_path, link }: UIUXPDCard) => {
+const Card = ({ resource_name, descriptions, img_path, link }: hackathonsAndCompsCard) => {
     const navigate = useNavigate()
     return (
         <div
@@ -55,7 +54,7 @@ const Card = ({ resource_name, descriptions, img_path, link }: UIUXPDCard) => {
                     <p className='mt-2 mb-1 text-sm leading-6 font-medium'>
                         {descriptions}
                     </p>
-                    <TbLink className="text-accent list-none text-sm cursor-pointer whitespace-nowrap inline" /> <a className="text-accent list-none text-sm cursor-pointer whitespace-nowrap" href={link} >Link</a>
+                    <TbLink className="text-accent list-none text-sm cursor-pointer whitespace-nowrap inline" /> <a className="text-accent list-none text-sm cursor-pointer whitespace-nowrap" href={link}>Link</a>
                 </div>
             </CenterAlignColumns>
         </div>

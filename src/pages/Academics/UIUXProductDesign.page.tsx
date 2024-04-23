@@ -1,22 +1,23 @@
+import { link } from 'node:fs'
 import { PiCards } from 'react-icons/pi'
 import { useNavigate } from 'react-router-dom'
-import { CenterAlignColumns, TwoToOneGrid } from '../components/Layout/Columns.layout'
-import { WidePageLayout } from '../components/Layout/Page.layout'
-import type { hackathonsAndCompsCard } from '../data/hackathonsandcomps'
-import hackathonsAndComps from '../data/hackathonsandcomps'
+import { CenterAlignColumns, TwoToOneGrid } from '../../components/Layout/Columns.layout'
+import { WidePageLayout } from '../../components/Layout/Page.layout'
+import type { UIUXPDCard } from '../../data/uiuxproductdesign'
+import UIUXPD from '../../data/uiuxproductdesign'
 import { TbLink } from 'react-icons/tb'
 
-const HackathonsAndComps = () => {
+const UIUXProductDesign = () => {
     return (
         <WidePageLayout>
             <div>
-                <h1>Hackathons And Competitions</h1>
+                <h1>UI/UX & Product Design</h1>
                 <h5 className='mt-4'>
-                    A curated list of various hackathons and competitions designed to provide students with opportunities for experiential learning and skill development.
+                    Accelerate your learning and elevate your skills in UI/UX and Product Design by engaging with the following resources.
                 </h5>
             </div>
             <TwoToOneGrid>
-                {hackathonsAndComps.map(({ resource_name, img_path, descriptions, link }) => {
+                {UIUXPD.map(({ resource_name, img_path, descriptions, link }) => {
                     return (
                         <Card
                             key={resource_name}
@@ -32,9 +33,9 @@ const HackathonsAndComps = () => {
     )
 }
 
-export default HackathonsAndComps
+export default UIUXProductDesign
 
-const Card = ({ resource_name, descriptions, img_path, link }: hackathonsAndCompsCard) => {
+const Card = ({ resource_name, descriptions, img_path, link }: UIUXPDCard) => {
     const navigate = useNavigate()
     return (
         <div
@@ -54,7 +55,7 @@ const Card = ({ resource_name, descriptions, img_path, link }: hackathonsAndComp
                     <p className='mt-2 mb-1 text-sm leading-6 font-medium'>
                         {descriptions}
                     </p>
-                    <TbLink className="text-accent list-none text-sm cursor-pointer whitespace-nowrap inline" /> <a className="text-accent list-none text-sm cursor-pointer whitespace-nowrap" href={link}>Link</a>
+                    <TbLink className="text-accent list-none text-sm cursor-pointer whitespace-nowrap inline" /> <a className="text-accent list-none text-sm cursor-pointer whitespace-nowrap" href={link} >Link</a>
                 </div>
             </CenterAlignColumns>
         </div>

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ReactComponent as OCTOLogo } from '../../assets/octo.svg'
 import { NAV_BAR_ITEMS } from '../../data/navbaritems.data'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { Dropdown } from 'components/Components/Dropdown.component'
 
 const NavBar = () => {
     const [scrolled, setScrolled] = useState(false)
@@ -40,12 +41,16 @@ const NavBar = () => {
                 className='flex justify-between gap-6 font-bold text-lg'
             >
                 {NAV_BAR_ITEMS.map((item) => {
-                    const { path, label } = item
+                    const { path, label, subItems} = item
                     const selected = path === location
                     return (
                         <li
                             key={label}
-                            onClick={() => navigate(path)}
+                            onClick={() => {
+                                if (!subItems) {
+                                    navigate(path)
+                                }
+                            }}
                             className={`cursor-pointer ${
                                 selected
                                     ? 'opacity-100'
@@ -54,7 +59,11 @@ const NavBar = () => {
                                 label === 'API' && 'mb:hidden'
                             }`}
                         >
-                            {label}
+                            {
+                                subItems
+                                ? <Dropdown items={subItems}>{label}</Dropdown>
+                                : label
+                            }
                             {item.new && (
                                 <span className='inline-block ml-1 p-1 bg-accent rounded-md text-white uppercase text-base'>
                                     New

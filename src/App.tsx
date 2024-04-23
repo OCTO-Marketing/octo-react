@@ -19,7 +19,13 @@ function App() {
             <Route path='/' element={<Navigation />}>
                 <Route index element={<Home />} />
                 {NAV_BAR_ITEMS.map((item) => {
-                    return <Route path={item.path} element={item.component()} />
+                    if (item.subItems) {
+                        return item.subItems.map((subItem) => {
+                            return <Route path={subItem.path} element={subItem.component!()} />
+                        })
+                    } else {
+                        return <Route path={item.path} element={item.component!()} />
+                    }
                 })}
                 <Route element={<NotFound />} />
             </Route>
