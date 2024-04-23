@@ -8,6 +8,10 @@ import CorporateEng from 'pages/CorporateEng.page'
 import SearchTools from '../pages/Careers/SearchTools.page'
 import InterviewPrep from '../pages/Careers/InterviewPrep.page'
 import SearchPlatform from '../pages/Careers/SearchPlatform.page'
+import EduRes from '../pages/Academics/EducationalResources.page'
+import UIUXPD from '../pages/Academics/UIUXProductDesign.page'
+import HacksAndComps from '../pages/Academics/HackathonsAndComps.page'
+import TechClubs from '../pages/Academics/TechClubs.page'
 
 export interface NavBarItem {
     path: string
@@ -32,6 +36,13 @@ export const RESEARCH_ITEMS: NavBarItem[] = [
     { path: '/research/CorporateEng', label: 'Corporate Engineering Blogs', component: CorporateEng },
 ]
 
+export const ACADEMICS_ITEMS: NavBarItem[] = [
+    { path: '/academics/educationalResources', label: 'Educational Resources', component: EduRes },
+    { path: '/academics/UIUXProductDesign', label: 'UI/UX Product Design', component: UIUXPD },
+    { path: '/academics/hackathonsAndCompetitions', label: 'Hackathons And Competitions', component: HacksAndComps },
+    { path: '/academics/techClubs', label: 'Tech Clubs At Berkeley', component: TechClubs },
+]
+
 export const NAV_BAR_ITEMS: NavBarItem[] = [
     // { path: '/case-comp', label: 'Case Competition', component: CaseComp },
     { path: '/team', label: 'Team', component: Team },
@@ -40,4 +51,5 @@ export const NAV_BAR_ITEMS: NavBarItem[] = [
     { path: '/api', label: 'API', component: APIDocs },
     { path: '/research', label: 'Research', subItems: RESEARCH_ITEMS},
     { path: '/careers', label: 'Careers', subItems: CAREERS_ITEMS},
+    {path: '/academics', label: 'Academics', subItems: ACADEMICS_ITEMS}
 ]
