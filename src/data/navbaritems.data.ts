@@ -25,6 +25,7 @@ export const CAREERS_ITEMS: NavBarItem[] = [
     { path: '/careers/searchplatform', label: 'Search Platform', component: SearchPlatform },
 ]
 
+
 export const RESEARCH_ITEMS: NavBarItem[] = [
     { path: '/research/academicResources', label: 'Academic Papers & Resources', component: Research },
     { path: '/research/coldEmail', label: 'Cold Email Templates', component: ColdEmail },
