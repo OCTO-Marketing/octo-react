@@ -16,10 +16,10 @@ import TEAMS, { PTeamCard } from '../data/teams'
 const Apply = () => {
     return (
         <WidePageLayout>
-            <h2>Fall 2023 Recruitment is officially concluded!</h2>
+            <h2>Fall 2024 recruitment is live!</h2>
             <Descriptions />
             <Teams />
-            <Infosessions />
+            {/*<Infosessions />*/}
             <hr className="mt-10 mb-4" />
             <ApplicationProcess />
         </WidePageLayout>
@@ -38,7 +38,7 @@ const Descriptions = () => (
                     better suit the student body needs.
                 </h5>
                 <h5>
-                    We're recruiting for projects across our office's portfolio,
+                    We're recruiting for select projects across our office's portfolio,
                     including signature projects like{' '}
                     <SkewedText>Berkeleytime</SkewedText> and{' '}
                     <SkewedText>Berkeley Mobile</SkewedText> and newer additions

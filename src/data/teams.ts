@@ -17,12 +17,12 @@ export interface PTeamCard {
 
 const Berkeleytime: PTeamCard = {
     team_name: 'Berkeleytime',
-    positions: 'Frontend Developer, Backend Engineer, UI/UX Design',
+    positions: 'Frontend, Backend, Infrastructure, ML/DS, UI/UX, Research',
     img_path: bt,
     app_links: [
         {
             position: 'Apply',
-            link: 'https://airtable.com/appEYeaqwXtphA3Zc/shrtEq1365WZJNN3c',
+            link: 'https://airtable.com/appllQy6crmpquCOQ/pag5ngU9hgKJt5eAs/form',
         },
     ],
     descriptions:
@@ -31,56 +31,56 @@ const Berkeleytime: PTeamCard = {
 
 const BerkeleyMobile: PTeamCard = {
     team_name: 'Berkeley Mobile',
-    positions: 'Developers (iOS, Android & Backend) and Designers.',
+    positions: 'More info coming soon', //'Developers (iOS, Android & Backend) and Designers.',
     img_path: bm,
-    app_links: [
+    /*app_links: [
         {
             position: 'Apply',
             link: 'https://forms.gle/DhpTrKVf4QB1Zwj1A',
         },
-    ],
+    ],*/
     descriptions:
         "Develop Berkeley's student-created mobile app and collaborate with campus community to implement cutting-edge features.",
 }
 
 const ABSA: PTeamCard = {
     team_name: 'ABSA',
-    positions: 'Full-Stack Developer, UI/UX Designer',
+    positions: 'More info coming soon', //'Full-Stack Developer, UI/UX Designer',
     img_path: absa,
-    app_links: [
+    /*app_links: [
         {
             position: 'Apply',
             link: 'https://forms.gle/8fq9sG4eysZfpznx8',
         },
-    ],
+    ],*/
     descriptions:
         'Help create the new and improved Annual Budgeting and Spaces Application system for ASUC and gain valuable experience at the intersection of engineering and finance.',
 }
 
 const Marketing: PTeamCard = {
     team_name: 'Marketing',
-    positions: 'Social Media Interns, Communications Lead',
+    positions: 'More info coming soon', //'Social Media Interns, Communications Lead',
     img_path: marketing,
-    app_links: [
+    /*app_links: [
         {
             position: 'Apply',
             link: 'https://forms.gle/XNMQfMRgMTYvZh6P7',
         },
-    ],
+    ],*/
     descriptions:
         "Join OCTO's in house marketing team and be the voice of tech within the ASUC and throughout the campus community.",
 }
 
 const Internal: PTeamCard = {
     team_name: 'Internal',
-    positions: 'Project Manager, Interns',
+    positions: 'More info coming soon', //'Project Manager, Interns',
     img_path: internal,
-    app_links: [
+    /*app_links: [
         {
             position: 'Apply',
             link: 'https://forms.gle/XNMQfMRgMTYvZh6P7',
         },
-    ],
+    ],*/
     descriptions:
         'Spearhead member development activities and cultivate relationships with tech student organizations, ASUC officials, and campus administrative leadership.',
 }
@@ -97,16 +97,16 @@ const DataScience: PTeamCard = {
 
 const Website: PTeamCard = {
     team_name: 'Website',
-    positions: 'UI Designer, Web Development Interns',
+    positions: 'Frontend, UI/UX',
     img_path: website,
     app_links: [
         {
             position: 'Apply',
-            link: 'https://airtable.com/appc9o7LhbqmOiMPK/shrrWB8Jgl85EGBok',
+            link: 'https://docs.google.com/forms/d/e/1FAIpQLSf-M52LTjXSy61nfHkPybedKVDFCnKwHSJ-I9gjWJv4NNIR7w/viewform',
         },
     ],
     descriptions:
-        'Assist the lead webmaster with site maintenance and design creation for web developpment needs within OCTO and throughout the ASUC.',
+        'Assist the lead webmaster with site maintenance and design creation for web development needs within OCTO and throughout the ASUC.',
 }
 
 const SpecialProjects: PTeamCard = {
