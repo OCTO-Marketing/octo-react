@@ -68,77 +68,10 @@ const Website: PTeamCard = {
     preview_img_path: website_preview,
 }
 
-// const ABSA: PTeamCard = {
-//     team_name: 'ABSA',
-//     positions: 'More info coming soon', //'Full-Stack Developer, UI/UX Designer',
-//     img_path: absa,
-//     /*app_links: [
-//         {
-//             position: 'Apply',
-//             link: 'https://forms.gle/8fq9sG4eysZfpznx8',
-//         },
-//     ],*/
-//     descriptions:
-//         'Help create the new and improved Annual Budgeting and Spaces Application system for ASUC and gain valuable experience at the intersection of engineering and finance.',
-// }
-
-// const Marketing: PTeamCard = {
-//     team_name: 'Marketing',
-//     positions: 'More info coming soon', //'Social Media Interns, Communications Lead',
-//     img_path: marketing,
-//     /*app_links: [
-//         {
-//             position: 'Apply',
-//             link: 'https://forms.gle/XNMQfMRgMTYvZh6P7',
-//         },
-//     ],*/
-//     descriptions:
-//         "Join OCTO's in house marketing team and be the voice of tech within the ASUC and throughout the campus community.",
-// }
-
-// const Internal: PTeamCard = {
-//     team_name: 'Internal',
-//     positions: 'More info coming soon', //'Project Manager, Interns',
-//     img_path: internal,
-//     /*app_links: [
-//         {
-//             position: 'Apply',
-//             link: 'https://forms.gle/XNMQfMRgMTYvZh6P7',
-//         },
-//     ],*/
-//     descriptions:
-//         'Spearhead member development activities and cultivate relationships with tech student organizations, ASUC officials, and campus administrative leadership.',
-// }
-
-// const DataScience: PTeamCard = {
-//     team_name: 'Data Science',
-//     positions:
-//         'The Data Science team is not recruiting for this semester. Check back here when spring semester starts.',
-//     img_path: ds,
-//     app_links: [],
-//     descriptions:
-//         'Identify interesting trends in campus data and communicate results to key strategic stakeholders through dynamic dashboards and interactive reports.',
-// }
-
-// const SpecialProjects: PTeamCard = {
-//     team_name: 'Special Projects',
-//     positions:
-//         'Roles developed on an individual basis. Please schedule a coffee chat above or email the CTO at technology@asuc.org',
-//     img_path: sp,
-//     app_links: [],
-//     descriptions:
-//         "Don't see a project here that fits your interests? Bring us your unique ideas to improve the campus technology experience.",
-// }
-
 const TEAMS: PTeamCard[] = [
     Berkeleytime,
     BerkeleyMobile,
     Website,
-    // ABSA,
-    // Marketing,
-    // Internal,
-    // DataScience,
-    // SpecialProjects,
 ]
 
 export default TEAMS

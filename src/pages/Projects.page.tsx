@@ -57,12 +57,12 @@ const TeamCard = ({ team_name, img_path, website_link, descriptions, preview_img
                             </div>
                         </CenterAlignColumns>
                     </div>
-                    <div className='w-1/3 flex items-center pl-10 pr-4'>
+                    <div className='w-1/3 flex items-center pl-10 pr-3'>
                         <a href={`${website_link}`}>
                             <img
                                 src={preview_img_path}
                                 alt={`website preview for ${team_name}`}
-                                className='w-full h-auto rounded-md transition-transform duration-300 ease-out transform hover:scale-125'
+                                className='w-full h-auto rounded-md transition-transform duration-300 ease-out transform hover:scale-120'
                             />
                         </a>
                     </div>
