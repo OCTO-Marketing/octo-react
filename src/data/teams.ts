@@ -122,12 +122,12 @@ const SpecialProjects: PTeamCard = {
 const TEAMS: PTeamCard[] = [
     Berkeleytime,
     BerkeleyMobile,
-    ABSA,
-    Marketing,
-    Internal,
-    DataScience,
+    // ABSA,
+    // Marketing,
+    // Internal,
+    // DataScience,
     Website,
-    SpecialProjects,
+    // SpecialProjects,
 ]
 
 export default TEAMS
