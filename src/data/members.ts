@@ -23,6 +23,7 @@ export interface IMember {
         | 'StatDASH'
         | 'AI Resource Assistant'
         | 'NexLiber'
+
     title:
         | 'Chief Technology Officer'
         | 'Product Manager'
@@ -41,6 +42,13 @@ export interface IMember {
         | 'Project Manager'
         | 'Marketing Lead'
         | 'Project Coordinator'
+        | 'Chief of Staff'
+        | 'Technical Product Manager & Frontend Lead'
+        | 'Product Manager & Product Designer'
+        | 'Developer'
+        | 'UI Designer'
+        | 'Web Team Lead'
+
 }
 
 export const TEAMS = [
@@ -64,177 +72,111 @@ export const TEAMS = [
 
 export const Leadership: IMember[] = [
     {
-        name: 'Michelle Tran',
-        team: 'Berkeleytime',
-        title: 'Product Manager',
-    },
-    {
-        name: 'Sukhamrit Singh ',
-        team: 'Berkeley Mobile',
-        title: 'Product Manager',
-        photo: sukhamrit_singh,
-    },
-    
-    {
-        name: 'Joanne Tran',
-        team: 'Website',
-        title: 'Lead',
-        photo: joanne_tran,
-    },
-    {
         name: 'Shlok Sooch',
         team: 'Internal',
-        title: 'Project Coordinator',
+        title: 'Chief of Staff',
      
     },
-    {
-        name: 'Jenna Rizzi',
-        team: 'Internal',
-        title: 'Marketing Lead',
-     
-    },
-    {
-        name: 'Srikar Hanumanula',
-        team: 'AI Resource Assistant',
-        title: 'Product Manager',
-        photo: srikar_hanumanula,
-    },
-    {
-        name: 'Tommy Hang',
-        team: 'StatDASH',
-        title: 'Project Manager',
-        
-    },
-
-    // {
-    //     name: 'Marketing Lead',
-    //     team: 'Marketing',
-    //     title: 'Lead',
-    // },
-    // {
-    //     name: 'Data Science PM',
-    //     team: 'Data Science',
-    //     title: 'Lead',
-    // },
 ]
 
 export const BerkeleytimeMembers: IMember[] = [
     {
         name: 'Michelle Tran',
         team: 'Berkeleytime',
-        title: 'Product Manager',
-        
+        title: 'Product Manager & Product Designer',
     },
     {
         name: 'Matthew Rowland',
         team: 'Berkeleytime',
-        title: 'Frontend Lead',
-        
+        title: 'Technical Product Manager & Frontend Lead',
     },
     {
         name: 'Max Wang',
         team: 'Berkeleytime',
         title: 'Backend Lead',
-        
     },
     {
         name: 'Kara Rizzardi',
         team: 'Berkeleytime',
         title: 'Frontend',
-        
     },
     {
         name: 'Advay Ratan',
         team: 'Berkeleytime',
         title: 'Backend',
-        
     },
     {
         name: 'Rachel Hua',
         team: 'Berkeleytime',
         title: 'Design Lead',
-        
     },
     {
         name: 'Chengming Li',
         team: 'Berkeleytime',
         title: 'Backend',
-        
     },
     {
         name: 'Ethan Chng',
         team: 'Berkeleytime',
         title: 'Design',
-        
     },
     {
         name: 'Leo Huang',
         team: 'Berkeleytime',
         title: 'Frontend',
-        
     },
     {
         name: 'Mary Tran',
         team: 'Berkeleytime',
-        title: 'Design',
-        
+        title: 'Design Lead',
     },
     {
         name: 'Arhum Khan',
         team: 'Berkeleytime',
         title: 'Frontend',
-        
     },
     {
         name: 'Subhash Prasad',
         team: 'Berkeleytime',
         title: 'Backend',
-        
     },
     {
         name: 'Sarah Suen',
         team: 'Berkeleytime',
         title: 'Design',
-        
     },
     {
         name: 'Xue Han',
         team: 'Berkeleytime',
         title: 'Design',
-        
     },
     {
         name: 'Kevin Wang',
         team: 'Berkeleytime',
         title: 'Backend',
-        
     },
     {
         name: 'Jaden Moore',
         team: 'Berkeleytime',
         title: 'Frontend',
-        
     },
     {
         name: 'Elsie Xu',
         team: 'Berkeleytime',
         title: 'Backend',
-        
     },
     {
         name: 'Clara Tu',
         team: 'Berkeleytime',
         title: 'Frontend',
-        
     },
     {
         name: 'Kartavya Sharma',
         team: 'Berkeleytime',
         title: 'Backend',
-        
     },
-    
-]
+];
+
 
 export const BerkeleyMobileMembers: IMember[] = [
     {
@@ -285,70 +227,58 @@ export const BerkeleyMobileMembers: IMember[] = [
 
 export const WebDevMembers: IMember[] = [
     {
-        name: 'Joanne Tran',
+        name: 'Andrew Cheng',
         team: 'Website',
-        title: 'Lead',
-        photo: joanne_tran,
+        title: 'Web Team Lead',
     },
-    {
-        name: 'Qi Li Yang',
-        team: 'Website',
-        title: 'Frontend',
-        photo: qiliyang
-        
-    }, 
-    {
-        name: 'Naomi Liu',
-        team: 'Website',
-        title: 'Frontend',
-        photo: naomiliu
-        
-    }, 
-    {
-        name: 'Narah Quazi',
-        team: 'Website',
-        title: 'Design',
-        
-    }, 
     {
         name: 'Rachel Hu',
         team: 'Website',
-        title: 'Frontend',
+        title: 'Web Team Lead',
         photo: rachelhu,
-        
-    }, 
+    },
     {
-        name: 'Justin Song',
+        name: 'Jerry Yang',
         team: 'Website',
-        title: 'Frontend',
-        
-    }, 
+        title: 'Developer',
+    },
     {
-        name: 'Andrew Cheng',
+        name: 'Timothy Zheng',
         team: 'Website',
-        title: 'Frontend',
-        
-    }, 
+        title: 'Developer',
+    },
     {
-        name: 'Jared Andrew Casiano Basilio',
+        name: 'Richa Jos',
         team: 'Website',
-        title: 'Frontend',
-        
-    }, 
+        title: 'Developer',
+    },
     {
-        name: 'Jinnie Kim',
+        name: 'Jocelyn Tao',
         team: 'Website',
-        title: 'Frontend',
-        
-    }, 
+        title: 'Developer',
+    },
     {
-        name: 'Teja Mandadi',
+        name: 'Jason Chan',
         team: 'Website',
-        title: 'Frontend',
-        
-    }, 
+        title: 'Developer',
+    },
+    {
+        name: 'Vivan Sinha',
+        team: 'Website',
+        title: 'Developer',
+    },
+    {
+        name: 'Narah Quazi',
+        team: 'Website',
+        title: 'UI Designer',
+    },
+    {
+        name: 'Twesha Ghosh',
+        team: 'Website',
+        title: 'Developer',
+    },
+];
 
-]
 
 //currently StatDASH and AI Resource Assistant
 export const SpecialProjectsMembers: IMember[] = [

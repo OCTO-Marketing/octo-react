@@ -64,30 +64,6 @@ const Team = () => {
                         creating lasting study buddies, mentors, and friends.
                     </p>
                 </MdColumn>
-                <MdColumn secondary>
-                        <PieChart
-                            className='w-1/2 overflow-visible'
-                            data={MAJORS.sort((a, b) => {
-                                return b.value - a.value
-                            })}
-                            lineWidth={20}
-                            animate
-                            paddingAngle={1}
-                            label={({ dataEntry }) => {
-                                return `${dataEntry.title} ${dataEntry.value}`
-                            }}
-                            labelPosition={110}
-                            labelStyle={{
-                                fill: '#212121',
-                                fontSize: '4px',
-                                fontFamily: '"Open Sans"',
-                                opacity: 0.75,
-                                pointerEvents: 'none',
-                            }}
-                        />
-                        {/* @todo add a inner chart for years */}
-                    
-                </MdColumn>
             </Columns>
             <nav className={`navbar sticky ${scrolled ? 'top-22' : 'top-8'} navbar-expand-lg navbar-light bg-sky-100 rounded-full items-stretch py-0 h-10`}>
                 <div className="flex justify-between w-full h-full items-stretch">
@@ -146,7 +122,7 @@ const LeadershipSection = ({ members }: { members: IMember[] }) => {
             <div className='flex flex-row gap-6 bg-white shadow-card duration-300 hover:shadow-card-hover ease-out px-6 py-8 rounded-xl items-center animate-showing'>
                 <img src={vedha_santhosh} className='w-32 h-32 object-cover rounded-xl'/>
                 <div className='text-left'>
-                    <h5 className='font-bold'>Vedha Santhosh</h5>
+                    <h5 className='font-bold'>Sukhamrit Singh</h5>
                     <span className='text-xs font-medium block text-sky-800 rounded-md'>
                         Chief Technology Officer
                     </span>
