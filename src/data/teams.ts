@@ -32,7 +32,7 @@ const Berkeleytime: PTeamCard = {
     ],
     website_link: 'https://berkeleytime.com',
     descriptions:
-        "Contribute to Berkeley's beloved course discovery, grade distribution aggregating, and scheduling powerhouse platform.",
+        "Contribute to the development of Berkeley's go-to platform for course discovery, grade distribution insights, and seamless schedule planning, enabling students to make informed academic choices with ease.",
     preview_img_path: bt_preview,
 }
 
@@ -48,7 +48,7 @@ const BerkeleyMobile: PTeamCard = {
     ],*/
     website_link: 'https://apps.apple.com/us/app/berkeley-mobile/id912243518',
     descriptions:
-        "Develop Berkeley's student-created mobile app and collaborate with campus community to implement cutting-edge features.",
+        "Help develop Berkeley's student-created mobile app and collaborate with the campus community to implement cutting-edge features, including an interactive campus navigation map for efficient route planning, a comprehensive dining hall menu page, real-time safety alerts, and a convenient study page to locate the nearest open library.",
     preview_img_path: bm_preview,
 }
 
@@ -64,7 +64,7 @@ const Website: PTeamCard = {
     ],
     website_link: 'https://octo.asuc.org',
     descriptions:
-        'Assist the lead webmaster with site maintenance and design creation for web development needs within OCTO and throughout the ASUC.',
+        'Assist the lead webmaster with maintaining, designing, and developing websites for both OCTO and the ASUC, ensuring that sites are visually appealing, user-friendly, and aligned with organizational goals.',
     preview_img_path: website_preview,
 }
 
