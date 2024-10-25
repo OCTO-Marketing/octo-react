@@ -17,6 +17,7 @@ module.exports = {
             },
             scale: {
                 25: '.25',
+                120: '1.2',
             },
             colors: {
                 accent: { DEFAULT: '#2f80ed' },

@@ -15,6 +15,7 @@ export interface PTeamCard {
     positions?: string
     img_path: string
     app_links?: { position: string; link: string }[]
+    website_link?: string
     descriptions?: string
     preview_img_path?: string;
 }
@@ -29,6 +30,7 @@ const Berkeleytime: PTeamCard = {
             link: 'https://airtable.com/appllQy6crmpquCOQ/pag5ngU9hgKJt5eAs/form',
         },
     ],
+    website_link: 'https://berkeleytime.com',
     descriptions:
         "Contribute to Berkeley's beloved course discovery, grade distribution aggregating, and scheduling powerhouse platform.",
     preview_img_path: bt_preview,
@@ -44,6 +46,7 @@ const BerkeleyMobile: PTeamCard = {
             link: 'https://forms.gle/DhpTrKVf4QB1Zwj1A',
         },
     ],*/
+    website_link: 'https://apps.apple.com/us/app/berkeley-mobile/id912243518',
     descriptions:
         "Develop Berkeley's student-created mobile app and collaborate with campus community to implement cutting-edge features.",
     preview_img_path: bm_preview,
@@ -59,6 +62,7 @@ const Website: PTeamCard = {
             link: 'https://docs.google.com/forms/d/e/1FAIpQLSf-M52LTjXSy61nfHkPybedKVDFCnKwHSJ-I9gjWJv4NNIR7w/viewform',
         },
     ],
+    website_link: 'https://octo.asuc.org',
     descriptions:
         'Assist the lead webmaster with site maintenance and design creation for web development needs within OCTO and throughout the ASUC.',
     preview_img_path: website_preview,
