@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { CenterAlignColumns, LgColumn, TwoToOneGrid } from '../components/Layout/Columns.layout'
+import { CenterAlignColumns, LgColumn } from '../components/Layout/Columns.layout'
 import { WidePageLayout } from '../components/Layout/Page.layout'
 import type { PTeamCard } from '../data/teams'
 import TEAMS from '../data/teams'

@@ -4,11 +4,6 @@ import bm from '../assets/teams/bm.jpg'
 import bm_preview from '../assets/teams/bm_preview.png'
 import website from '../assets/teams/Website.png'
 import website_preview from '../assets/teams/Website_preview.png'
-// import absa from '../assets/teams/ABSA.png'
-// import marketing from '../assets/teams/Marketing.png'
-// import internal from '../assets/teams/Internal.png'
-// import ds from '../assets/teams/Data Science.png'
-// import sp from '../assets/teams/Special Project.png'
 
 export interface PTeamCard {
     team_name: string
