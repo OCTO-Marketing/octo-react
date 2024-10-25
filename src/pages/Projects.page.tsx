@@ -62,7 +62,7 @@ const TeamCard = ({ team_name, img_path, website_link, descriptions, preview_img
                             <img
                                 src={preview_img_path}
                                 alt={`website preview for ${team_name}`}
-                                className='w-full h-auto rounded-md transition-transform duration-300 ease-out transform hover:scale-150'
+                                className='w-full h-auto rounded-md transition-transform duration-300 ease-out transform hover:scale-125'
                             />
                         </a>
                     </div>
