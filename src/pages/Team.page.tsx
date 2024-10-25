@@ -1,4 +1,4 @@
-import { IMember, Leadership, BerkeleyMobileMembers, WebDevMembers, BerkeleytimeMembers, SpecialProjectsMembers } from '../data/members'
+import { IMember, Leadership, BerkeleyMobileMembers, WebDevMembers, BerkeleytimeMembers } from '../data/members'
 import { WidePageLayout } from '../components/Layout/Page.layout'
 import { Columns, MdColumn } from '../components/Layout/Columns.layout'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -65,20 +65,21 @@ const Team = () => {
                     </p>
                 </MdColumn>
             </Columns>
-            <nav className={`navbar sticky ${scrolled ? 'top-22' : 'top-8'} navbar-expand-lg navbar-light bg-sky-100 rounded-full items-stretch py-0 h-10`}>
+            {/*<nav className={`navbar sticky ${scrolled ? 'top-22' : 'top-8'} navbar-expand-lg navbar-light bg-sky-100 rounded-full items-stretch py-0 h-10`}>
                 <div className="flex justify-between w-full h-full items-stretch">
                     <a className={`nav-link w-1/5 h-full flex items-center justify-center rounded-full ${activeTab === '#Leadership' ? 'bg-amber-50 shadow-lg font-bold' : ''}`} href="#Leadership" onClick={() => handleTabClick('#Leadership')}>Leadership</a>
                     <a className={`nav-link w-1/5 h-full flex items-center justify-center rounded-full ${activeTab === '#Berkeleytime' ? 'bg-amber-50 shadow-lg font-bold' : ''}`} href="#Berkeleytime" onClick={() => handleTabClick('#Berkeleytime')}>Berkeleytime</a>
                     <a className={`nav-link w-1/5 h-full flex items-center justify-center rounded-full ${activeTab === '#BerkeleyMobile' ? 'bg-amber-50 shadow-lg font-bold' : ''}`} href="#BerkeleyMobile" onClick={() => handleTabClick('#BerkeleyMobile')}>BerkeleyMobile</a>
                     <a className={`nav-link w-1/5 h-full flex items-center justify-center rounded-full ${activeTab === '#WebDev' ? 'bg-amber-50 shadow-lg font-bold' : ''}`} href="#WebDev" onClick={() => handleTabClick('#WebDev')}>Web Dev</a>
-                    <a className={`nav-link w-1/5 h-full flex items-center justify-center rounded-full ${activeTab === '#SpecialProj' ? 'bg-amber-50 shadow-lg font-bold' : ''}`} href="#SpecialProj" onClick={() => handleTabClick('#SpecialProj')}>Special Projects</a>
+                    <a className={`nav-link w-1/5 h-full flex items-center justify-center rounded-full ${activeTab === '#SpecialProj' ? 'bg-amber-50 shadow-lg font-bold' : ''}`} href="#SpecialProj" onClick={() => handleTabClick('#SpecialProj')}>Special Projects</a> 
                 </div>
-            </nav>
+            </nav > 
+            */}
             <LeadershipSection key='leadership' members={Leadership} />
             <BerkeleytimeSection members={BerkeleytimeMembers} />
             <BerkeleyMobileSection members={BerkeleyMobileMembers} />
             <WebDevSection members={WebDevMembers} />
-            <SpecialProjSection members={SpecialProjectsMembers} />
+            {/*<SpecialProjSection members={SpecialProjectsMembers} />*/}
         </WidePageLayout>
     )
 }
@@ -119,7 +120,7 @@ const LeadershipSection = ({ members }: { members: IMember[] }) => {
     return (
         <section className='flex gap-10 flex-col' id='Leadership'>
             <h2 className={`${scrolled ? 'pt-10 mt-40' : 'top-8'}`}>Leadership</h2>
-            <div className='flex flex-row gap-6 bg-white shadow-card duration-300 hover:shadow-card-hover ease-out px-6 py-8 rounded-xl items-center animate-showing'>
+            {/*<div className='flex flex-row gap-6 bg-white shadow-card duration-300 hover:shadow-card-hover ease-out px-6 py-8 rounded-xl items-center animate-showing'>
                 <img src={vedha_santhosh} className='w-32 h-32 object-cover rounded-xl'/>
                 <div className='text-left'>
                     <h5 className='font-bold'>Sukhamrit Singh</h5>
@@ -130,8 +131,8 @@ const LeadershipSection = ({ members }: { members: IMember[] }) => {
                         Leadership
                     </span>
                 </div>
-            </div>
-            <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
+            </div>*/}
+            <ul className='mb-8 flex gap-10 flex-wrap justify-start'> 
                 {members.map((member) => {
                     return MemberCard(member)
                 })}
@@ -153,7 +154,7 @@ const BerkeleytimeSection = ({ members }: { members: IMember[] }) => {
     return (
         <section className='flex gap-10 flex-col' id='Berkeleytime'>
             <h2 className={`${scrolled ? 'pt-10 mt-40' : 'top-8'}`}>Berkeleytime</h2>
-            <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
+            <ul className='mb-8 flex gap-10 flex-wrap justify-start'>
                 {members.map((member) => {
                     return MemberCard(member)
                 })}
@@ -175,7 +176,7 @@ const BerkeleyMobileSection = ({ members }: { members: IMember[] }) => {
     return (
         <section className='flex gap-10 flex-col' id='BerkeleyMobile'>
             <h2 className={`${scrolled ? 'pt-10 mt-40' : 'top-8'}`}>Berkeley Mobile</h2>
-            <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
+            <ul className='mb-8 flex gap-10 flex-wrap justify-start'>
                 {members.map((member) => {
                     return MemberCard(member)
                 })}
@@ -196,7 +197,7 @@ const WebDevSection = ({ members }: { members: IMember[] }) => {
     return (
         <section className='flex gap-10 flex-col' id='WebDev'>
             <h2 className={`${scrolled ? 'pt-10 mt-40' : 'top-8'}`}>WebDev</h2>
-            <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
+            <ul className='mb-8 flex gap-10 flex-wrap justify-start'>
                 {members.map((member) => {
                     return MemberCard(member)
                 })}
@@ -205,7 +206,7 @@ const WebDevSection = ({ members }: { members: IMember[] }) => {
     )
 }
 
-const SpecialProjSection = ({ members }: { members: IMember[] }) => {
+/*const SpecialProjSection = ({ members }: { members: IMember[] }) => {
     const [scrolled, setScrolled] = useState(false)
     window.addEventListener('scroll', () => {
         if (window.scrollY >= 48) {
@@ -217,11 +218,11 @@ const SpecialProjSection = ({ members }: { members: IMember[] }) => {
     return (
         <section className='flex gap-10 flex-col' id='SpecialProj'>
             <h2 className={`${scrolled ? 'pt-10 mt-40' : 'top-8'}`}>Special Projects</h2>
-            <ul className='mb-8 flex gap-10 flex-wrap justify-between'>
+            <ul className='mb-8 flex gap-10 flex-wrap justify-start'>
                 {members.map((member) => {
                     return MemberCard(member)
                 })}
             </ul>
         </section>
     )
-}
+}*/
