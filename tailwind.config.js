@@ -15,6 +15,10 @@ module.exports = {
                 15: '3.75rem',
                 22: '7rem',
             },
+            scale: {
+                25: '.25',
+                120: '1.2',
+            },
             colors: {
                 accent: { DEFAULT: '#2f80ed' },
                 title: { DEFAULT: '#1e2340' },
