@@ -40,7 +40,7 @@ const Home = () => {
                                 onClick={() => {
                                     set_join_us_arrow_animating(true)
                                     setTimeout(() => {
-                                        navigate('/apply')
+                                        navigate('/projects')
                                     }, 300)
                                 }}
                                 className='bg-cal-gold py-1 px-2 rounded-lg text-xl font-semibold font-dm grow-0 w-max'

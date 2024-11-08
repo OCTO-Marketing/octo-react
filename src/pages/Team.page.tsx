@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState } from 'react'
 
 import default_profile from '../assets/members/default.png'
+import robot_bear from '../assets/octo robot bear.png'
 import { PieChart } from 'react-minimal-pie-chart'
 import { MAJORS } from '../data/majors'
 import { Parallax } from 'react-scroll-parallax'
@@ -63,6 +64,15 @@ const Team = () => {
                         trip to Pacifica, our connections go beyond work,
                         creating lasting study buddies, mentors, and friends.
                     </p>
+                </MdColumn>
+                <MdColumn secondary>
+                    <img
+                        src={robot_bear}
+                        alt={"OCTO robot teddy bear :)"}
+                        width={350}
+                        height={350}
+                        style={{ alignSelf: 'center' }}
+                    />
                 </MdColumn>
             </Columns>
             {/*<nav className={`navbar sticky ${scrolled ? 'top-22' : 'top-8'} navbar-expand-lg navbar-light bg-sky-100 rounded-full items-stretch py-0 h-10`}>
