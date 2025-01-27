@@ -22,7 +22,7 @@ const Berkeleytime: PTeamCard = {
     app_links: [
         {
             position: 'Apply',
-            link: 'https://airtable.com/appllQy6crmpquCOQ/pag5ngU9hgKJt5eAs/form',
+            link: 'https://berkeleytime.com/apply',
         },
     ],
     website_link: 'https://berkeleytime.com',
@@ -33,15 +33,15 @@ const Berkeleytime: PTeamCard = {
 
 const BerkeleyMobile: PTeamCard = {
     team_name: 'Berkeley Mobile',
-    positions: 'More info coming soon', //'Developers (iOS, Android & Backend) and Designers.',
+    positions: 'iOS Developers, Designers',
     img_path: bm,
-    /*app_links: [
+    app_links: [
         {
             position: 'Apply',
-            link: 'https://forms.gle/DhpTrKVf4QB1Zwj1A',
+            link: 'https://forms.gle/uARTVwHa7kNWQ5qp7',
         },
-    ],*/
-    website_link: 'https://apps.apple.com/us/app/berkeley-mobile/id912243518',
+    ],
+    website_link: 'https://forms.gle/uARTVwHa7kNWQ5qp7',
     descriptions:
         "Help develop Berkeley's student-created mobile app and collaborate with the campus community to implement cutting-edge features, including an interactive campus navigation map for efficient route planning, a comprehensive dining hall menu page, real-time safety alerts, and a convenient study page to locate the nearest open library.",
     preview_img_path: bm_preview,
@@ -54,7 +54,7 @@ const Website: PTeamCard = {
     app_links: [
         {
             position: 'Apply',
-            link: 'https://docs.google.com/forms/d/e/1FAIpQLSf-M52LTjXSy61nfHkPybedKVDFCnKwHSJ-I9gjWJv4NNIR7w/viewform',
+            link: 'https://forms.gle/bqE3ZcUum14Ltnxp8',
         },
     ],
     website_link: 'https://octo.asuc.org',

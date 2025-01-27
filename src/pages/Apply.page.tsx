@@ -16,7 +16,7 @@ import TEAMS, { PTeamCard } from '../data/teams'
 const Apply = () => {
     return (
         <WidePageLayout>
-            <h2>Fall 2024 recruitment is live!</h2>
+            <h2>Spring 2025 recruitment is live!</h2>
             <Descriptions />
             <Teams />
             {/*<Infosessions />*/}
@@ -39,11 +39,10 @@ const Descriptions = () => (
                 </h5>
                 <h5>
                     We're recruiting for select projects across our office's portfolio,
-                    including signature projects like{' '}
-                    <SkewedText>Berkeleytime</SkewedText> and{' '}
-                    <SkewedText>Berkeley Mobile</SkewedText> and newer additions
-                    like <SkewedText>ABSA</SkewedText> and{' '}
-                    <SkewedText>Data Science</SkewedText>. As one of the
+                    including signature projects like{'  '}
+                    <SkewedText>Berkeleytime</SkewedText> and{'  '}
+                    <SkewedText>Berkeley Mobile</SkewedText> as well as our{'  '}
+                    <SkewedText>Web Dev Team.</SkewedText> As one of the
                     foremost ASUC executive offices,{' '}
                     <b>we have a role for everyone no matter your background</b>{' '}
                     - from engineers to designers to social media wizards.
@@ -149,9 +148,7 @@ const ApplicationProcess = () => (
                 <ol className="list-decimal list-outside ml-10 space-y-4">
                     <li className="pl-4">
                         <b>Fill out the application(s)</b> by clicking on the
-                        project(s)/position(s) you are interested in. No worries
-                        if you need more info about OCTO and its projects. Come
-                        join us at the Info Sessions!
+                        project(s)/position(s) you are interested in.
                     </li>
                     <li className="pl-4">
                         If chosen for an interview, the team will reach out via
@@ -166,10 +163,9 @@ const ApplicationProcess = () => (
                     </li>
                 </ol>
                 <p>
-                    Note: Each team application has its own requirements
+                    Note: Please be aware that each team application has its own requirements
                     separate from other teams due to the different skillsets
-                    necessary to contribute to each project. Please be noted of
-                    that.
+                    necessary to contribute to each project.
                 </p>
             </Stack>
         </LgColumn>
