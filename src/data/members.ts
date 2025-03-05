@@ -3,7 +3,6 @@ import srikar_hanumanula from '../assets/members/srikar_hanumanula.jpeg'
 import kev_wang from '../assets/members/kev_wang.jpeg'
 import sukhamrit_singh from '../assets/members/sukhamrit_singh.jpeg'
 import joanne_tran from '../assets/members/joanne_tran.jpeg'
-import rachelhu from '../assets/members/rachelhu.jpeg'
 import naomiliu from '../assets/members/naomiliu.jpeg'
 import qiliyang from '../assets/members/qiliyang.jpeg'*/
 import rachelhu from '../assets/members/Rachel_Hu.jpg'
@@ -14,7 +13,6 @@ import arvindganesh from '../assets/members/Arvind_Ganesh.png'
 import atharvnaidu from '../assets/members/Atharv_Naidu.png'
 import claratu from '../assets/members/Clara_Tu.jpeg'
 import dylanchhum from '../assets/members/Dylan_Chhum.jpg'
-import gauribahl from '../assets/members/Gauri_Bahl.jpeg'
 import justinwong from '../assets/members/Justin_Wong.jpeg'
 import khankamolkongrukgreatiyos from '../assets/members/Khankamol_Kongrukgreatiyos.jpeg'
 import leohuang from '../assets/members/Leo_Huang.jpeg'
@@ -42,6 +40,8 @@ export interface IMember {
         | 'StatDASH'
         | 'AI Resource Assistant'
         | 'NexLiber'
+        | 'BearBites'
+        | 'MoffittStatus'
 
 
     title:
@@ -74,6 +74,10 @@ export interface IMember {
         | 'Product Designer'       
         | 'iOS Developer'               
         |'Project Manager, iOS Team Lead'
+        | 'Team Lead'
+        | 'Engineer'
+        | 'Business/Marketing'
+        | 'Backend Developer'
 
 
 }
@@ -83,6 +87,9 @@ export const TEAMS = [
     'Berkeleytime',
     'Berkeley Mobile',
     'Marketing',
+    'WebDev',
+    'BearBites',
+    'MoffittStatus',
     'ABSA',
     'Member Development',
     'Project Management',
@@ -115,40 +122,26 @@ export const Leadership: IMember[] = [
 
 export const BerkeleytimeMembers: IMember[] = [
     {
-        name: 'Michelle Tran',
-        team: 'Berkeleytime',
-        title: 'Product Manager & Product Designer',
-    },
-    {
-        name: 'Matthew Rowland',
-        team: 'Berkeleytime',
-        title: 'Technical Product Manager & Frontend Lead',
-    },
-    {
-        name: 'Mary Tran',
-        team: 'Berkeleytime',
-        title: 'Design Lead',
-    },
-    {
-        name: 'Max Wang',
-        team: 'Berkeleytime',
-        title: 'Backend Lead',
-    },
-        {
-        name: 'Advay Ratan',
-        team: 'Berkeleytime',
-        title: 'Internal Chair & Engineer',
-    },
-    {
         name: 'Abhishek Suresh',
         team: 'Berkeleytime',
         title: 'Engineer',
     },
     {
-        name: 'Aditya Balasubramania',
+        name: 'Aditya Balasubramanian',
         team: 'Berkeleytime',
         title: 'Engineer',
         photo: adityabalasubramanian,
+    },
+    {
+        name: 'Advay Ratan',
+        team: 'Berkeleytime',
+        title: 'Internal Chair & Engineer',
+    },
+    {
+        name: 'Amber Le',
+        team: 'Berkeleytime',
+        title: 'Product Designer',
+        photo: amberle,
     },
     {
         name: 'Arvind Ganesh',
@@ -226,10 +219,40 @@ export const BerkeleytimeMembers: IMember[] = [
         photo: leohuang,
     },
     {
+        name: 'Lily Yang',
+        team: 'Berkeleytime',
+        title: 'Product Designer',
+    },
+    {
+        name: 'Lope Akinnitire',
+        team: 'Berkeleytime',
+        title: 'User Researcher',
+    },
+    {
         name: 'Mahathi Ryali',
         team: 'Berkeleytime',
         title: 'Engineer',
         photo: mahathiryali,
+    },
+    {
+        name: 'Mary Tran',
+        team: 'Berkeleytime',
+        title: 'Design Lead',
+    },
+    {
+        name: 'Matthew Rowland',
+        team: 'Berkeleytime',
+        title: 'Technical Product Manager & Frontend Lead',
+    },
+    {
+        name: 'Max Wang',
+        team: 'Berkeleytime',
+        title: 'Backend Lead',
+    },
+    {
+        name: 'Michelle Tran',
+        team: 'Berkeleytime',
+        title: 'Product Manager & Product Designer',
     },
     {
         name: 'Nathan Dai',
@@ -253,27 +276,15 @@ export const BerkeleytimeMembers: IMember[] = [
         title: 'Engineer',
     },
     {
+        name: 'Sean Lim',
+        team: 'Berkeleytime',
+        title: 'User Researcher',
+    },
+    {
         name: 'Subhash Prasad',
         team: 'Berkeleytime',
         title: 'Engineer',
         photo: subhashprasad,
-    },
-    {
-        name: 'Arhum Khan',
-        team: 'Berkeleytime',
-        title: 'Engineer',
-        photo: arhumkhan,
-    },
-    {
-        name: 'Amber Le',
-        team: 'Berkeleytime',
-        title: 'Product Designer',
-        photo: amberle,
-    },
-    {
-        name: 'Lily Yang',
-        team: 'Berkeleytime',
-        title: 'Product Designer',
     },
     {
         name: 'Yuki Han',
@@ -281,17 +292,13 @@ export const BerkeleytimeMembers: IMember[] = [
         title: 'Product Designer',
     },
     {
-        name: 'Sean Lim',
+        name: 'Arhum Khan',
         team: 'Berkeleytime',
-        title: 'User Researcher',
+        title: 'Engineer',
+        photo: arhumkhan,
     },
-    {
-        name: 'Lope Akinntire',
-        team: 'Berkeleytime',
-        title: 'User Researcher',
-    },
-
 ];
+
 
 
 export const BerkeleyMobileMembers: IMember[] = [
@@ -302,17 +309,18 @@ export const BerkeleyMobileMembers: IMember[] = [
         photo: justinwong,
     },
     {
-        name: 'Serena Yung',
-        team: 'Berkeley Mobile',
-        title: 'UI Designer',
-    },
-    {
         name: 'Isha Tailor',
         team: 'Berkeley Mobile',
         title: 'iOS Developer',
     },
     {
-        name: 'Kaashvi Agnihotri',
+        name: 'Dylan Chhum',
+        team: 'Berkeley Mobile',
+        title: 'iOS Developer',
+        photo: dylanchhum,
+    },
+    {
+        name: 'Yihang Chen',
         team: 'Berkeley Mobile',
         title: 'iOS Developer',
     },
@@ -322,10 +330,14 @@ export const BerkeleyMobileMembers: IMember[] = [
         title: 'iOS Developer',
     },
     {
-        name: 'Gauri Bahl',
+        name: 'Arnav Podichetty',
         team: 'Berkeley Mobile',
         title: 'iOS Developer',
-        photo: gauribahl,
+    },
+    {
+        name: 'Iyu Lin',
+        team: 'Berkeley Mobile',
+        title: 'iOS Developer',
     },
     {
         name: 'Sahana Bharadwaj',
@@ -338,14 +350,27 @@ export const BerkeleyMobileMembers: IMember[] = [
         title: 'iOS Developer',
     },
     {
-        name: 'Dylan Chhum',
+        name: 'Baurzhan Abenov',
         team: 'Berkeley Mobile',
         title: 'iOS Developer',
-        photo: dylanchhum,
     },
+    {
+        name: 'Hetvi Patel',
+        team: 'Berkeley Mobile',
+        title: 'iOS Developer',
+    },
+    {
+        name: 'Jacob Shahatit',
+        team: 'Berkeley Mobile',
+        title: 'Backend Developer',
+    },
+    {
+        name: 'Jaewon Oh',
+        team: 'Berkeley Mobile',
+        title: 'Backend Developer',
+    },
+];
 
-    
-]
 
 
 export const WebDevMembers: IMember[] = [
@@ -366,7 +391,7 @@ export const WebDevMembers: IMember[] = [
         title: 'Developer',
     },
     {
-        name: 'Timothy Zheng',
+        name: 'Qi Yang',
         team: 'Website',
         title: 'Developer',
     },
@@ -376,7 +401,7 @@ export const WebDevMembers: IMember[] = [
         title: 'Developer',
     },
     {
-        name: 'Jocelyn Tao',
+        name: 'Maaz Dhalech',
         team: 'Website',
         title: 'Developer',
     },
@@ -396,9 +421,60 @@ export const WebDevMembers: IMember[] = [
         title: 'UI Designer',
     },
     {
-        name: 'Twesha Ghosh',
+        name: 'Akshaj Molukutla',
         team: 'Website',
         title: 'Developer',
+    },
+];
+
+export const BearBitesMembers: IMember[] = [
+    {
+        name: 'Yash Natu',
+        team: 'BearBites',
+        title: 'Team Lead',
+    },
+    {
+        name: 'Yousif Yacoby',
+        team: 'BearBites',
+        title: 'Engineer',
+    },
+];
+
+export const MoffittStatusMembers: IMember[] = [
+    {
+        name: 'Camila Gutierrez-Mendez',
+        team: 'MoffittStatus',
+        title: 'Business/Marketing',
+    },
+    {
+        name: 'Simar Kaur',
+        team: 'MoffittStatus',
+        title: 'Business/Marketing',
+    },
+    {
+        name: 'Apple Zhou',
+        team: 'MoffittStatus',
+        title: 'Engineer',
+    },
+    {
+        name: 'Praneel Chellapilla',
+        team: 'MoffittStatus',
+        title: 'Engineer',
+    },
+    {
+        name: 'Robert Meli',
+        team: 'MoffittStatus',
+        title: 'Engineer',
+    },
+    {
+        name: 'Sameer Rahman',
+        team: 'MoffittStatus',
+        title: 'Engineer',
+    },
+    {
+        name: 'Sean She',
+        team: 'MoffittStatus',
+        title: 'Engineer',
     },
 ];
 

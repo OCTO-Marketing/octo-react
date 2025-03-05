@@ -1,4 +1,4 @@
-import { IMember, Leadership, BerkeleyMobileMembers, WebDevMembers, BerkeleytimeMembers } from '../data/members'
+import { IMember, Leadership, BerkeleyMobileMembers, WebDevMembers, BerkeleytimeMembers, BearBitesMembers, MoffittStatusMembers } from '../data/members'
 import { WidePageLayout } from '../components/Layout/Page.layout'
 import { Columns, MdColumn } from '../components/Layout/Columns.layout'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -89,6 +89,8 @@ const Team = () => {
             <BerkeleytimeSection members={BerkeleytimeMembers} />
             <BerkeleyMobileSection members={BerkeleyMobileMembers} />
             <WebDevSection members={WebDevMembers} />
+            <BearBitesSection members={BearBitesMembers} />
+            <MoffittStatusSection members={MoffittStatusMembers} />
             {/*<SpecialProjSection members={SpecialProjectsMembers} />*/}
         </WidePageLayout>
     )
@@ -207,6 +209,48 @@ const WebDevSection = ({ members }: { members: IMember[] }) => {
     return (
         <section className='flex gap-10 flex-col' id='WebDev'>
             <h2 className={`${scrolled ? 'pt-10 mt-40' : 'top-8'}`}>WebDev</h2>
+            <ul className='mb-8 flex gap-10 flex-wrap justify-start'>
+                {members.map((member) => {
+                    return MemberCard(member)
+                })}
+            </ul>
+        </section>
+    )
+}
+
+const BearBitesSection = ({ members }: { members: IMember[] }) => {
+    const [scrolled, setScrolled] = useState(false)
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= 48) {
+            setScrolled(true)
+        } else if (scrolled) {
+            setScrolled(false)
+        }
+    })
+    return (
+        <section className='flex gap-10 flex-col' id='BearBites'>
+            <h2 className={`${scrolled ? 'pt-10 mt-40' : 'top-8'}`}>BearBites</h2>
+            <ul className='mb-8 flex gap-10 flex-wrap justify-start'>
+                {members.map((member) => {
+                    return MemberCard(member)
+                })}
+            </ul>
+        </section>
+    )
+}
+
+const MoffittStatusSection = ({ members }: { members: IMember[] }) => {
+    const [scrolled, setScrolled] = useState(false)
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= 48) {
+            setScrolled(true)
+        } else if (scrolled) {
+            setScrolled(false)
+        }
+    })
+    return (
+        <section className='flex gap-10 flex-col' id='MoffittStatus'>
+            <h2 className={`${scrolled ? 'pt-10 mt-40' : 'top-8'}`}>MoffittStatus</h2>
             <ul className='mb-8 flex gap-10 flex-wrap justify-start'>
                 {members.map((member) => {
                     return MemberCard(member)
