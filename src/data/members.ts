@@ -21,6 +21,7 @@ import nathandai from '../assets/members/Nathan_Dai.jpeg'
 import shloksooch from '../assets/members/Shlok_Sooch.jpeg'
 import subhashprasad from '../assets/members/Subhash_Prasad.jpg'
 import sukhamritsingh from '../assets/members/Sukhamrit_Singh.jpg'
+import jaewonoh from '../assets/members/Jaewon_Oh.jpg'
 
 
 
@@ -368,6 +369,7 @@ export const BerkeleyMobileMembers: IMember[] = [
         name: 'Jaewon Oh',
         team: 'Berkeley Mobile',
         title: 'Backend Developer',
+        photo: jaewonoh,
     },
 ];
 
