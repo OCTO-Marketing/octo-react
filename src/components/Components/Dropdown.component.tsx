@@ -45,15 +45,15 @@ export const Dropdown = ({items, children}: {
             </button>
 
             {isOpen &&
-                <div className="origin-top-right absolute right-0 mt-2 w-44 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                <div className="origin-top-right absolute right-0 mt-2 w-44 rounded-lg shadow-lg bg-white ring-1 ring-black">
                     <ul role="menu" aria-orientation="vertical" aria-labelledby={`${children}-menu`}>
                         {items.map((item) => {
                             const { path, label} = item
                             return (
                                 <li
-                                    className={`cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-opacity duration-300`}
+                                    className={`cursor-pointer block px-4 py-2 text-sm text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition-opacity duration-300`}
                                     onClick={(e) => {
-                                        navigate(path)
+                                        navigate(path) 
                                         toggleDropdown();
                                     }}
                                 >

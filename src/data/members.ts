@@ -22,6 +22,7 @@ import shloksooch from '../assets/members/Shlok_Sooch.jpeg'
 import subhashprasad from '../assets/members/Subhash_Prasad.jpg'
 import sukhamritsingh from '../assets/members/Sukhamrit_Singh.jpg'
 import jaewonoh from '../assets/members/Jaewon_Oh.jpg'
+import vedha_santhosh from '../assets/members/vedha_santhosh.jpeg'
 
 
 
@@ -43,6 +44,7 @@ export interface IMember {
         | 'NexLiber'
         | 'BearBites'
         | 'MoffittStatus'
+        
 
 
     title:
@@ -94,6 +96,7 @@ export const TEAMS = [
     'ABSA',
     'Member Development',
     'Project Management',
+    'Alumni',
 ]
 
 // export const CTO: IMember[] = [
@@ -479,6 +482,15 @@ export const MoffittStatusMembers: IMember[] = [
         title: 'Engineer',
     },
 ];
+
+export const AlumniMembers: IMember[] = [
+    {
+        name: 'Vedha Santhosh',
+        team: 'Leadership',
+        title: 'Chief Technology Officer',
+        //photo: vedha_santhosh,
+    },
+]
 
 
 //currently StatDASH and AI Resource Assistant

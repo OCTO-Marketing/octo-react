@@ -24,7 +24,7 @@ const NavBar = () => {
             className={`h-20 ${
                 scrolled
                     ? 'top-0 bg-white shadow-xl shadow-slate-700/10'
-                    : 'top-8 bg-transparent'
+                    : 'top-8'
             } transition-all z-50 fixed w-screen flex gap-8 select-none ease-in-out duration-300 px-20 mb:px-10 py-2 items-center justify-between`}
         >
             <div
@@ -53,8 +53,8 @@ const NavBar = () => {
                             }}
                             className={`cursor-pointer ${
                                 selected
-                                    ? 'opacity-100'
-                                    : 'opacity-50 hover:opacity-75'
+                                    ? 'text-gray-800'
+                                    : 'text-gray-400 hover:text-opacity-75'
                             } transition-opacity duration-300 ${
                                 label === 'API' && 'mb:hidden'
                             }`}
