@@ -10,6 +10,7 @@ import { PieChart } from 'react-minimal-pie-chart'
 import { MAJORS } from '../data/majors'
 import { useParallax } from 'react-scroll-parallax'
 import { idText } from 'typescript'
+import React from 'react'
 
 
 //import ALUMNI from '../data/alumni.json'
@@ -48,15 +49,6 @@ const Team = () => {
   
     const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
 
-    // Create refs for each section
-    useEffect(() => {
-        const sectionIds = ["Leadership", "Berkeleytime", "BerkeleyMobile", "WebDev", "BearBites", "MoffittStatus", "Alumni"];
-        sectionIds.forEach((id) => {
-        sectionRefs.current[id] = document.getElementById(id);
-        });
-      }, []); 
-
-
     useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
@@ -83,8 +75,8 @@ const Team = () => {
             }
           );
 
-        const sections = Object.values(sectionRefs.current);
-        sections.forEach((section) => {
+        const sectionsElements = Object.values(sectionRefs.current);
+        sectionsElements.forEach((section) => {
             if (section) observer.observe(section);
         });
 
@@ -93,7 +85,7 @@ const Team = () => {
       
         return () => {
           window.removeEventListener("scroll", handleScroll);
-          sections.forEach((section) => {
+          sectionsElements.forEach((section) => {
             if (section) observer.unobserve(section);
           });
         };
@@ -140,13 +132,13 @@ const Team = () => {
                     />
                 </MdColumn>
             </Columns>
-            <LeadershipSection key='Leadership' members={Leadership} />
-            <BerkeleytimeSection key='Berkeleytime' members={BerkeleytimeMembers} />
-            <BerkeleyMobileSection key='BerkeleyMobile' members={BerkeleyMobileMembers} />
-            <WebDevSection key='WebDev' members={WebDevMembers} />
-            <BearBitesSection key='BearBites' members={BearBitesMembers} />
-            <MoffittStatusSection key='MoffittStatus' members={MoffittStatusMembers} />
-            <AlumniSection key='Alumni' members={AlumniMembers} />
+            <LeadershipSection ref={(el) => (sectionRefs.current["Leadership"] = el)} key='Leadership' members={Leadership} />
+            <BerkeleytimeSection ref={(el) => (sectionRefs.current["Berkeleytime"] = el)} key='Berkeleytime' members={BerkeleytimeMembers} />
+            <BerkeleyMobileSection ref={(el) => (sectionRefs.current["BerkeleyMobile"] = el)} key='BerkeleyMobile' members={BerkeleyMobileMembers} />
+            <WebDevSection ref={(el) => (sectionRefs.current["WebDev"] = el)} key='WebDev' members={WebDevMembers} />
+            <BearBitesSection ref={(el) => (sectionRefs.current["BearBites"] = el)} key='BearBites' members={BearBitesMembers} />
+            <MoffittStatusSection ref={(el) => (sectionRefs.current["MoffittStatus"] = el)} key='MoffittStatus' members={MoffittStatusMembers} />
+            <AlumniSection ref={(el) => (sectionRefs.current["Alumni"] = el)} key='Alumni' members={AlumniMembers} />
 
             <aside className={`fixed right-5 top-28 w-48 space-y-2 transition-all duration-700 ease-out ${showSidebar ?
                  "opacity-100 translate-x-0" : "opacity-0 translate-x-8 pointer-events-none"}`}>
@@ -154,7 +146,7 @@ const Team = () => {
                     <button
                         key={id}
                         onClick={() => handleScrollTo(id)}
-                        className={`block px-3 py-2 rounded text-xs text-gray-600 font-medium hover:bg-gray-200 transition ${activeSection === id ? "underline font-extrabold" : ""
+                        className={`block px-3 py-2 rounded text-xs text-gray-500 font-medium hover:bg-gray-200 transition ${activeSection === id ? "underline font-extrabold text-gray-600" : ""
                             }`}
                     >
                         {label}
@@ -191,99 +183,115 @@ const MemberCard = ({ name, photo, title, team }: IMember) => {
     )
 }
 
-const LeadershipSection = ({ members }: { members: IMember[] }) => {        
-    return (
-        <section className='flex gap-10 flex-col mb-20' id='Leadership'>
-            <h2 className='top-8'>Leadership</h2>
-            <ul className='mb-8 flex gap-10 flex-wrap justify-start'> 
-                {members.map((member) => {
-                    return MemberCard(member)
-                })}
-            </ul>
+const LeadershipSection = React.forwardRef<HTMLElement, { members: IMember[] }>(
+    ({ members }, ref) => {
+      return (
+        <section ref={ref} id="Leadership" className="flex gap-10 flex-col mb-20">
+          <h2 className="top-8">Leadership</h2>
+          <ul className="mb-8 flex gap-10 flex-wrap justify-start">
+            {members.map((member) => MemberCard(member))}
+          </ul>
         </section>
-    )
-}
+      );
+    }
+  );
 
-const BerkeleytimeSection = ({ members }: { members: IMember[] }) => {
-    return (
-        <section className='flex gap-10 flex-col mb-20' id='Berkeleytime'>
-            <h2 className='top-8'>Berkeleytime</h2>
-            <ul className='mb-8 flex gap-10 flex-wrap justify-start'>
-                {members.map((member) => {
-                    return MemberCard(member)
-                })}
-            </ul>
+  const BerkeleytimeSection = React.forwardRef<HTMLElement, { members: IMember[] }>(
+    ({ members }, ref) => {
+      return (
+        <section ref={ref} id="Berkeleytime" className="flex gap-10 flex-col mb-20">
+          <h2 className="top-8">Berkeleytime</h2>
+          <ul className="mb-8 flex gap-10 flex-wrap justify-start">
+            {members.map((member) => MemberCard(member))}
+          </ul>
         </section>
-    )
-}
+      );
+    }
+  );
 
 
-const BerkeleyMobileSection = ({ members }: { members: IMember[] }) => {
-    return (
-        <section className='flex gap-10 flex-col mb-20' id='BerkeleyMobile'>
-            <h2 className='top-8'>Berkeley Mobile</h2>
-            <ul className='mb-8 flex gap-10 flex-wrap justify-start'>
-                {members.map((member) => {
-                    return MemberCard(member)
-                })}
-            </ul>
+  const BerkeleyMobileSection = React.forwardRef<HTMLElement, { members: IMember[] }>(
+    ({ members }, ref) => {
+      return (
+        <section ref={ref} id="BerkeleyMobile" className="flex gap-10 flex-col mb-20">
+          <h2 className="top-8">Berkeley Mobile</h2>
+          <ul className="mb-8 flex gap-10 flex-wrap justify-start">
+            {members.map((member) => MemberCard(member))}
+          </ul>
         </section>
-    )
-}
+      );
+    }
+  );
+  
 
-const WebDevSection = ({ members }: { members: IMember[] }) => {
-    return (
-        <section className='flex gap-10 flex-col mb-20' id='WebDev'>
-            <h2 className='top-8'>WebDev</h2>
-            <ul className='mb-8 flex gap-10 flex-wrap justify-start'>
-                {members.map((member) => {
-                    return MemberCard(member)
-                })}
-            </ul>
+  const WebDevSection = React.forwardRef<HTMLElement, { members: IMember[] }>(
+    ({ members }, ref) => {
+      return (
+        <section ref={ref} id="WebDev" className="flex gap-10 flex-col mb-20">
+          <h2 className="top-8">WebDev</h2>
+          <ul className="mb-8 flex gap-10 flex-wrap justify-start">
+            {members.map((member) => MemberCard(member))}
+          </ul>
         </section>
-    )
-}
+      );
+    }
+  );
 
-const BearBitesSection = ({ members }: { members: IMember[] }) => {
-
-    return (
-        <section className='flex gap-10 flex-col mb-20' id='BearBites'>
-            <h2 className='top-8'>BearBites</h2>
-            <ul className='mb-8 flex gap-10 flex-wrap justify-start'>
-                {members.map((member) => {
-                    return MemberCard(member)
-                })}
-            </ul>
+  const BearBitesSection = React.forwardRef<HTMLElement, { members: IMember[] }>(
+    ({ members }, ref) => {
+      return (
+        <section ref={ref} id="BearBites" className="flex gap-10 flex-col mb-20">
+          <h2 className="top-8">BearBites</h2>
+          <ul className="mb-8 flex gap-10 flex-wrap justify-start">
+            {members.map((member) => MemberCard(member))}
+          </ul>
         </section>
-    )
-}
+      );
+    }
+  );
 
-const MoffittStatusSection = ({ members }: { members: IMember[] }) => {
-    return (
-        <section className='flex gap-10 flex-col mb-20' id='MoffittStatus'>
-            <h2 className='top-8'>MoffittStatus</h2>
-            <ul className='mb-8 flex gap-10 flex-wrap justify-start'>
-                {members.map((member) => {
-                    return MemberCard(member)
-                })}
-            </ul>
+  const MoffittStatusSection = React.forwardRef<HTMLElement, { members: IMember[] }>(
+    ({ members }, ref) => {
+      return (
+        <section ref={ref} id="MoffittStatus" className="flex gap-10 flex-col mb-20">
+          <h2 className="top-8">MoffittStatus</h2>
+          <ul className="mb-8 flex gap-10 flex-wrap justify-start">
+            {members.map((member) => MemberCard(member))}
+          </ul>
         </section>
-    )
-}
+      );
+    }
+  );
 
-const AlumniSection = ({ members }: { members: IMember[] }) => {
-
-    return (
-        <section className='flex gap-10 flex-col mb-20' id='Alumni'>
-            <h2 className='top-8'>Alumni</h2>
-            <ul className='mb-8 flex gap-10 flex-wrap justify-start'>
-                {members.map((member) => {
-                    return MemberCard(member)
-                })}
-            </ul>
+  const AlumniSection = React.forwardRef<HTMLElement, { members: IMember[] }>(
+    ({ members }, ref) => {
+      return (
+        <section ref={ref} id="Alumni" className="flex gap-10 flex-col mb-20">
+          <h2 className="top-8">Alumni</h2>
+          <ul className="mb-8 flex gap-10 flex-wrap justify-start">
+            {members.map((member) => MemberCard(member))}
+          </ul>
         </section>
-    )
-}
+      );
+    }
+  );
+
+  LeadershipSection.displayName = 'LeadershipSection';
+  BerkeleytimeSection.displayName = 'BerkeleytimeSection';
+  BerkeleyMobileSection.displayName = 'BerkeleyMobileSection';
+  WebDevSection.displayName = 'WebDevSection';
+  MoffittStatusSection.displayName = 'MoffittStatusSection';
+  AlumniSection.displayName = 'AlumniSection';
+  
+
+
+
+
+
+
+
+
+
 
 /*const SpecialProjSection = ({ members }: { members: IMember[] }) => {
     const [scrolled, setScrolled] = useState(false)
