@@ -35,7 +35,7 @@ const Team = () => {
     //test push
     const sections = [
         { id: "Leadership", label: "Leadership" },
-        { id: "Berkeleytime", label: "Berkeley Time" },
+        { id: "Berkeleytime", label: "Berkeleytime" },
         { id: "BerkeleyMobile", label: "Berkeley Mobile" },
         { id: "WebDev", label: "Web Dev" },
         { id: "BearBites", label: "Bear Bites" },
