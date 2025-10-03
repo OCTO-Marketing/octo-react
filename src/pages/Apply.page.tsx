@@ -16,7 +16,7 @@ import TEAMS, { PTeamCard } from '../data/teams'
 const Apply = () => {
     return (
         <WidePageLayout>
-            <h2>Spring 2025 recruitment is live!</h2>
+            <h2>Fall 2025 recruitment is live!</h2>
             <Descriptions />
             <Teams />
             {/*<Infosessions />*/}
