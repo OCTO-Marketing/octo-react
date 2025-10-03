@@ -1,4 +1,4 @@
-import { IMember, Leadership, BerkeleyMobileMembers, WebDevMembers, BerkeleytimeMembers, BearBitesMembers, MoffittStatusMembers, AlumniMembers } from '../data/members'
+import { IMember, Leadership, BerkeleyMobileMembers, WebDevMembers, BerkeleytimeMembers, BearBitesMembers, MoffittStatusMembers, AlumniMembers, DecalMembers } from '../data/members'
 import { WidePageLayout } from '../components/Layout/Page.layout'
 import { Columns, MdColumn } from '../components/Layout/Columns.layout'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -41,6 +41,7 @@ const Team = () => {
         { id: "WebDev", label: "Web Dev" },
         { id: "BearBites", label: "Bear Bites" },
         { id: "MoffittStatus", label: "Moffitt Status" },
+        { id: "Decal", label: "Decal" },
         { id: "Alumni", label: "Alumni" },
       ];
     
@@ -138,6 +139,7 @@ const Team = () => {
             <WebDevSection ref={(el) => (sectionRefs.current["WebDev"] = el)} key='WebDev' members={WebDevMembers} />
             <BearBitesSection ref={(el) => (sectionRefs.current["BearBites"] = el)} key='BearBites' members={BearBitesMembers} />
             <MoffittStatusSection ref={(el) => (sectionRefs.current["MoffittStatus"] = el)} key='MoffittStatus' members={MoffittStatusMembers} />
+            <DecalSection ref={(el) => (sectionRefs.current["Decal"] = el)} key='Decal' members={DecalMembers} />
             <AlumniSection ref={(el) => (sectionRefs.current["Alumni"] = el)} key='Alumni' members={AlumniMembers} />
 
             <aside className={`fixed right-5 top-28 w-48 space-y-2 transition-all duration-700 ease-out ${showSidebar ?
@@ -263,6 +265,19 @@ const LeadershipSection = React.forwardRef<HTMLElement, { members: IMember[] }>(
     }
   );
 
+  const DecalSection = React.forwardRef<HTMLElement, { members: IMember[] }>(
+    ({ members }, ref) => {
+      return (
+        <section ref={ref} id="Decal" className="flex gap-10 flex-col mb-20">
+          <h2 className="top-8">Decal</h2>
+          <ul className="mb-8 flex gap-10 flex-wrap justify-start">
+            {members.map((member) => MemberCard(member))}
+          </ul>
+        </section>
+      );
+    }
+  );
+
   const AlumniSection = React.forwardRef<HTMLElement, { members: IMember[] }>(
     ({ members }, ref) => {
       return (
@@ -282,7 +297,7 @@ const LeadershipSection = React.forwardRef<HTMLElement, { members: IMember[] }>(
   WebDevSection.displayName = 'WebDevSection';
   MoffittStatusSection.displayName = 'MoffittStatusSection';
   AlumniSection.displayName = 'AlumniSection';
-  
+  DecalSection.displayName = 'DecalSection';
 
 
 

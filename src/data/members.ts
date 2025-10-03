@@ -42,6 +42,7 @@ export interface IMember {
         | 'NexLiber'
         | 'BearBites'
         | 'MoffittStatus'
+        | 'Decal'
 
     title:
         | 'Chief Technology Officer'
@@ -96,6 +97,7 @@ export const TEAMS = [
     'WebDev',
     'BearBites',
     'MoffittStatus',
+    'Decal',
     'ABSA',
     'Member Development',
     'Project Management',
@@ -527,6 +529,14 @@ export const MoffittStatusMembers: IMember[] = [
         name: 'Sean She',
         team: 'MoffittStatus',
         title: 'Engineer'
+    }
+]
+
+export const DecalMembers: IMember[] = [
+    {
+        name: 'Angad Singh Josan',
+        team: 'Decal',
+        title: 'Team Lead'
     }
 ]
 
