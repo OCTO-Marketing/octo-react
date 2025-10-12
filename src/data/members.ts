@@ -22,6 +22,9 @@ import shloksooch from '../assets/members/Shlok_Sooch.jpeg'
 import subhashprasad from '../assets/members/Subhash_Prasad.jpg'
 import sukhamritsingh from '../assets/members/Sukhamrit_Singh.jpg'
 import jaewonoh from '../assets/members/Jaewon_Oh.jpg'
+import rodrigoortiz from '../assets/members/Rodrigo_Ortiz.jpg'
+import sageaguinakang from '../assets/members/Sage_AguinaKang.jpg'
+
 import vedha_santhosh from '../assets/members/vedha_santhosh.jpeg'
 
 export interface IMember {
@@ -461,7 +464,8 @@ export const WebDevMembers: IMember[] = [
     {
         name: 'Rodrigo Ortiz',
         team: 'Website',
-        title: 'Team Lead'
+        title: 'Team Lead',
+        photo: rodrigoortiz
     },
     {
         name: 'Nataly Lopez',
@@ -481,7 +485,8 @@ export const WebDevMembers: IMember[] = [
     {
         name: 'Sage Aguina-Kang',
         team: 'Website',
-        title: 'Full-Stack Engineer'
+        title: 'Full-Stack Engineer',
+        photo: sageaguinakang
     }
 ]
 
@@ -760,7 +765,7 @@ export const AlumniMembers: IMember[] = [
     {
         name: 'Srikar Hanamanula',
         team: 'AI Resource Assistant',
-        title: 'Project Manager',
+        title: 'Project Manager'
     },
     {
         name: 'Nyx Iskandar',
