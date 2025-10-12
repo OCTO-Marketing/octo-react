@@ -87,6 +87,10 @@ export interface IMember {
         | 'Full-Stack Engineer'
         | 'UI/UX Engineer'
         | 'Designer'
+        | 'Data Team Lead'
+        | 'Business Lead'
+        | 'Tech Lead'
+        | 'UX Designer'
 }
 
 export const TEAMS = [
@@ -491,39 +495,24 @@ export const BearBitesMembers: IMember[] = [
 
 export const MoffittStatusMembers: IMember[] = [
     {
-        name: 'Camila Gutierrez-Mendez',
-        team: 'MoffittStatus',
-        title: 'Business/Marketing'
-    },
-    {
-        name: 'Simar Kaur',
-        team: 'MoffittStatus',
-        title: 'Business/Marketing'
-    },
-    {
         name: 'Apple Zhou',
         team: 'MoffittStatus',
-        title: 'Engineer'
+        title: 'Data Team Lead'
     },
     {
-        name: 'Praneel Chellapilla',
+        name: 'Camila Gutierrez',
         team: 'MoffittStatus',
-        title: 'Engineer'
+        title: 'Business Lead'
     },
     {
         name: 'Robert Meli',
         team: 'MoffittStatus',
-        title: 'Engineer'
+        title: 'Tech Lead'
     },
     {
-        name: 'Sameer Rahman',
+        name: 'Kayla Su',
         team: 'MoffittStatus',
-        title: 'Engineer'
-    },
-    {
-        name: 'Sean She',
-        team: 'MoffittStatus',
-        title: 'Engineer'
+        title: 'UX Designer'
     }
 ]
 
@@ -540,7 +529,7 @@ export const AlumniMembers: IMember[] = [
         name: 'Vedha Santhosh',
         team: 'Leadership',
         title: 'Chief Technology Officer'
-        //photo: vedha_santhosh,
+        // photo: vedha_santhosh,
     }
 ]
 
