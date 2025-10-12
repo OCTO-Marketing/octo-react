@@ -526,10 +526,266 @@ export const DecalMembers: IMember[] = [
 
 export const AlumniMembers: IMember[] = [
     {
+        name: 'Sukhamrit Singh',
+        team: 'Leadership',
+        title: 'Chief Technology Officer',
+        photo: sukhamritsingh
+    },
+    {
         name: 'Vedha Santhosh',
         team: 'Leadership',
         title: 'Chief Technology Officer'
-        // photo: vedha_santhosh,
+        // photo: vedha_santhosh
+    },
+    {
+        name: 'Aditi Telang',
+        team: 'Berkeley Mobile',
+        title: 'iOS Developer'
+    },
+    {
+        name: 'Arnav Podichetty',
+        team: 'Berkeley Mobile',
+        title: 'iOS Developer'
+    },
+    {
+        name: 'Baurzhan Abenov',
+        team: 'Berkeley Mobile',
+        title: 'iOS Developer'
+    },
+    {
+        name: 'Hetvi Patel',
+        team: 'Berkeley Mobile',
+        title: 'iOS Developer'
+    },
+    {
+        name: 'Isha Tailor',
+        team: 'Berkeley Mobile',
+        title: 'iOS Developer'
+    },
+    {
+        name: 'Jacob Shahatit',
+        team: 'Berkeley Mobile',
+        title: 'Backend Developer'
+    },
+    {
+        name: 'Jaewon Oh',
+        team: 'Berkeley Mobile',
+        title: 'Backend Developer',
+        photo: jaewonoh
+    },
+    {
+        name: 'Matthew Gerardi',
+        team: 'Berkeley Mobile',
+        title: 'iOS Developer'
+    },
+    {
+        name: 'Sahana Bharadwaj',
+        team: 'Berkeley Mobile',
+        title: 'iOS Developer'
+    },
+    {
+        name: 'Yihang Chen',
+        team: 'Berkeley Mobile',
+        title: 'iOS Developer'
+    },
+    {
+        name: 'Aditya Balasubramanian',
+        team: 'Berkeleytime',
+        title: 'Engineer',
+        photo: adityabalasubramanian
+    },
+    {
+        name: 'Amber Le',
+        team: 'Berkeleytime',
+        title: 'Product Designer',
+        photo: amberle
+    },
+    {
+        name: 'Arhum Khan',
+        team: 'Berkeleytime',
+        title: 'Engineer',
+        photo: arhumkhan
+    },
+    {
+        name: 'Arvind Ganesh',
+        team: 'Berkeleytime',
+        title: 'Engineer',
+        photo: arvindganesh
+    },
+    {
+        name: 'Atharv Naidu',
+        team: 'Berkeleytime',
+        title: 'Engineer',
+        photo: atharvnaidu
+    },
+    {
+        name: 'Clara Tu',
+        team: 'Berkeleytime',
+        title: 'Engineer',
+        photo: claratu
+    },
+    {
+        name: 'Hwanhee Kim',
+        team: 'Berkeleytime',
+        title: 'Engineer'
+    },
+    {
+        name: 'Jessica Le',
+        team: 'Berkeleytime',
+        title: 'Engineer'
+    },
+    {
+        name: 'Khankamol Kongrukgreatiyos',
+        team: 'Berkeleytime',
+        title: 'Engineer',
+        photo: khankamolkongrukgreatiyos
+    },
+    {
+        name: 'Kyle Chu',
+        team: 'Berkeleytime',
+        title: 'Engineer'
+    },
+    {
+        name: 'Lope Akinnitire',
+        team: 'Berkeleytime',
+        title: 'User Researcher'
+    },
+    {
+        name: 'Mahathi Ryali',
+        team: 'Berkeleytime',
+        title: 'Engineer',
+        photo: mahathiryali
+    },
+    {
+        name: 'Mary Tran',
+        team: 'Berkeleytime',
+        title: 'Design Lead'
+    },
+    {
+        name: 'Matthew Rowland',
+        team: 'Berkeleytime',
+        title: 'Technical Product Manager & Frontend Lead'
+    },
+    {
+        name: 'Michelle Tran',
+        team: 'Berkeleytime',
+        title: 'Product Manager & Product Designer'
+    },
+    {
+        name: 'Raymond Tsao',
+        team: 'Berkeleytime',
+        title: 'Engineer'
+    },
+    {
+        name: 'Sean Lim',
+        team: 'Berkeleytime',
+        title: 'User Researcher'
+    },
+    {
+        name: 'Yuki Han',
+        team: 'Berkeleytime',
+        title: 'Product Designer'
+    },
+    {
+        name: 'Sean She',
+        team: 'MoffittStatus',
+        title: 'Engineer'
+    },
+    {
+        name: 'Akshaj Molukutla',
+        team: 'Website',
+        title: 'Developer'
+    },
+    {
+        name: 'Andrew Cheng',
+        team: 'Website',
+        title: 'Web Team Lead'
+    },
+    {
+        name: 'Jason Chan',
+        team: 'Website',
+        title: 'Developer'
+    },
+    {
+        name: 'Jerry Yang',
+        team: 'Website',
+        title: 'Developer'
+    },
+    {
+        name: 'Maaz Dhalech',
+        team: 'Website',
+        title: 'Developer'
+    },
+    {
+        name: 'Narah Quazi',
+        team: 'Website',
+        title: 'UI Designer'
+    },
+    {
+        name: 'Qi Yang',
+        team: 'Website',
+        title: 'Developer'
+    },
+    {
+        name: 'Rachel Hu',
+        team: 'Website',
+        title: 'Web Team Lead',
+        photo: rachelhu
+    },
+    {
+        name: 'Richa Jos',
+        team: 'Website',
+        title: 'Developer'
+    },
+    {
+        name: 'Vivan Sinha',
+        team: 'Website',
+        title: 'Developer'
+    },
+    {
+        name: 'Arvind Vivekanandan',
+        team: 'AI Resource Assistant',
+        title: 'Full-Stack'
+    },
+    {
+        name: 'Har Vey Yuen',
+        team: 'AI Resource Assistant',
+        title: 'Full-Stack'
+    },
+    {
+        name: 'Jordan Camel',
+        team: 'AI Resource Assistant',
+        title: 'Full-Stack'
+    },
+    {
+        name: 'Srikar Hanamanula',
+        team: 'AI Resource Assistant',
+        title: 'Project Manager',
+    },
+    {
+        name: 'Nyx Iskandar',
+        team: 'NexLiber',
+        title: 'Full-Stack'
+    },
+    {
+        name: 'Ron Wang',
+        team: 'StatDASH',
+        title: 'Full-Stack'
+    },
+    {
+        name: 'Serena Yung',
+        team: 'StatDASH',
+        title: 'Design'
+    },
+    {
+        name: 'Tommy Hang',
+        team: 'StatDASH',
+        title: 'Project Manager'
+    },
+    {
+        name: 'Yunze Du',
+        team: 'StatDASH',
+        title: 'Backend'
     }
 ]
 
