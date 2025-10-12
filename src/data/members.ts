@@ -392,11 +392,6 @@ export const BerkeleyMobileMembers: IMember[] = [
         title: 'Designer'
     },
     {
-        name: 'Matthew Qi',
-        team: 'Berkeley Mobile',
-        title: 'iOS Developer'
-    },
-    {
         name: 'Devansh Ojha',
         team: 'Berkeley Mobile',
         title: 'iOS Developer'
