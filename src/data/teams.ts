@@ -44,7 +44,7 @@ const BerkeleyMobile: PTeamCard = {
     app_links: [
         {
             position: 'Apply',
-            link: 'https://forms.gle/uARTVwHa7kNWQ5qp7'
+            link: 'https://forms.gle/PYusxPpYniQxniuBA'
         }
     ],
     website_link: 'https://forms.gle/uARTVwHa7kNWQ5qp7',
