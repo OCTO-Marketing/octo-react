@@ -24,6 +24,7 @@ import sukhamritsingh from '../assets/members/Sukhamrit_Singh.jpg'
 import jaewonoh from '../assets/members/Jaewon_Oh.jpg'
 import rodrigoortiz from '../assets/members/Rodrigo_Ortiz.jpg'
 import sageaguinakang from '../assets/members/Sage_AguinaKang.jpg'
+import andrewcheng from '../assets/members/Andrew_Cheng.jpg'
 
 import vedha_santhosh from '../assets/members/vedha_santhosh.jpeg'
 
@@ -704,7 +705,8 @@ export const AlumniMembers: IMember[] = [
     {
         name: 'Andrew Cheng',
         team: 'Website',
-        title: 'Web Team Lead'
+        title: 'Web Team Lead',
+        photo: andrewcheng
     },
     {
         name: 'Jason Chan',
