@@ -235,6 +235,11 @@ export const BerkeleytimeMembers: IMember[] = [
         title: 'Engineer'
     },
     {
+        name: 'Sasha Murray',
+        team: 'Berkeleytime',
+        title: 'Backend'
+    },
+    {
         name: 'Aashna Patel',
         team: 'Berkeleytime',
         title: 'Member'
@@ -341,11 +346,6 @@ export const BerkeleytimeMembers: IMember[] = [
     },
     {
         name: 'Sam Bai',
-        team: 'Berkeleytime',
-        title: 'Member'
-    },
-    {
-        name: 'Sasha Murray',
         team: 'Berkeleytime',
         title: 'Member'
     },
