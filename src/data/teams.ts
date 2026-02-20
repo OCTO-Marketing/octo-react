@@ -60,7 +60,7 @@ const Website: PTeamCard = {
     app_links: [
         {
             position: 'Apply',
-            link: 'https://forms.gle/CkcT3nmbntkPv1RR6'
+            link: 'https://forms.gle/wb4xrYwYs1qAV1cp9'
         }
     ],
     website_link: 'https://octo.asuc.org',
@@ -108,7 +108,7 @@ const Decal: PTeamCard = {
     app_links: [
         {
             position: 'Apply',
-            link: ''
+            link: 'https://forms.gle/yyRabFX91tXdcD5a7'
         }
     ],
     website_link: 'https://decal.studentorg.berkeley.edu',
