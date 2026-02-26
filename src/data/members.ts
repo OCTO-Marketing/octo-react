@@ -96,6 +96,8 @@ export interface IMember {
         | 'Business Lead'
         | 'Tech Lead'
         | 'UX Designer'
+        | 'Engineering Lead'
+        | 'UX Engineering Lead'
 }
 
 export const TEAMS = [
@@ -471,24 +473,24 @@ export const WebDevMembers: IMember[] = [
     {
         name: 'Rodrigo Ortiz',
         team: 'Website',
-        title: 'Team Lead',
+        title: 'Web Team Lead',
         photo: rodrigoortiz
     },
     {
         name: 'Nataly Lopez',
         team: 'Website',
-        title: 'UI/UX Engineer',
+        title: 'Product Manager',
         photo: natalylopez
     },
     {
         name: 'Yoko Furukawa',
         team: 'Website',
-        title: 'UI/UX Engineer'
+        title: 'UX Engineering Lead'
     },
     {
         name: 'Matthew Qi',
         team: 'Website',
-        title: 'Full-Stack Engineer'
+        title: 'Engineering Lead'
     },
     {
         name: 'Sage Aguina-Kang',
