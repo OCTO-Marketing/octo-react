@@ -98,6 +98,7 @@ export interface IMember {
         | 'UX Designer'
         | 'Engineering Lead'
         | 'UX Engineering Lead'
+        | 'Software Engineer'
 }
 
 export const TEAMS = [
@@ -497,6 +498,36 @@ export const WebDevMembers: IMember[] = [
         team: 'Website',
         title: 'Full-Stack Engineer',
         photo: sageaguinakang
+    },
+    {
+        name: 'Oliver Ma',
+        team: 'Website',
+        title: 'Software Engineer'
+    },
+    {
+        name: 'Sriya Bandarupalli',
+        team: 'Website',
+        title: 'Software Engineer'
+    },
+    {
+        name: 'Tina Yip',
+        team: 'Website',
+        title: 'Software Engineer'
+    },
+    {
+        name: 'Martin Sim',
+        team: 'Website',
+        title: 'Software Engineer'
+    },
+    {
+        name: 'Santhusha Mudannayaka',
+        team: 'Website',
+        title: 'Software Engineer'
+    },
+    {
+        name: 'Tanisha Saxena',
+        team: 'Website',
+        title: 'Software Engineer'
     }
 ]
 
